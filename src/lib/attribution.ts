@@ -7,6 +7,11 @@ export interface AttributionData {
   utm_campaign?: string;
   utm_content?: string;
   utm_term?: string;
+  source?: string;
+  medium?: string;
+  campaign?: string;
+  content?: string;
+  term?: string;
   referrer?: string;
   landing_page?: string;
   captured_at?: string;
@@ -24,11 +29,12 @@ export function captureAttribution(): AttributionData {
     const gclid = urlParams.get("gclid") || existing.gclid;
     const wbraid = urlParams.get("wbraid") || existing.wbraid;
     const gbraid = urlParams.get("gbraid") || existing.gbraid;
-    const utm_source = urlParams.get("utm_source") || existing.utm_source;
-    const utm_medium = urlParams.get("utm_medium") || existing.utm_medium;
-    const utm_campaign = urlParams.get("utm_campaign") || existing.utm_campaign;
-    const utm_content = urlParams.get("utm_content") || existing.utm_content;
-    const utm_term = urlParams.get("utm_term") || existing.utm_term;
+    const utm_source = urlParams.get("utm_source") || existing.utm_source || existing.source;
+    const utm_medium = urlParams.get("utm_medium") || existing.utm_medium || existing.medium;
+    const utm_campaign =
+      urlParams.get("utm_campaign") || existing.utm_campaign || existing.campaign;
+    const utm_content = urlParams.get("utm_content") || existing.utm_content || existing.content;
+    const utm_term = urlParams.get("utm_term") || existing.utm_term || existing.term;
     const referrer = document.referrer || existing.referrer;
     const landing_page = existing.landing_page || window.location.href;
     const captured_at = existing.captured_at || new Date().toISOString();
@@ -37,11 +43,11 @@ export function captureAttribution(): AttributionData {
       ...(gclid ? { gclid } : {}),
       ...(wbraid ? { wbraid } : {}),
       ...(gbraid ? { gbraid } : {}),
-      ...(utm_source ? { utm_source } : {}),
-      ...(utm_medium ? { utm_medium } : {}),
-      ...(utm_campaign ? { utm_campaign } : {}),
-      ...(utm_content ? { utm_content } : {}),
-      ...(utm_term ? { utm_term } : {}),
+      ...(utm_source ? { utm_source, source: utm_source } : {}),
+      ...(utm_medium ? { utm_medium, medium: utm_medium } : {}),
+      ...(utm_campaign ? { utm_campaign, campaign: utm_campaign } : {}),
+      ...(utm_content ? { utm_content, content: utm_content } : {}),
+      ...(utm_term ? { utm_term, term: utm_term } : {}),
       ...(referrer ? { referrer } : {}),
       ...(landing_page ? { landing_page } : {}),
       captured_at,

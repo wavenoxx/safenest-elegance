@@ -1,16 +1,26 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
-
 import { buildMetaTags } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacy")({
   head: () =>
     buildMetaTags({
-      title: "Privacy Declaration & Data Governance",
-      description: `Privacy declaration, cookie policies, and data protection practices of ${BRAND_CONFIG.name}.`,
+      title: "Privacy Declaration & Data Stewardship",
+      description: `Complete privacy declaration, data processing principles, cookie governance, and client rights for ${BRAND_CONFIG.name}.`,
       canonicalPath: "/privacy",
+      jsonLd: {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: "Privacy Declaration & Data Stewardship",
+        description: `Official privacy policies and data protection practices of ${BRAND_CONFIG.name}.`,
+        publisher: {
+          "@type": "Organization",
+          name: BRAND_CONFIG.name,
+          url: "https://safenestindia.com",
+        },
+      },
     }),
   component: PrivacyPage,
 });
@@ -21,71 +31,208 @@ function PrivacyPage() {
       <SiteNav />
 
       <main className="flex-1 max-w-4xl mx-auto px-6 md:px-12 pt-32 pb-24">
+        {/* Header */}
         <header className="mb-12 pb-8 border-b border-neutral-200">
           <p className="text-[10px] tracking-[0.3em] uppercase text-neutral-400 font-light mb-3">
-            Privacy & Trust
+            Governance &amp; Transparency
           </p>
-          <h1 className="font-display text-3xl md:text-4xl uppercase tracking-[0.1em] font-light text-neutral-950">
-            Privacy & Cookie Policy
+          <h1 className="font-serif text-3xl md:text-4xl uppercase tracking-[0.08em] font-light text-neutral-950">
+            Privacy Declaration
           </h1>
           <p className="mt-3 text-xs text-neutral-500 font-light">
-            Last Updated: August 2026 · SafeNest Client Protection Standard
+            Effective Date: January 1, 2026 · Last Updated: August 11, 2026
           </p>
         </header>
 
-        <article className="prose prose-neutral max-w-none space-y-8 text-sm font-light leading-relaxed text-neutral-700">
-          <section>
-            <h2 className="text-base uppercase tracking-widest font-normal text-neutral-950 mb-3">
-              1. Information Collection & Purpose
+        {/* Content Body */}
+        <article className="space-y-12 text-xs md:text-sm font-light leading-relaxed text-neutral-700">
+          {/* 1. Introduction */}
+          <section className="space-y-3">
+            <h2 className="text-base font-serif uppercase tracking-wider font-normal text-neutral-950">
+              01. Philosophy of Privacy
             </h2>
             <p>
-              {BRAND_CONFIG.name} collects only necessary contact and site details (such as client
-              name, telephone number, city, pincode, and requested protection areas) exclusively to
-              schedule bespoke site inspections, formulate quotations, and coordinate installation
-              craftsmen.
+              At {BRAND_CONFIG.name} (&quot;we&quot;, &quot;our&quot;, or &quot;the Atelier&quot;),
+              we hold privacy to the same rigorous standard of quiet elegance that defines our
+              architectural safety installations. This Privacy Declaration transparently details the
+              categories of information we collect, how that information is utilized to coordinate
+              on-site laser site surveys, and the third-party infrastructure processors involved in
+              delivering our services.
             </p>
           </section>
 
-          <section>
-            <h2 className="text-base uppercase tracking-widest font-normal text-neutral-950 mb-3">
-              2. Data Protection & Non-Disclosure
+          {/* 2. Categories of Data Collected */}
+          <section className="space-y-3">
+            <h2 className="text-base font-serif uppercase tracking-wider font-normal text-neutral-950">
+              02. Categories of Information We Collect
+            </h2>
+            <p>We strictly collect only the data necessary to fulfill your site survey request:</p>
+            <ul className="list-disc pl-5 space-y-2 text-neutral-600">
+              <li>
+                <strong className="text-neutral-900 font-medium">Contact Details:</strong> Your
+                name, 10-digit mobile phone number, and email address (if provided) when scheduling
+                a site survey or inquiry.
+              </li>
+              <li>
+                <strong className="text-neutral-900 font-medium">
+                  Location &amp; Spatial Data:
+                </strong>{" "}
+                Pincode, locality, city hub, and spatial requirements (such as balcony dimensions or
+                requested safety solutions) to assign the nearest regional master installation team.
+              </li>
+              <li>
+                <strong className="text-neutral-900 font-medium">
+                  Measurement &amp; Attribution Identifiers:
+                </strong>{" "}
+                Technical identifiers (such as Google Click ID / GCLID, WBRAID, GBRAID, and campaign
+                UTM parameters) captured during website entry to accurately measure ad channel
+                efficiency without collecting personal identity.
+              </li>
+              <li>
+                <strong className="text-neutral-900 font-medium">Technical Log Data:</strong> IP
+                addresses, device operating system, browser type, and anonymous interaction
+                timestamps necessary for cybersecurity protection and rate-limiting abuse
+                prevention.
+              </li>
+            </ul>
+          </section>
+
+          {/* 3. Third-Party Processors */}
+          <section className="space-y-3">
+            <h2 className="text-base font-serif uppercase tracking-wider font-normal text-neutral-950">
+              03. Disclosed Third-Party Processors
             </h2>
             <p>
-              We do not sell, rent, or trade client information to third-party marketing brokers or
-              advertisers. Your residence data and architectural specifications are treated as
-              confidential client records stored securely in our enterprise database infrastructure.
+              To maintain high operational security, {BRAND_CONFIG.name} engages trusted cloud
+              processors. We do NOT sell, lease, or rent customer personal information to data
+              brokers or third-party advertisers. Data is processed solely by:
+            </p>
+            <div className="border border-neutral-200 divide-y divide-neutral-200">
+              <div className="p-4 bg-neutral-50/50">
+                <p className="font-medium text-neutral-900 text-xs uppercase tracking-wider">
+                  Supabase Inc. (Database &amp; Storage Infrastructure)
+                </p>
+                <p className="text-[11.5px] text-neutral-600 mt-1">
+                  Purpose: Encrypted storage of site survey consultation requests with Row-Level
+                  Security (RLS). Location: Secure regional AWS data centers.
+                </p>
+              </div>
+              <div className="p-4 bg-neutral-50/50">
+                <p className="font-medium text-neutral-900 text-xs uppercase tracking-wider">
+                  Google LLC (Google Ads &amp; Google Tag Manager)
+                </p>
+                <p className="text-[11.5px] text-neutral-600 mt-1">
+                  Purpose: Campaign conversion measurement and website performance analytics
+                  governed by Google Consent Mode v2.
+                </p>
+              </div>
+              <div className="p-4 bg-neutral-50/50">
+                <p className="font-medium text-neutral-900 text-xs uppercase tracking-wider">
+                  Meta Platforms Inc. (WhatsApp Business Cloud API)
+                </p>
+                <p className="text-[11.5px] text-neutral-600 mt-1">
+                  Purpose: Instant notification dispatch to internal installation coordinators and
+                  customer consultation confirmations.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* 4. Purpose of Processing */}
+          <section className="space-y-3">
+            <h2 className="text-base font-serif uppercase tracking-wider font-normal text-neutral-950">
+              04. Purpose &amp; Lawful Basis of Processing
+            </h2>
+            <p>We process your personal information based on:</p>
+            <ul className="list-disc pl-5 space-y-1.5 text-neutral-600">
+              <li>
+                <strong className="text-neutral-900 font-medium">Contractual Coordination:</strong>{" "}
+                Contacting you to confirm appointment timing, location access, and laser measurement
+                feasibility for requested safety systems.
+              </li>
+              <li>
+                <strong className="text-neutral-900 font-medium">Legitimate Interest:</strong>{" "}
+                Preventing spam, detecting automated bot abuse on lead forms, and maintaining server
+                security.
+              </li>
+              <li>
+                <strong className="text-neutral-900 font-medium">Explicit Consent:</strong>{" "}
+                Processing optional advertising and analytics cookies in accordance with your
+                Consent Banner selection.
+              </li>
+            </ul>
+          </section>
+
+          {/* 5. Retention & Erasure */}
+          <section className="space-y-3">
+            <h2 className="text-base font-serif uppercase tracking-wider font-normal text-neutral-950">
+              05. Data Retention &amp; Security
+            </h2>
+            <p>
+              Site survey lead records are retained in our secure database for up to 24 months to
+              support active warranties, maintenance history, and retensioning requests. If an
+              inquiry does not proceed to an installation, you may request permanent erasure at any
+              time.
+            </p>
+            <p>
+              All database records are protected by strict Row-Level Security policies ensuring
+              anonymous web visitors cannot query, read, or alter client personal records.
             </p>
           </section>
 
-          <section>
-            <h2 className="text-base uppercase tracking-widest font-normal text-neutral-950 mb-3">
-              3. Analytics & Attribution Cookies
+          {/* 6. Your Rights & Contact */}
+          <section className="space-y-3">
+            <h2 className="text-base font-serif uppercase tracking-wider font-normal text-neutral-950">
+              06. Access, Correction, Erasure &amp; Withdrawal
             </h2>
-            <p>
-              We utilize first-party and standard analytics cookies (including Google Analytics and
-              Google Ads attribution parameters such as GCLID) to measure advertising effectiveness
-              and understand user browsing journeys. You may adjust browser cookie preferences at
-              any time without losing access to site information.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-base uppercase tracking-widest font-normal text-neutral-950 mb-3">
-              4. Data Subject Rights & Inquiries
-            </h2>
-            <p>
-              Clients may request access, correction, or deletion of their contact records from our
-              dispatch database by sending a request to{" "}
-              <a
-                href={`mailto:${BRAND_CONFIG.contact.email}`}
-                className="underline text-neutral-900 font-normal"
-              >
-                {BRAND_CONFIG.contact.email}
-              </a>
-              .
-            </p>
+            <p>You maintain the right to:</p>
+            <ul className="list-disc pl-5 space-y-1.5 text-neutral-600">
+              <li>Request an export of the personal records associated with your phone number.</li>
+              <li>Request immediate correction of inaccurate contact or address information.</li>
+              <li>Withdraw consent and request complete deletion (erasure) from our database.</li>
+              <li>Reset cookie and measurement choices at any time.</li>
+            </ul>
+            <div className="bg-neutral-50 p-6 border border-neutral-200 mt-4">
+              <h3 className="font-medium text-neutral-900 uppercase text-xs tracking-wider mb-2">
+                Data Privacy Officer &amp; Client Concierge
+              </h3>
+              <p className="text-neutral-600 mb-3">
+                To submit an access, correction, or erasure request, reach out directly to:
+              </p>
+              <div className="space-y-1 text-neutral-800">
+                <p>
+                  • Email:{" "}
+                  <a href="mailto:safenestind@gmail.com" className="underline focus-ring">
+                    safenestind@gmail.com
+                  </a>
+                </p>
+                <p>
+                  • Phone:{" "}
+                  <a href="tel:+919553879931" className="underline focus-ring">
+                    +91 95538 79931
+                  </a>
+                </p>
+                <p>• Operating Hubs: Hyderabad, Bengaluru, Chennai, Kochi, Visakhapatnam</p>
+              </div>
+            </div>
           </section>
         </article>
+
+        {/* Footer Navigation */}
+        <div className="mt-16 pt-8 border-t border-neutral-200 flex flex-col sm:flex-row justify-between gap-4 text-xs font-light">
+          <Link
+            to="/terms"
+            className="text-neutral-600 hover:text-neutral-950 underline underline-offset-4 focus-ring"
+          >
+            ← View Terms and Conditions
+          </Link>
+          <Link
+            to="/consultation"
+            className="text-neutral-900 font-medium hover:underline underline-offset-4 focus-ring"
+          >
+            Request Private Site Survey →
+          </Link>
+        </div>
       </main>
 
       <Footer />

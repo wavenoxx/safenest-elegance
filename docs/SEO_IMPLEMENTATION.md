@@ -18,33 +18,37 @@ This implementation delivers a comprehensive, quiet-luxury rebuild of SafeNestâ€
 The site architecture enforces strict differentiation between public indexable content, local service hubs, and private transactional flows:
 
 ### A. Core Architectural Pages (13 Indexable Routes)
-| Route Path | Canonical URL | Indexing Directive | Schema.org Type | Purpose / Editorial Topic |
-|---|---|---|---|---|
-| `/` | `https://safenestindia.com/` | `index, follow` | `Organization` | Homepage Hero, Cinematic Scrollway, Proof Section |
-| `/solutions` | `https://safenestindia.com/solutions` | `index, follow` | `WebPage` | Interactive Solutions Explorer across all 20 services |
-| `/service-areas` | `https://safenestindia.com/service-areas` | `index, follow` | `WebPage` | Verified South India Regional Operations (HYD, BLR, MAA, COK, VTZ) |
-| `/craftsmanship` | `https://safenestindia.com/craftsmanship` | `index, follow` | `WebPage` | Materials, Metallurgy, Tensile Science & Anchoring Engineering |
-| `/lifestyle` | `https://safenestindia.com/lifestyle` | `index, follow` | `WebPage` | Architectural Living, Child Safety & Horizon Liberation |
-| `/our-story` | `https://safenestindia.com/our-story` | `index, follow` | `WebPage` | Atelier Heritage, 10,000+ Installations & Brand Ethos |
-| `/maintenance-repair` | `https://safenestindia.com/maintenance-repair` | `index, follow` | `WebPage` | Cleaning Protocol, Substrate Care, Retensioning Services |
-| `/warranty` | `https://safenestindia.com/warranty` | `index, follow` | `WebPage` | Written Warranty Coverage Matrix (5-10 yrs grills, 3-5 yrs nets) |
-| `/safety-faq` | `https://safenestindia.com/safety-faq` | `index, follow` | `FAQPage` | Safety, Tensile Load, Fire Egress & Installation FAQ |
-| `/material-standards` | `https://safenestindia.com/material-standards` | `index, follow` | `WebPage` | AISI 316, 6063-T6, Nylon-12, and Virgin HDPE Standards |
-| `/terms` | `https://safenestindia.com/terms` | `index, follow` | `WebPage` | Terms and Conditions & Client Advisory Governance |
-| `/privacy` | `https://safenestindia.com/privacy` | `index, follow` | `WebPage` | Privacy Declaration & Cookie Governance |
-| `/sitemap` | `https://safenestindia.com/sitemap` | `index, follow` | `WebPage` | HTML Site Directory & Crawl Equity Hub |
+
+| Route Path            | Canonical URL                                  | Indexing Directive | Schema.org Type | Purpose / Editorial Topic                                          |
+| --------------------- | ---------------------------------------------- | ------------------ | --------------- | ------------------------------------------------------------------ |
+| `/`                   | `https://safenestindia.com/`                   | `index, follow`    | `Organization`  | Homepage Hero, Cinematic Scrollway, Proof Section                  |
+| `/solutions`          | `https://safenestindia.com/solutions`          | `index, follow`    | `WebPage`       | Interactive Solutions Explorer across all 20 services              |
+| `/service-areas`      | `https://safenestindia.com/service-areas`      | `index, follow`    | `WebPage`       | Verified South India Regional Operations (HYD, BLR, MAA, COK, VTZ) |
+| `/craftsmanship`      | `https://safenestindia.com/craftsmanship`      | `index, follow`    | `WebPage`       | Materials, Metallurgy, Tensile Science & Anchoring Engineering     |
+| `/lifestyle`          | `https://safenestindia.com/lifestyle`          | `index, follow`    | `WebPage`       | Architectural Living, Child Safety & Horizon Liberation            |
+| `/our-story`          | `https://safenestindia.com/our-story`          | `index, follow`    | `WebPage`       | Atelier Heritage, 10,000+ Installations & Brand Ethos              |
+| `/maintenance-repair` | `https://safenestindia.com/maintenance-repair` | `index, follow`    | `WebPage`       | Cleaning Protocol, Substrate Care, Retensioning Services           |
+| `/warranty`           | `https://safenestindia.com/warranty`           | `index, follow`    | `WebPage`       | Written Warranty Coverage Matrix (5-10 yrs grills, 3-5 yrs nets)   |
+| `/safety-faq`         | `https://safenestindia.com/safety-faq`         | `index, follow`    | `FAQPage`       | Safety, Tensile Load, Fire Egress & Installation FAQ               |
+| `/material-standards` | `https://safenestindia.com/material-standards` | `index, follow`    | `WebPage`       | AISI 316, 6063-T6, Nylon-12, and Virgin HDPE Standards             |
+| `/terms`              | `https://safenestindia.com/terms`              | `index, follow`    | `WebPage`       | Terms and Conditions & Client Advisory Governance                  |
+| `/privacy`            | `https://safenestindia.com/privacy`            | `index, follow`    | `WebPage`       | Privacy Declaration & Cookie Governance                            |
+| `/sitemap`            | `https://safenestindia.com/sitemap`            | `index, follow`    | `WebPage`       | HTML Site Directory & Crawl Equity Hub                             |
 
 ### B. Category Authority Hubs (5 Indexable Routes)
-| Route Path | Canonical URL | Plain Service Descriptor | Breadcrumbs Hierarchy |
-|---|---|---|---|
-| `/category/invisible-grills` | `https://safenestindia.com/category/invisible-grills` | High-Tensile Stainless Steel Cable Safety Grills | Home > Invisible Grills |
-| `/category/core-safety-nets` | `https://safenestindia.com/category/core-safety-nets` | UV-Stabilized High-Density Polyethylene Netting | Home > Core Safety Nets |
-| `/category/construction-industrial` | `https://safenestindia.com/category/construction-industrial` | Heavy-Duty Structural & Debris Containment | Home > Construction & Industrial |
-| `/category/animal-bird-protection` | `https://safenestindia.com/category/animal-bird-protection` | Humane Bird Spikes, Pigeon Nets & Monkey Deterrence | Home > Animal & Bird Protection |
-| `/category/specialty-solutions` | `https://safenestindia.com/category/specialty-solutions` | Sports Practice Cages, Coconut Nets & Pulley Systems | Home > Specialty Solutions |
+
+| Route Path                          | Canonical URL                                                | Plain Service Descriptor                             | Breadcrumbs Hierarchy            |
+| ----------------------------------- | ------------------------------------------------------------ | ---------------------------------------------------- | -------------------------------- |
+| `/category/invisible-grills`        | `https://safenestindia.com/category/invisible-grills`        | High-Tensile Stainless Steel Cable Safety Grills     | Home > Invisible Grills          |
+| `/category/core-safety-nets`        | `https://safenestindia.com/category/core-safety-nets`        | UV-Stabilized High-Density Polyethylene Netting      | Home > Core Safety Nets          |
+| `/category/construction-industrial` | `https://safenestindia.com/category/construction-industrial` | Heavy-Duty Structural & Debris Containment           | Home > Construction & Industrial |
+| `/category/animal-bird-protection`  | `https://safenestindia.com/category/animal-bird-protection`  | Humane Bird Spikes, Pigeon Nets & Monkey Deterrence  | Home > Animal & Bird Protection  |
+| `/category/specialty-solutions`     | `https://safenestindia.com/category/specialty-solutions`     | Sports Practice Cages, Coconut Nets & Pulley Systems | Home > Specialty Solutions       |
 
 ### C. Service Detail Pages (20 Indexable Routes)
+
 Each service route contains a plain factual `<h1>`, specification matrix, installation sequence, metallurgy details, and `Service` + `BreadcrumbList` schemas:
+
 1. `/service/balcony-invisible-grills`
 2. `/service/staircase-invisible-grills`
 3. `/service/windows-invisible-grills`
@@ -67,6 +71,7 @@ Each service route contains a plain factual `<h1>`, specification matrix, instal
 20. `/service/cloth-drying-hangers`
 
 ### D. Private Funnel & Campaign Routes (Excluded from Sitemap & Set to `noindex, follow`)
+
 - `/consultation` (Lead capture & survey booking funnel â€” private transactional view)
 - `/campaigns/silent-promise` (Interactive brand storytelling experience)
 - `/campaigns/light-and-sanctuary` (Interactive brand storytelling experience)
@@ -83,6 +88,7 @@ Each service route contains a plain factual `<h1>`, specification matrix, instal
    - Automatically serializes Schema.org JSON-LD scripts into SSR head output.
 
 2. **Robots Protocol (`public/robots.txt`)**:
+
    ```txt
    User-agent: *
    Allow: /
@@ -119,6 +125,7 @@ Each service route contains a plain factual `<h1>`, specification matrix, instal
 ## 5. Trust System ("Proof, Not Promises")
 
 The `src/components/ProofSection.tsx` component anchors the site with 4 verified pillars:
+
 1. **Metallurgy**: Authentic AISI 316 marine-grade austenitic stainless steel core alloyed with 2-3% Molybdenum to prevent coastal chloride pitting.
 2. **Precision Anchoring**: 6063-T6 extruded architectural aluminum tracks with diamond core drilled concrete expansion fasteners.
 3. **Documented Assurance**: Written warranty certificates issued upon completion (5-10 years for invisible grills, 3-5 years for HDPE netting).

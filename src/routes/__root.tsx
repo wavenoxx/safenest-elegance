@@ -15,6 +15,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { BRAND_CONFIG } from "@/config/brand";
 import { captureAttribution } from "@/lib/attribution";
 import { trackEngagement } from "@/lib/analytics";
+import { ConsentBanner, initializeGoogleConsentDefaults } from "@/components/ConsentBanner";
 
 function NotFoundComponent() {
   return (
@@ -146,6 +147,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   useEffect(() => {
+    // Initialize Google Consent Mode v2 defaults immediately
+    initializeGoogleConsentDefaults();
+
     // Capture attribution parameters (gclid, wbraid, gbraid, utms)
     captureAttribution();
 
@@ -179,6 +183,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <ConsentBanner />
         <Scripts />
       </body>
     </html>
