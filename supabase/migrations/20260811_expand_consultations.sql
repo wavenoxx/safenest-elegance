@@ -1,23 +1,21 @@
 -- ============================================================================
 -- Migration: 20260811_expand_consultations.sql
--- Description: Ensures public.consultations table exists, adds all attribution,
---              status, consent governance, and strict RLS policies.
+-- Description: Ensures all base and attribution columns exist on consultations table
 -- ============================================================================
 
--- 1. Ensure table exists if not already created
+-- 1. Ensure table exists
 CREATE TABLE IF NOT EXISTS public.consultations (
-  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  created_at timestamptz NOT NULL DEFAULT now(),
-  name text NOT NULL,
-  phone text NOT NULL,
-  city_hub text NOT NULL,
-  pincode text NOT NULL,
-  services jsonb NOT NULL DEFAULT '[]'::jsonb,
-  status text NOT NULL DEFAULT 'new'
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid()
 );
 
--- 2. Add Status and all Attribution, Consent, Verification, and Lifecycle Columns safely
+-- 2. Add all base and extended columns safely
 ALTER TABLE public.consultations 
+  ADD COLUMN IF NOT EXISTS created_at timestamptz NOT NULL DEFAULT now(),
+  ADD COLUMN IF NOT EXISTS name text NOT NULL DEFAULT '',
+  ADD COLUMN IF NOT EXISTS phone text NOT NULL DEFAULT '',
+  ADD COLUMN IF NOT EXISTS city_hub text NOT NULL DEFAULT '',
+  ADD COLUMN IF NOT EXISTS pincode text NOT NULL DEFAULT '',
+  ADD COLUMN IF NOT EXISTS services jsonb NOT NULL DEFAULT '[]'::jsonb,
   ADD COLUMN IF NOT EXISTS status text NOT NULL DEFAULT 'new',
   ADD COLUMN IF NOT EXISTS source text,
   ADD COLUMN IF NOT EXISTS medium text,
@@ -40,15 +38,12 @@ ALTER TABLE public.consultations
 -- 3. Row-Level Security & Role Grants
 ALTER TABLE public.consultations ENABLE ROW LEVEL SECURITY;
 
--- Revoke all read/update/delete permissions from anonymous and authenticated public roles
 REVOKE SELECT, UPDATE, DELETE ON public.consultations FROM anon;
 REVOKE SELECT, UPDATE, DELETE ON public.consultations FROM authenticated;
 
--- Grant INSERT only to public roles; full access strictly reserved for service_role
 GRANT INSERT ON public.consultations TO anon, authenticated;
 GRANT ALL ON public.consultations TO service_role;
 
--- Drop previous insert policy if exists and create hardened check
 DROP POLICY IF EXISTS "Anyone can submit a consultation request" ON public.consultations;
 DROP POLICY IF EXISTS "Public can insert consultation with validation" ON public.consultations;
 
