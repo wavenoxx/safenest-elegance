@@ -200,44 +200,21 @@
   }
 }
 
-@keyframes sn-fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes sn-fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
+/* All entry animations removed — pure static quiet luxury, zero visual motion */
 @utility sn-anim-label {
-  opacity: 0;
-  animation: sn-fade 800ms ease-out 0ms forwards;
+  opacity: 1;
 }
 
 @utility sn-anim-h1 {
-  opacity: 0;
-  animation: sn-fade-up 1000ms ease-out 200ms forwards;
+  opacity: 1;
 }
 
 @utility sn-anim-sub {
-  opacity: 0;
-  animation: sn-fade-up 800ms ease-out 400ms forwards;
+  opacity: 1;
 }
 
 @utility sn-anim-cta {
-  opacity: 0;
-  animation: sn-fade-up 800ms ease-out 600ms forwards;
+  opacity: 1;
 }
 
 /* ────────────────────────────────────────────────
@@ -284,7 +261,7 @@
   font-weight: 300;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  transition: all 300ms ease;
+  transition: border-color 150ms, background-color 150ms, color 150ms;
   min-height: 25px;
 }
 
@@ -307,7 +284,7 @@
   font-weight: 400;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  transition: all 400ms ease;
+  transition: border-color 150ms, background-color 150ms, color 150ms;
   min-height: 40px;
 }
 
@@ -330,19 +307,11 @@
   overflow: hidden;
 }
 
-/* Universal butter-smooth image zoom on hover (no sudden jumps) */
+/* No zoom animations — static pure luxury images */
 .sn-luxury-img {
-  transform: scale(1) translateZ(0);
-  transition: transform 1400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 800ms ease, filter 800ms ease;
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.group:hover .sn-luxury-img,
-.sn-luxury-frame:hover .sn-luxury-img,
-.sn-luxury-img:hover {
-  transform: scale(1.035) translateZ(0);
+  transform: none;
+  transition: none;
+  will-change: auto;
 }
 
 /* Chanel Homepage Mockup Visual-to-Visual Scroll Section */
@@ -354,18 +323,11 @@
   background-color: #050505;
 }
 
+/* No zoom animations on slide media */
 .sn-chanel-media {
-  transform: scale(1) translateZ(0);
-  transition: transform 1600ms cubic-bezier(0.16, 1, 0.3, 1), opacity 1000ms ease;
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.group:hover .sn-chanel-media,
-.sn-chanel-slide:hover .sn-chanel-media,
-.sn-chanel-slide:focus-within .sn-chanel-media {
-  transform: scale(1.045) translateZ(0);
+  transform: none;
+  transition: none;
+  will-change: auto;
 }
 
 /* ────────────────────────────────────────────────
