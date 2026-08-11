@@ -240,7 +240,7 @@ function StoryPage() {
       {/* Scroll-snap container */}
       <div
         ref={containerRef}
-        className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth relative bg-transparent"
+        className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory relative bg-transparent"
       >
         {/* 11 chapter snap sections */}
         {CHAPTERS.map((c, i) => {

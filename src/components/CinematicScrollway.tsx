@@ -99,7 +99,7 @@ export function CinematicScrollway() {
         <Link
           key={index}
           to={slide.link}
-          className="sn-chanel-slide group block relative w-full h-[85dvh] sm:h-[88dvh] md:h-[90dvh] min-h-[520px] max-h-[1100px] focus-ring border-b border-white/5"
+          className="sn-chanel-slide group block relative w-full aspect-[1/2.39] sm:aspect-[1/1.8] md:aspect-[2.39/1] min-h-[460px] max-h-[92dvh] focus-ring border-b border-white/5"
           aria-label={`${slide.action}: ${slide.descriptor} (${slide.title})`}
         >
           {/* Pure Black Visual Canvas with Subtle Architectural Depth */}
@@ -116,8 +116,8 @@ export function CinematicScrollway() {
             }}
           />
 
-          {/* Bottom-Center Typography Overlay (Calibrated for Small & Large Screens) */}
-          <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-center text-center w-full px-4 sm:px-8 md:px-12 pb-10 sm:pb-12 md:pb-16 max-w-3xl mx-auto">
+          {/* Bottom-Center Typography Overlay (Calibrated for Vertical & Widescreen 2.39:1) */}
+          <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-center text-center w-full px-4 sm:px-8 md:px-12 pb-8 sm:pb-10 md:pb-12 max-w-3xl mx-auto">
             {/* Category Eyebrow */}
             <span className="sn-eyebrow text-neutral-400 mb-1.5 sm:mb-2 uppercase block">
               {slide.category}

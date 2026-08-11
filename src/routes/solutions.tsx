@@ -119,7 +119,7 @@ function SolutionsExplorer() {
 
       {/* Mobile Magazine Lookbook */}
       <div
-        className="block md:hidden h-[100dvh] w-full overflow-y-scroll snap-y snap-mandatory scroll-smooth relative bg-neutral-950"
+        className="block md:hidden h-[100dvh] w-full overflow-y-scroll snap-y snap-mandatory relative bg-neutral-950"
         onScroll={(e) => {
           const index = Math.round(e.currentTarget.scrollTop / window.innerHeight);
           if (index !== activeMobileIndex) setActiveMobileIndex(index);
