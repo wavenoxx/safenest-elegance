@@ -46,11 +46,6 @@ const Hero = () => {
 
       {/* Editorial Content Overlay (Lower-Third Placement matching Reference Image) */}
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-16 sm:pb-20 md:pb-24 px-6 md:px-12 text-center">
-        {/* Eyebrow Category */}
-        <span className="sn-eyebrow text-neutral-400 block mb-3.5">
-          {BRAND_CONFIG.name} · Architectural Safety
-        </span>
-
         {/* Unified H1 Headline */}
         <h1 className="sn-h1 text-white max-w-2xl drop-shadow-sm mb-3">
           Invisible Grills &amp; Safety Nets

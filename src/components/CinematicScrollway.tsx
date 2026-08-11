@@ -99,7 +99,7 @@ export function CinematicScrollway() {
         <Link
           key={index}
           to={slide.link}
-          className="sn-chanel-slide group block relative w-full h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] focus-ring border-b border-white/5"
+          className="sn-chanel-slide group block relative w-full h-[85dvh] sm:h-[88dvh] md:h-[90dvh] min-h-[520px] max-h-[1100px] focus-ring border-b border-white/5"
           aria-label={`${slide.action}: ${slide.descriptor} (${slide.title})`}
         >
           {/* Pure Black Visual Canvas with Subtle Architectural Depth */}
@@ -112,24 +112,24 @@ export function CinematicScrollway() {
             className="absolute inset-0 pointer-events-none z-10"
             style={{
               background:
-                "linear-gradient(to top, rgba(5,5,5,0.75) 0%, rgba(5,5,5,0.15) 50%, rgba(5,5,5,0.05) 100%)",
+                "linear-gradient(to top, rgba(5,5,5,0.8) 0%, rgba(5,5,5,0.15) 50%, rgba(5,5,5,0.02) 100%)",
             }}
           />
 
-          {/* Bottom-Center Typography Overlay (Exact Match with Reference Image) */}
-          <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-center text-center w-full px-6 md:px-12 pb-12 sm:pb-14 md:pb-16 max-w-3xl mx-auto">
+          {/* Bottom-Center Typography Overlay (Calibrated for Small & Large Screens) */}
+          <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-center text-center w-full px-4 sm:px-8 md:px-12 pb-10 sm:pb-12 md:pb-16 max-w-3xl mx-auto">
             {/* Category Eyebrow */}
-            <span className="sn-eyebrow text-neutral-400 mb-2 uppercase block">
+            <span className="sn-eyebrow text-neutral-400 mb-1.5 sm:mb-2 uppercase block">
               {slide.category}
             </span>
 
             {/* Collection / Section Title */}
-            <h2 className="sn-h1 text-white max-w-2xl drop-shadow-sm mb-1.5">
+            <h2 className="sn-h1 text-white max-w-2xl drop-shadow-sm mb-1 sm:mb-1.5 px-2">
               {slide.title}
             </h2>
 
             {/* Plain Descriptor */}
-            <p className="sn-subtext text-neutral-300 mb-5">
+            <p className="sn-subtext text-neutral-300 mb-4 sm:mb-5 max-w-md px-2">
               {slide.descriptor}
             </p>
 
