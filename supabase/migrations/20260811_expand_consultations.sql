@@ -1,11 +1,24 @@
 -- ============================================================================
 -- Migration: 20260811_expand_consultations.sql
--- Description: Expands public.consultations table with full attribution, 
--- consent governance, lifecycle status, and strict RLS policies.
+-- Description: Ensures public.consultations table exists, adds all attribution,
+--              status, consent governance, and strict RLS policies.
 -- ============================================================================
 
--- 1. Add Attribution, Consent, Verification, and Lifecycle Columns
+-- 1. Ensure table exists if not already created
+CREATE TABLE IF NOT EXISTS public.consultations (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  created_at timestamptz NOT NULL DEFAULT now(),
+  name text NOT NULL,
+  phone text NOT NULL,
+  city_hub text NOT NULL,
+  pincode text NOT NULL,
+  services jsonb NOT NULL DEFAULT '[]'::jsonb,
+  status text NOT NULL DEFAULT 'new'
+);
+
+-- 2. Add Status and all Attribution, Consent, Verification, and Lifecycle Columns safely
 ALTER TABLE public.consultations 
+  ADD COLUMN IF NOT EXISTS status text NOT NULL DEFAULT 'new',
   ADD COLUMN IF NOT EXISTS source text,
   ADD COLUMN IF NOT EXISTS medium text,
   ADD COLUMN IF NOT EXISTS campaign text,
@@ -23,11 +36,6 @@ ALTER TABLE public.consultations
   ADD COLUMN IF NOT EXISTS notes text,
   ADD COLUMN IF NOT EXISTS revenue_value numeric,
   ADD COLUMN IF NOT EXISTS updated_at timestamptz NOT NULL DEFAULT now();
-
--- 2. Validate / Update Status Enum Values
--- Status lifecycle: new -> contacted -> survey_booked -> qualified -> won -> lost -> archived
-ALTER TABLE public.consultations 
-  ALTER COLUMN status SET DEFAULT 'new';
 
 -- 3. Row-Level Security & Role Grants
 ALTER TABLE public.consultations ENABLE ROW LEVEL SECURITY;
@@ -55,5 +63,3 @@ CREATE POLICY "Public can insert consultation with validation"
     AND length(pincode) BETWEEN 4 AND 12
     AND status IN ('new', 'pending')
   );
-
--- Service role bypasses RLS automatically for admin operations and server functions.
