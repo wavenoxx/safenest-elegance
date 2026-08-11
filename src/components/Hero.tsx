@@ -1,162 +1,128 @@
-import { useRef, useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
-import { Play, Pause } from "lucide-react";
 import { BRAND_CONFIG } from "@/config/brand";
 
+/**
+ * Hero — Full-bleed single-visual hero section.
+ *
+ * Design reference: Dior.com / Chanel.com hero pattern.
+ * - Single image fills the entire viewport (100dvh).
+ * - Desktop: landscape ratio image (or black placeholder).
+ * - Mobile: portrait 9:16 image (or black placeholder).
+ * - Typography is restrained, light, and spacious.
+ * - No video. No autoplay. No play/pause controls.
+ * - Entrance animations via CSS (prefers-reduced-motion safe).
+ */
 const Hero = () => {
-  const videoRefCenter = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile, { passive: true });
-
-    // Check prefers-reduced-motion and Save-Data
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const connection = (navigator as unknown as { connection?: { saveData?: boolean } }).connection;
-    const isSaveData = connection?.saveData;
-
-    if (prefersReducedMotion || isSaveData) {
-      setIsPlaying(false);
-      return () => window.removeEventListener("resize", checkMobile);
-    }
-
-    const playVideo = async () => {
-      if (videoRefCenter.current) {
-        try {
-          await videoRefCenter.current.play();
-          setIsPlaying(true);
-        } catch {
-          setIsPlaying(false);
-        }
-      }
-    };
-    playVideo();
-
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  const togglePlay = () => {
-    if (!videoRefCenter.current) return;
-    if (isPlaying) {
-      videoRefCenter.current.pause();
-      setIsPlaying(false);
-    } else {
-      videoRefCenter.current.play().catch(() => {});
-      setIsPlaying(true);
-    }
-  };
-
   return (
-    <div className="relative w-full h-[85vh] sm:h-[90vh] md:h-screen overflow-hidden bg-neutral-950 select-none">
-      {/* 3-Panel Cinematic Triptych Grid */}
-      <div className="absolute inset-0 w-full h-full flex flex-row opacity-80 transition-opacity duration-1000 z-0">
-        {/* Left Still Photography Panel (desktop only) */}
-        <div className="hidden md:block md:w-1/3 h-full overflow-hidden relative border-r border-white/5 bg-neutral-900">
-          <img
-            src="/images/homepage/banner-2.jpg"
-            alt="SafeNest Balcony Invisible Grills Architecture"
-            width={720}
-            height={1280}
-            loading="lazy"
-            className="w-full h-full object-cover object-center filter brightness-90"
-          />
-        </div>
-
-        {/* Center Video / LCP Panel */}
-        <div className="w-full md:w-1/3 h-full overflow-hidden relative bg-neutral-900">
-          <video
-            ref={videoRefCenter}
-            src="/videos/hero-1.mp4"
-            poster="/images/homepage/banner-1.jpg"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-
-        {/* Right Still Photography Panel (desktop only) */}
-        <div className="hidden md:block md:w-1/3 h-full overflow-hidden relative border-l border-white/5 bg-neutral-900">
-          <img
-            src="/images/homepage/banner-3.jpg"
-            alt="SafeNest High-Rise Safety Net Installation"
-            width={720}
-            height={1280}
-            loading="lazy"
-            className="w-full h-full object-cover object-center filter brightness-90"
-          />
-        </div>
+    <section
+      className="relative w-full overflow-hidden bg-neutral-950 select-none"
+      style={{ height: "100dvh", minHeight: "600px" }}
+    >
+      {/* Full-bleed background image — Desktop */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        {/* Desktop image (hidden on mobile) */}
+        <img
+          src="/images/homepage/banner-1.jpg"
+          alt="SafeNest architectural safety — invisible grills and safety nets for modern homes"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          decoding="async"
+          className="hidden md:block w-full h-full object-cover object-center"
+        />
+        {/* Mobile image — 9:16 aspect (shown on mobile only) */}
+        <img
+          src="/images/homepage/banner-1.jpg"
+          alt="SafeNest architectural safety — invisible grills and safety nets for modern homes"
+          width={1080}
+          height={1920}
+          fetchPriority="high"
+          decoding="async"
+          className="md:hidden w-full h-full object-cover object-center"
+        />
       </div>
 
-      {/* Subtle Ambient Vignette Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/25 to-black/85 pointer-events-none z-10" />
+      {/* Ambient vignette — subtle gradient to ensure text legibility */}
+      <div
+        className="absolute inset-0 pointer-events-none z-10 sn-anim-overlay"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.12) 60%, rgba(0,0,0,0.55) 100%)",
+        }}
+      />
 
-      {/* Semantic H1 & Headline Content Overlay */}
-      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6 md:px-12 max-w-4xl mx-auto pt-16">
+      {/* Content overlay — lower-third positioning (Dior/Chanel pattern) */}
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-16 sm:pb-20 md:pb-24 px-6 md:px-12 text-center">
+        {/* Micro label */}
         <span
-          className="text-[10px] md:text-[11px] font-sans font-light tracking-[0.35em] uppercase text-white/80 mb-3 block"
-          style={{ letterSpacing: "0.3em" }}
+          className="sn-anim-label text-white/70 uppercase block mb-4"
+          style={{
+            fontFamily: "'Inter', system-ui, sans-serif",
+            fontSize: "10px",
+            fontWeight: 300,
+            letterSpacing: "0.35em",
+          }}
         >
-          {BRAND_CONFIG.name} · Architectural Safety
+          Architectural Safety
         </span>
 
-        {/* Visible, Semantic H1 */}
+        {/* H1 — Quiet, restrained, serif */}
         <h1
-          className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-[0.06em] text-white uppercase leading-tight max-w-3xl drop-shadow-sm"
-          style={{ fontWeight: 300 }}
+          className="sn-anim-h1 text-white uppercase leading-tight"
+          style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontWeight: 300,
+            letterSpacing: "0.08em",
+            fontSize: "clamp(1.5rem, 4vw, 2.75rem)",
+            maxWidth: "680px",
+          }}
         >
-          Invisible Grills &amp; Safety Nets for Safer Homes
+          Invisible Grills &amp; Safety Nets
         </h1>
 
-        {/* Clear Supporting Line */}
+        {/* Supporting line */}
         <p
-          className="mt-4 sm:mt-6 text-xs sm:text-sm md:text-base font-light text-neutral-200/90 leading-relaxed max-w-2xl drop-shadow-sm"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          className="sn-anim-sub mt-4 text-white/80 max-w-md leading-relaxed"
+          style={{
+            fontFamily: "'Inter', system-ui, sans-serif",
+            fontSize: "clamp(11px, 1.2vw, 13px)",
+            fontWeight: 300,
+            letterSpacing: "0.02em",
+          }}
         >
-          Measured, specified and installed for balconies, windows, children, birds and open edges
+          Precision-measured and installed for balconies, windows, and open&nbsp;edges
           across verified {BRAND_CONFIG.name} service areas.
         </p>
 
-        {/* Action Link */}
-        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-4">
+        {/* CTA — single, clear action */}
+        <div className="sn-anim-cta mt-8 flex flex-col sm:flex-row items-center gap-4">
           <Link
             to="/consultation"
-            className="rounded-full bg-white text-neutral-950 px-8 py-3.5 text-[10px] md:text-[11px] tracking-[0.25em] font-light uppercase hover:bg-neutral-200 transition-colors duration-300 min-h-11 inline-flex items-center justify-center focus-ring shadow-lg"
+            className="inline-flex items-center justify-center bg-white text-neutral-950 px-8 py-3 min-h-11 uppercase transition-colors duration-300 hover:bg-neutral-100 focus-ring"
+            style={{
+              fontFamily: "'Inter', system-ui, sans-serif",
+              fontSize: "10px",
+              fontWeight: 400,
+              letterSpacing: "0.25em",
+            }}
           >
             Request Site Survey
           </Link>
           <Link
             to="/solutions"
-            className="rounded-full border border-white/40 text-white px-8 py-3.5 text-[10px] md:text-[11px] tracking-[0.25em] font-light uppercase hover:border-white hover:bg-white/10 transition-colors duration-300 min-h-11 inline-flex items-center justify-center focus-ring"
+            className="inline-flex items-center justify-center border border-white/40 text-white px-8 py-3 min-h-11 uppercase transition-all duration-300 hover:border-white hover:bg-white/10 focus-ring"
+            style={{
+              fontFamily: "'Inter', system-ui, sans-serif",
+              fontSize: "10px",
+              fontWeight: 300,
+              letterSpacing: "0.25em",
+            }}
           >
             Explore Solutions
           </Link>
         </div>
       </div>
-
-      {/* Floating Play/Pause Button */}
-      <div className="absolute bottom-8 left-6 md:left-10 z-30">
-        <button
-          type="button"
-          onClick={togglePlay}
-          className="min-w-11 min-h-11 flex items-center justify-center text-white/70 hover:text-white transition-opacity duration-300 focus-ring cursor-pointer"
-          aria-label={isPlaying ? "Pause background video" : "Play background video"}
-        >
-          {isPlaying ? (
-            <Pause size={16} className="stroke-[1.5]" />
-          ) : (
-            <Play size={16} className="stroke-[1.5]" />
-          )}
-        </button>
-      </div>
-    </div>
+    </section>
   );
 };
 
