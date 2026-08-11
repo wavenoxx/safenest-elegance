@@ -33,7 +33,9 @@ export function SiteNav() {
       <header
         className={[
           "fixed top-0 left-0 right-0 z-50 transition-all duration-[400ms] ease-out",
-          dark ? "bg-white/95 backdrop-blur-md text-black shadow-xs" : "bg-transparent text-white",
+          dark
+            ? "bg-[#050505]/90 backdrop-blur-md text-white border-b border-white/10 shadow-xs"
+            : "bg-transparent text-white",
         ].join(" ")}
       >
         <div className="grid grid-cols-[1fr_auto_1fr] items-center px-6 sm:px-8 lg:px-12 py-3.5 lg:py-4">
