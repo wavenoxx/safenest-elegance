@@ -30,19 +30,19 @@ export const Route = createFileRoute("/maintenance-repair")({
 
 function MaintenanceRepairPage() {
   return (
-    <div className="bg-white text-neutral-900">
+    <div className="bg-[#050505] text-white min-h-screen">
       <SiteNav />
 
       {/* Hero Header */}
-      <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 bg-[#FAF9F6] border-b border-neutral-200">
+      <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 bg-[#050505] border-b border-white/10">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="sn-eyebrow text-neutral-500 mb-4">
+          <p className="sn-eyebrow text-neutral-400 mb-4">
             System Longevity
           </p>
-          <h1 className="sn-h1 text-neutral-900 mb-4">
+          <h1 className="sn-h1 text-white mb-4">
             Care, Maintenance &amp; Retensioning
           </h1>
-          <p className="sn-subtext text-neutral-600 max-w-2xl mx-auto">
+          <p className="sn-subtext text-neutral-300 max-w-2xl mx-auto">
             {BRAND_CONFIG.name} architectural safety systems are engineered for enduring durability.
             Following these simple care guidelines preserves crystal optical clarity and optimal
             tensile performance for years.
@@ -53,80 +53,77 @@ function MaintenanceRepairPage() {
       {/* Main Content Sections */}
       <main className="max-w-5xl mx-auto px-6 md:px-12 py-16 md:py-24 space-y-20">
         {/* 1. Invisible Grills Care */}
-        <article className="border-b border-neutral-200 pb-16">
+        <article className="border-b border-white/10 pb-16">
           <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
             Section 01 / Invisible Grills
           </span>
-          <h2 className="font-serif text-2xl font-light text-neutral-900 uppercase tracking-wider mt-2 mb-6">
-            Invisible Grills Cleaning &amp; Upkeep
+          <h2 className="font-serif text-2xl font-light text-white uppercase tracking-wider mt-2 mb-6">
+            Invisible Grills Maintenance Protocol
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs md:text-sm text-neutral-700 font-light leading-relaxed">
-            <div>
-              <h3 className="font-medium text-neutral-900 mb-2 uppercase text-xs tracking-wider">
-                Recommended Routine
-              </h3>
-              <p className="mb-4">
-                Wipe down the stainless steel cables and aluminum track channels every 3 to 6 months
-                using a soft microfiber cloth dampened with clean freshwater and mild neutral soap.
-              </p>
-              <p>
-                In coastal locations (such as Chennai or Visakhapatnam) with airborne salt moisture,
-                a monthly freshwater wipe helps prevent mineral crusting on the outer Nylon-12
-                protective jacket.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium text-neutral-900 mb-2 uppercase text-xs tracking-wider">
-                Substances to Avoid
-              </h3>
-              <ul className="list-disc pl-5 space-y-2 text-neutral-600">
-                <li>Never use abrasive scouring pads, steel wool, or hard wire brushes.</li>
-                <li>
-                  Never use hydrochloric, muriatic, or sulfuric acid cleaners commonly used for tile
-                  deep-cleaning.
-                </li>
-                <li>Avoid solvent-based chemical paint thinners on the clear polymer sheath.</li>
-              </ul>
+          <div className="space-y-4 text-xs md:text-sm text-neutral-300 font-light leading-relaxed">
+            <p>
+              The AISI 316 stainless steel cables are sheathed in a transparent UV-stabilized
+              Nylon-12 polymer layer that repels water and airborne dust.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+              <div className="bg-white/[0.02] border border-white/10 p-6">
+                <h3 className="font-medium text-white uppercase text-xs tracking-wider mb-2">
+                  Recommended Cleaning
+                </h3>
+                <p className="text-neutral-400">
+                  Wipe cables every 3–6 months using a soft microfiber cloth dampened with lukewarm
+                  water and mild neutral soap. Rinse with clean water and dry with a lint-free towel.
+                </p>
+              </div>
+              <div className="bg-white/[0.02] border border-white/10 p-6">
+                <h3 className="font-medium text-white uppercase text-xs tracking-wider mb-2">
+                  Avoid Abrasives
+                </h3>
+                <p className="text-neutral-400">
+                  Never use steel wool, wire brushes, strong acids, or chlorine-based solvents.
+                  Abrasive scrubbers can scratch the protective polymer coating.
+                </p>
+              </div>
             </div>
           </div>
         </article>
 
-        {/* 2. Building Renovation Protocol */}
-        <article className="border-b border-neutral-200 pb-16">
+        {/* 2. Renovation & Civil Work Guidelines */}
+        <article className="border-b border-white/10 pb-16">
           <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
             Section 02 / Renovation Guidelines
           </span>
-          <h2 className="font-serif text-2xl font-light text-neutral-900 uppercase tracking-wider mt-2 mb-6">
+          <h2 className="font-serif text-2xl font-light text-white uppercase tracking-wider mt-2 mb-6">
             Building Exterior Painting &amp; Civil Work
           </h2>
-          <p className="text-xs md:text-sm text-neutral-700 font-light leading-relaxed mb-6">
+          <p className="text-xs md:text-sm text-neutral-300 font-light leading-relaxed mb-6">
             When repainting balconies or conducting civil work near {BRAND_CONFIG.name}{" "}
             installations:
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-neutral-600 font-light leading-relaxed">
-            <div className="border border-neutral-200 p-6 bg-neutral-50/50">
-              <h3 className="font-medium text-neutral-900 mb-2 uppercase text-xs tracking-wider">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-neutral-300 font-light leading-relaxed">
+            <div className="border border-white/10 p-6 bg-white/[0.02]">
+              <h3 className="font-medium text-white mb-2 uppercase text-xs tracking-wider">
                 1. Masking Protection
               </h3>
-              <p>
+              <p className="text-neutral-400">
                 Cover the aluminum track profiles and lower cable junctions with masking tape and
                 protective plastic sheets before sanding or applying primer.
               </p>
             </div>
-            <div className="border border-neutral-200 p-6 bg-neutral-50/50">
-              <h3 className="font-medium text-neutral-900 mb-2 uppercase text-xs tracking-wider">
+            <div className="border border-white/10 p-6 bg-white/[0.02]">
+              <h3 className="font-medium text-white mb-2 uppercase text-xs tracking-wider">
                 2. Paint Overspray
               </h3>
-              <p>
+              <p className="text-neutral-400">
                 If latex water-based paint splatters on cables, wipe immediately with a damp warm
                 towel. Do not scrape dry paint with sharp razor blades.
               </p>
             </div>
-            <div className="border border-neutral-200 p-6 bg-neutral-50/50">
-              <h3 className="font-medium text-neutral-900 mb-2 uppercase text-xs tracking-wider">
+            <div className="border border-white/10 p-6 bg-white/[0.02]">
+              <h3 className="font-medium text-white mb-2 uppercase text-xs tracking-wider">
                 3. Substrate Integrity
               </h3>
-              <p>
+              <p className="text-neutral-400">
                 Do not tamper with or remove structural anchor expansion bolts embedded into the
                 concrete slab during civil plastering.
               </p>
@@ -134,19 +131,22 @@ function MaintenanceRepairPage() {
           </div>
         </article>
 
-        {/* 3. Safety Nets Maintenance */}
-        <article className="border-b border-neutral-200 pb-16">
+        {/* 3. Safety Nets Care */}
+        <article className="border-b border-white/10 pb-16">
           <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
-            Section 03 / HDPE Netting
+            Section 03 / Balcony Safety Nets
           </span>
-          <h2 className="font-serif text-2xl font-light text-neutral-900 uppercase tracking-wider mt-2 mb-6">
-            Balcony &amp; Pigeon Safety Net Care
+          <h2 className="font-serif text-2xl font-light text-white uppercase tracking-wider mt-2 mb-6">
+            Balcony &amp; Window Netting Care
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs md:text-sm text-neutral-700 font-light leading-relaxed">
-            <div>
-              <p className="mb-4">
-                SafeNest HDPE safety nets are highly weather-resistant. To maintain clean balcony
-                hygiene, rinse the netting using a gentle water spray from a garden hose every 6
+          <div className="space-y-4 text-xs md:text-sm text-neutral-300 font-light leading-relaxed">
+            <p>
+              Our high-density monofilament HDPE netting is treated with carbon-black UV stabilizers.
+              Routine maintenance ensures uncompromised load capacity:
+            </p>
+            <div className="space-y-3 pt-2">
+              <p>
+                Rinse gently with a low-pressure garden hose spray nozzle every 4–6
                 months to remove accumulated urban dust and bird feathers.
               </p>
               <p>
@@ -154,8 +154,8 @@ function MaintenanceRepairPage() {
                 engaged in their eyelets.
               </p>
             </div>
-            <div className="bg-amber-50/40 border border-amber-200/60 p-6 text-xs text-amber-900 font-light leading-relaxed">
-              <h3 className="font-medium uppercase text-[11px] tracking-wider mb-2 text-amber-950">
+            <div className="bg-amber-950/20 border border-amber-500/30 p-6 text-xs text-amber-200 font-light leading-relaxed">
+              <h3 className="font-medium uppercase text-[11px] tracking-wider mb-2 text-amber-300">
                 Safety Caution
               </h3>
               <p>
@@ -171,32 +171,32 @@ function MaintenanceRepairPage() {
           <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
             Section 04 / Professional Services
           </span>
-          <h2 className="font-serif text-2xl font-light text-neutral-900 uppercase tracking-wider mt-2 mb-6">
+          <h2 className="font-serif text-2xl font-light text-white uppercase tracking-wider mt-2 mb-6">
             Professional Inspection &amp; Retensioning
           </h2>
-          <p className="text-xs md:text-sm text-neutral-700 font-light leading-relaxed mb-8">
+          <p className="text-xs md:text-sm text-neutral-300 font-light leading-relaxed mb-8">
             While {BRAND_CONFIG.name} invisible grills utilize mechanical dual-key tension locks
             designed for long-term tautness, structural building settling or exterior impact may
             warrant inspection. Our regional service technicians provide:
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-xs text-neutral-700 font-light">
-            <div className="border-t border-neutral-300 pt-4">
-              <span className="font-medium text-neutral-900 block mb-1">Tension Recalibration</span>
-              <p className="text-neutral-500">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-xs text-neutral-300 font-light">
+            <div className="border-t border-white/20 pt-4">
+              <span className="font-medium text-white block mb-1">Tension Recalibration</span>
+              <p className="text-neutral-400">
                 Precision retensioning of individual cable lines to restore uniform spacing.
               </p>
             </div>
-            <div className="border-t border-neutral-300 pt-4">
-              <span className="font-medium text-neutral-900 block mb-1">
+            <div className="border-t border-white/20 pt-4">
+              <span className="font-medium text-white block mb-1">
                 Single-Line Replacement
               </span>
-              <p className="text-neutral-500">
+              <p className="text-neutral-400">
                 Rapid replacement of isolated cables severed during emergency egress or civil work.
               </p>
             </div>
-            <div className="border-t border-neutral-300 pt-4">
-              <span className="font-medium text-neutral-900 block mb-1">Anchor Inspection</span>
-              <p className="text-neutral-500">
+            <div className="border-t border-white/20 pt-4">
+              <span className="font-medium text-white block mb-1">Anchor Inspection</span>
+              <p className="text-neutral-400">
                 Structural substrate testing and replacement of aged fasteners or track covers.
               </p>
             </div>
@@ -205,7 +205,7 @@ function MaintenanceRepairPage() {
           <div className="mt-12 text-center">
             <Link
               to="/consultation"
-              className="inline-flex items-center justify-center rounded-full border border-neutral-900 px-8 py-3.5 text-[11px] uppercase tracking-[0.25em] font-light hover:bg-neutral-900 hover:text-white transition-colors min-h-11 focus-ring"
+              className="sn-btn-luxury-solid"
             >
               Request Maintenance Visit →
             </Link>
@@ -218,3 +218,5 @@ function MaintenanceRepairPage() {
     </div>
   );
 }
+
+export default MaintenanceRepairPage;

@@ -99,19 +99,19 @@ function SafetyFaqPage() {
   };
 
   return (
-    <div className="bg-white text-neutral-900">
+    <div className="bg-[#050505] text-white min-h-screen">
       <SiteNav />
 
       {/* Hero */}
-      <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 bg-[#FAF9F6] border-b border-neutral-200">
+      <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 bg-[#050505] border-b border-white/10">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="sn-eyebrow text-neutral-500 mb-4">
+          <p className="sn-eyebrow text-neutral-400 mb-4">
             Engineering Knowledge
           </p>
-          <h1 className="sn-h1 text-neutral-900 mb-4">
+          <h1 className="sn-h1 text-white mb-4">
             Safety, Materials &amp; Architecture FAQ
           </h1>
-          <p className="sn-subtext text-neutral-600 max-w-2xl mx-auto">
+          <p className="sn-subtext text-neutral-300 max-w-2xl mx-auto">
             Clear, factual answers regarding materials, tensile behavior, emergency egress,
             warranties, and on-site installation processes.
           </p>
@@ -121,11 +121,11 @@ function SafetyFaqPage() {
       {/* FAQ Accordions */}
       <main className="max-w-4xl mx-auto px-6 md:px-12 py-16 md:py-24 space-y-16">
         {FAQ_SECTIONS.map((sec, secIdx) => (
-          <section key={sec.category} className="border-b border-neutral-200 pb-12">
+          <section key={sec.category} className="border-b border-white/10 pb-12">
             <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
               Category 0{secIdx + 1}
             </span>
-            <h2 className="font-serif text-2xl font-light text-neutral-900 uppercase tracking-wide mt-1 mb-8">
+            <h2 className="font-serif text-2xl font-light text-white uppercase tracking-wide mt-1 mb-8">
               {sec.category}
             </h2>
 
@@ -134,12 +134,12 @@ function SafetyFaqPage() {
                 const key = `${secIdx}-${faqIdx}`;
                 const isOpen = !!openItems[key];
                 return (
-                  <div key={faq.q} className="border border-neutral-200/80 bg-neutral-50/40">
+                  <div key={faq.q} className="border border-white/10 bg-white/[0.02]">
                     <button
                       type="button"
                       onClick={() => toggleItem(key)}
                       aria-expanded={isOpen}
-                      className="w-full p-6 text-left flex items-center justify-between gap-4 font-serif text-base md:text-lg font-light text-neutral-900 hover:bg-neutral-100/50 transition-colors focus-ring min-h-11"
+                      className="w-full p-6 text-left flex items-center justify-between gap-4 font-serif text-base md:text-lg font-light text-white hover:bg-white/[0.04] transition-colors focus-ring min-h-11"
                     >
                       <span>{faq.q}</span>
                       <span className="text-xl font-light text-neutral-400 shrink-0">
@@ -148,7 +148,7 @@ function SafetyFaqPage() {
                     </button>
 
                     {isOpen && (
-                      <div className="px-6 pb-6 pt-2 text-xs md:text-sm text-neutral-700 font-light leading-relaxed border-t border-neutral-100 bg-white">
+                      <div className="px-6 pb-6 pt-2 text-xs md:text-sm text-neutral-300 font-light leading-relaxed border-t border-white/10 bg-white/[0.01]">
                         {faq.a}
                       </div>
                     )}
@@ -161,16 +161,16 @@ function SafetyFaqPage() {
 
         {/* Still have questions */}
         <div className="text-center pt-8">
-          <h3 className="font-serif text-xl font-light text-neutral-900 uppercase tracking-wider mb-3">
+          <h3 className="font-serif text-xl font-light text-white uppercase tracking-wider mb-3">
             Have a Specific Architectural Query?
           </h3>
-          <p className="text-xs text-neutral-600 font-light mb-6">
+          <p className="text-xs text-neutral-400 font-light mb-6">
             Our regional safety advisors are available to review architectural drawings and site
             plans.
           </p>
           <Link
             to="/consultation"
-            className="inline-flex items-center justify-center rounded-full bg-neutral-900 text-white px-8 py-3.5 text-[11px] uppercase tracking-[0.25em] font-light hover:bg-neutral-800 transition-colors min-h-11 focus-ring"
+            className="sn-btn-luxury-solid"
           >
             Connect with an Advisor
           </Link>

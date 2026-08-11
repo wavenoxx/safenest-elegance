@@ -97,7 +97,7 @@ export function CinematicScrollway() {
         <Link
           key={index}
           to={slide.link}
-          className="sn-chanel-slide group relative w-full aspect-[2.39/1] min-h-[160px] sm:min-h-[220px] md:min-h-[280px] max-h-[380px] focus-ring border-b border-white/10 flex flex-col justify-end transition-colors duration-300 hover:bg-white/[0.01]"
+          className="sn-chanel-slide group relative w-full aspect-[2.39/1] focus-ring border-b border-white/10 flex flex-col justify-end transition-colors duration-300 hover:bg-white/[0.01]"
           aria-label={`${slide.action}: ${slide.descriptor} (${slide.title})`}
         >
           {/* Pure Black Visual Canvas with Subtle Architectural Depth */}

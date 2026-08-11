@@ -7,7 +7,7 @@ export function Footer() {
   const [showServiceArea, setShowServiceArea] = useState(false);
 
   return (
-    <footer style={{ backgroundColor: "#FDFCF7" }} className="border-t border-neutral-200">
+    <footer className="bg-[#050505] border-t border-white/10 text-white select-none">
       {/* SECTION 1: 4-COLUMN LINK GRID */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
@@ -20,7 +20,7 @@ export function Footer() {
                 fontSize: "11px",
                 fontWeight: 400,
                 letterSpacing: "0.25em",
-                color: "#737373",
+                color: "#a3a3a3",
               }}
             >
               Services
@@ -37,7 +37,7 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     to={item.to}
-                    className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
+                    className="text-neutral-400 hover:text-white hover:underline underline-offset-4 transition-colors focus-ring"
                     style={{
                       fontFamily: "'Inter', system-ui, sans-serif",
                       fontSize: "12px",
@@ -60,7 +60,7 @@ export function Footer() {
                 fontSize: "11px",
                 fontWeight: 400,
                 letterSpacing: "0.25em",
-                color: "#737373",
+                color: "#a3a3a3",
               }}
             >
               Customer Care
@@ -69,7 +69,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/consultation"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-neutral-400 hover:text-white hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -82,7 +82,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/warranty"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-neutral-400 hover:text-white hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -95,7 +95,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/safety-faq"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-neutral-400 hover:text-white hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -108,7 +108,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/material-standards"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-neutral-400 hover:text-white hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -121,7 +121,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/maintenance-repair"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-neutral-400 hover:text-white hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -143,7 +143,7 @@ export function Footer() {
                 fontSize: "11px",
                 fontWeight: 400,
                 letterSpacing: "0.25em",
-                color: "#737373",
+                color: "#a3a3a3",
               }}
             >
               The {BRAND_CONFIG.name} House
@@ -152,7 +152,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/our-story"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-neutral-400 hover:text-white hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -165,7 +165,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/craftsmanship"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-neutral-400 hover:text-white hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -178,7 +178,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/lifestyle"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-neutral-400 hover:text-white hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -191,7 +191,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/service-areas"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring font-medium"
+                  className="text-neutral-300 hover:text-white hover:underline underline-offset-4 transition-colors focus-ring font-medium"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -212,7 +212,7 @@ export function Footer() {
                 fontSize: "11px",
                 fontWeight: 400,
                 letterSpacing: "0.25em",
-                color: "#737373",
+                color: "#a3a3a3",
               }}
             >
               Legal &amp; Index
@@ -221,7 +221,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/terms"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-neutral-400 hover:text-white hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -234,7 +234,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/privacy"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-neutral-400 hover:text-white hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -247,7 +247,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/sitemap"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
+                  className="text-neutral-400 hover:text-white hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
@@ -263,7 +263,7 @@ export function Footer() {
       </div>
 
       {/* SECTION 2: CLIENT SERVICE & REGIONAL ADVISORY */}
-      <div className="border-t border-neutral-200">
+      <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {/* Direct Contact */}
@@ -275,23 +275,23 @@ export function Footer() {
                   fontSize: "11px",
                   fontWeight: 400,
                   letterSpacing: "0.25em",
-                  color: "#737373",
+                  color: "#a3a3a3",
                 }}
               >
                 Client Service &amp; Site Surveys
               </h4>
               <p
-                className="mb-4 text-xs font-light text-neutral-600 leading-relaxed"
+                className="mb-4 text-xs font-light text-neutral-300 leading-relaxed"
                 style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
               >
                 A safety advisor is available for scheduling on-site architectural measurements
                 across South India:
               </p>
-              <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-light text-neutral-800">
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-light text-neutral-300">
                 <a
                   href={`tel:${BRAND_CONFIG.contact.phoneDial}`}
                   onClick={() => trackEngagement("phone", "footer")}
-                  className="hover:underline underline-offset-4 font-normal text-neutral-900 focus-ring"
+                  className="hover:underline underline-offset-4 font-normal text-white focus-ring"
                 >
                   Call: {BRAND_CONFIG.contact.phoneDisplay}
                 </a>
@@ -300,14 +300,14 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEngagement("whatsapp", "footer")}
-                  className="hover:underline underline-offset-4 font-normal text-neutral-900 focus-ring"
+                  className="hover:underline underline-offset-4 font-normal text-white focus-ring"
                 >
                   WhatsApp: {BRAND_CONFIG.contact.whatsappDisplay}
                 </a>
                 <a
                   href={`mailto:${BRAND_CONFIG.contact.email}`}
                   onClick={() => trackEngagement("email", "footer")}
-                  className="hover:underline underline-offset-4 text-neutral-600 hover:text-neutral-900 focus-ring"
+                  className="hover:underline underline-offset-4 text-neutral-300 hover:text-white focus-ring"
                 >
                   Email: {BRAND_CONFIG.contact.email}
                 </a>
@@ -316,7 +316,7 @@ export function Footer() {
 
             {/* Quiet Brand Mission Statement */}
             <div className="md:text-right">
-              <p className="font-serif italic text-base md:text-lg text-neutral-800 font-light leading-relaxed">
+              <p className="font-serif italic text-base md:text-lg text-neutral-300 font-light leading-relaxed">
                 "The art of invisible protection — securing your sanctuary with quiet architectural
                 grace."
               </p>
@@ -329,7 +329,7 @@ export function Footer() {
       </div>
 
       {/* SECTION 3: SUB-BOTTOM BAR */}
-      <div className="border-t border-neutral-200 bg-[#FAF8F2]">
+      <div className="border-t border-white/10 bg-[#030303]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* SERVICE AREA */}
@@ -337,7 +337,7 @@ export function Footer() {
               <button
                 type="button"
                 onClick={() => setShowServiceArea(!showServiceArea)}
-                className="text-[11px] text-neutral-600 hover:text-neutral-950 font-light uppercase tracking-widest flex items-center gap-1.5 focus-ring cursor-pointer"
+                className="text-[11px] text-neutral-400 hover:text-white font-light uppercase tracking-widest flex items-center gap-1.5 focus-ring cursor-pointer"
                 style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
                 aria-expanded={showServiceArea}
               >
@@ -346,10 +346,10 @@ export function Footer() {
               </button>
               {showServiceArea && (
                 <div
-                  className="absolute bottom-full left-0 mb-2 w-80 bg-white border border-neutral-200 p-4 shadow-md text-xs font-light text-neutral-600 space-y-2 z-50"
+                  className="absolute bottom-full left-0 mb-2 w-80 bg-[#050505] border border-white/15 p-4 shadow-xl text-xs font-light text-neutral-300 space-y-2 z-50"
                   style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
                 >
-                  <p className="font-medium text-neutral-900 text-[11px] uppercase tracking-wider">
+                  <p className="font-medium text-white text-[11px] uppercase tracking-wider">
                     Operational Hubs
                   </p>
                   <p>• Telangana: Hyderabad &amp; Secunderabad</p>
@@ -357,10 +357,10 @@ export function Footer() {
                   <p>• Tamil Nadu: Chennai &amp; Coastal Corridor</p>
                   <p>• Kerala: Kochi &amp; Ernakulam</p>
                   <p>• Andhra Pradesh: Visakhapatnam &amp; Coastal Hubs</p>
-                  <div className="pt-2 border-t border-neutral-100">
+                  <div className="pt-2 border-t border-white/10">
                     <Link
                       to="/service-areas"
-                      className="text-[10px] uppercase tracking-wider text-neutral-900 underline underline-offset-4"
+                      className="text-[10px] uppercase tracking-wider text-white underline underline-offset-4"
                     >
                       View All Locality Details →
                     </Link>
@@ -371,7 +371,7 @@ export function Footer() {
 
             {/* COPYRIGHT */}
             <p
-              className="text-[10px] uppercase font-light text-neutral-500 tracking-[0.2em]"
+              className="text-[10px] uppercase font-light text-neutral-400 tracking-[0.2em]"
               style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
             >
               © {new Date().getFullYear()} {BRAND_CONFIG.name}. All Rights Reserved.
@@ -382,3 +382,5 @@ export function Footer() {
     </footer>
   );
 }
+
+export default Footer;

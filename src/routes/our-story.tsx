@@ -315,10 +315,7 @@ function StoryPage() {
               </Link>
             </div>
           </div>
-          <div
-            className="w-full relative z-10 bg-white transition-[filter] duration-700"
-            style={{ filter: activeIndex >= 7 ? "invert(1) hue-rotate(180deg)" : "none" }}
-          >
+          <div className="w-full relative z-10 bg-[#050505]">
             <Footer />
           </div>
         </section>

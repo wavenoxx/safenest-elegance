@@ -65,14 +65,14 @@ export const Route = createFileRoute("/service/$serviceId")({
   },
   component: ServicePage,
   notFoundComponent: () => (
-    <div className="min-h-screen flex items-center justify-center bg-white text-neutral-900">
+    <div className="min-h-screen flex items-center justify-center bg-[#050505] text-white">
       <div className="text-center">
-        <p className="text-sm tracking-widest font-light uppercase mb-4">Service not found</p>
+        <p className="text-sm tracking-widest font-light uppercase mb-4 text-neutral-400">Service not found</p>
         <Link
           to="/solutions"
-          className="inline-flex items-center justify-center rounded-full bg-neutral-900 text-white px-6 py-2.5 text-xs uppercase tracking-widest min-h-11 focus-ring"
+          className="sn-btn-luxury-solid"
         >
-          View All Solutions
+          View Solutions Explorer
         </Link>
       </div>
     </div>
@@ -109,7 +109,7 @@ function ServicePage() {
     .filter(Boolean);
 
   return (
-    <div className="min-h-screen flex flex-col text-neutral-900 bg-white">
+    <div className="min-h-screen flex flex-col text-white bg-[#050505]">
       <SiteNav />
 
       {/* Main Split Layout: Left Imagery / Right Sticky Architecture */}
@@ -126,7 +126,7 @@ function ServicePage() {
               ref={(el) => {
                 imgRefs.current[i] = el;
               }}
-              className="snap-start w-full h-[60vh] md:h-[calc(100vh-80px)] sn-black-visual border-b border-neutral-900"
+              className="snap-start w-full h-[60vh] md:h-[calc(100vh-80px)] sn-black-visual border-b border-white/10"
             >
               <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
             </div>
@@ -137,8 +137,8 @@ function ServicePage() {
             {service.images.map((_, i) => (
               <span
                 key={i}
-                className={`w-2.5 h-2.5 rounded-full border border-black transition-colors duration-300 ${
-                  active === i ? "bg-black" : "bg-transparent"
+                className={`w-2.5 h-2.5 rounded-full border border-white/60 transition-colors duration-300 ${
+                  active === i ? "bg-white" : "bg-transparent"
                 }`}
               />
             ))}
@@ -146,7 +146,7 @@ function ServicePage() {
         </div>
 
         {/* RIGHT: Sticky Architectural Specifications */}
-        <div className="w-full md:w-1/2 md:h-[calc(100vh-80px)] md:sticky md:top-[80px] overflow-y-auto flex flex-col justify-between p-8 md:p-14 border-l border-neutral-200 bg-white">
+        <div className="w-full md:w-1/2 md:h-[calc(100vh-80px)] md:sticky md:top-[80px] overflow-y-auto flex flex-col justify-between p-8 md:p-14 border-l border-white/10 bg-[#050505]">
           <div>
             {/* Breadcrumb Eyebrow */}
             <nav aria-label="Breadcrumb" className="mb-4">
@@ -154,34 +154,34 @@ function ServicePage() {
                 className="uppercase text-[9px] text-neutral-400 font-mono tracking-widest"
                 style={{ fontWeight: 300 }}
               >
-                <Link to="/" className="hover:text-black focus-ring">
+                <Link to="/" className="hover:text-white focus-ring">
                   HOME
                 </Link>{" "}
                 /{" "}
                 <Link
                   to="/category/$categoryId"
                   params={{ categoryId: service.category }}
-                  className="hover:text-black focus-ring"
+                  className="hover:text-white focus-ring"
                 >
                   {(category?.title ?? service.category).toUpperCase()}
                 </Link>{" "}
-                / <span className="text-neutral-700">{service.title.toUpperCase()}</span>
+                / <span className="text-neutral-300">{service.title.toUpperCase()}</span>
               </p>
             </nav>
 
             {/* Plain Factual H1 (Unified sn-h1) */}
-            <h1 className="sn-h1 text-neutral-900 mb-2">
+            <h1 className="sn-h1 text-white mb-2">
               {service.title}
             </h1>
 
             {/* Plain Service Descriptor */}
-            <p className="mt-2 text-xs md:text-sm font-light text-neutral-500 tracking-wide">
+            <p className="mt-2 text-xs md:text-sm font-light text-neutral-300 tracking-wide">
               {service.plainDescriptor}
             </p>
 
             {/* Price upon request & survey link */}
-            <div className="mt-4 pb-6 border-b border-neutral-200 flex items-center justify-between">
-              <span className="text-xs uppercase tracking-[0.2em] font-light text-neutral-600">
+            <div className="mt-4 pb-6 border-b border-white/10 flex items-center justify-between">
+              <span className="text-xs uppercase tracking-[0.2em] font-light text-neutral-400">
                 Custom Architectural Fabrication
               </span>
               <span className="text-[11px] text-neutral-400 font-light">
@@ -194,7 +194,7 @@ function ServicePage() {
               {service.detailParagraphs.map((p, i) => (
                 <p
                   key={i}
-                  className="text-[13px] font-light leading-relaxed text-neutral-700"
+                  className="text-[13px] font-light leading-relaxed text-neutral-300"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {p}
@@ -204,11 +204,11 @@ function ServicePage() {
 
             {/* Process Steps */}
             {service.processSteps && service.processSteps.length > 0 && (
-              <div className="mt-8 pt-6 border-t border-neutral-200">
+              <div className="mt-8 pt-6 border-t border-white/10">
                 <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase block mb-3">
                   Installation Sequence
                 </span>
-                <ol className="space-y-2 text-xs text-neutral-600 font-light list-decimal pl-4">
+                <ol className="space-y-2 text-xs text-neutral-300 font-light list-decimal pl-4">
                   {service.processSteps.map((step, idx) => (
                     <li key={idx} className="leading-relaxed">
                       {step}
@@ -226,30 +226,30 @@ function ServicePage() {
               {service.specs.map((sp) => (
                 <div
                   key={sp.label}
-                  className="border-t border-neutral-200 py-3.5 w-full flex justify-between gap-4 text-xs font-light"
+                  className="border-t border-white/10 py-3.5 w-full flex justify-between gap-4 text-xs font-light"
                 >
-                  <span className="uppercase text-neutral-500 tracking-wider text-[11px]">
+                  <span className="uppercase text-neutral-400 tracking-wider text-[11px]">
                     {sp.label}
                   </span>
-                  <span className="text-neutral-900 text-right font-medium text-[11.5px]">
+                  <span className="text-white text-right font-medium text-[11.5px]">
                     {sp.value}
                   </span>
                 </div>
               ))}
-              <div className="border-t border-neutral-200" />
+              <div className="border-t border-white/10" />
             </div>
 
             {/* Care & Warranty Deep Links */}
-            <div className="mt-6 flex flex-wrap gap-4 text-[10px] uppercase tracking-[0.2em] font-light text-neutral-600">
+            <div className="mt-6 flex flex-wrap gap-4 text-[10px] uppercase tracking-[0.2em] font-light text-neutral-400">
               <Link
                 to="/maintenance-repair"
-                className="hover:text-black underline underline-offset-4 focus-ring"
+                className="hover:text-white underline underline-offset-4 focus-ring"
               >
                 Care &amp; Cleaning Guide →
               </Link>
               <Link
                 to="/warranty"
-                className="hover:text-black underline underline-offset-4 focus-ring"
+                className="hover:text-white underline underline-offset-4 focus-ring"
               >
                 Written Warranty Matrix →
               </Link>
@@ -257,18 +257,17 @@ function ServicePage() {
           </div>
 
           {/* Survey CTA Action */}
-          <div className="mt-10 pt-6 border-t border-neutral-200 flex flex-col sm:flex-row gap-4">
+          <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-4">
             <Link
               to="/consultation"
               search={{ service: service.title }}
-              className="flex-1 inline-flex items-center justify-center rounded-full border border-neutral-900 px-6 py-3.5 text-[11px] uppercase tracking-[0.25em] bg-neutral-900 text-white hover:bg-neutral-800 transition-colors duration-300 min-h-11 focus-ring"
-              style={{ fontWeight: 300 }}
+              className="flex-1 sn-btn-luxury-solid text-center"
             >
               Request Laser Site Survey
             </Link>
             <Link
               to="/safety-faq"
-              className="inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3.5 text-[11px] uppercase tracking-[0.25em] text-neutral-800 hover:border-neutral-900 transition-colors duration-300 min-h-11 focus-ring"
+              className="inline-flex items-center justify-center border border-white/30 px-6 py-3.5 text-[11px] uppercase tracking-[0.25em] text-white hover:border-white transition-colors duration-300 min-h-11 focus-ring"
             >
               Safety FAQ
             </Link>
@@ -278,12 +277,12 @@ function ServicePage() {
 
       {/* Related System Configurations */}
       {relatedServices.length > 0 && (
-        <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24 border-t border-neutral-200">
+        <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24 border-t border-white/10">
           <div className="mb-8">
             <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
               Related Systems
             </span>
-            <h2 className="font-serif text-2xl font-light uppercase tracking-wide mt-1">
+            <h2 className="font-serif text-2xl font-light uppercase tracking-wide mt-1 text-white">
               Explore Complementary {category?.title}
             </h2>
           </div>
@@ -294,20 +293,20 @@ function ServicePage() {
                 key={rel.id}
                 to="/service/$serviceId"
                 params={{ serviceId: rel.id }}
-                className="border border-neutral-200 p-6 bg-white hover:border-neutral-900 transition-colors duration-300 group focus-ring min-h-11 flex flex-col justify-between"
+                className="border border-white/10 p-6 bg-white/[0.02] hover:border-white/40 transition-colors duration-300 group focus-ring min-h-11 flex flex-col justify-between"
               >
                 <div>
-                  <div className="aspect-[4/3] sn-black-visual mb-4 border border-neutral-200">
+                  <div className="aspect-[4/3] sn-black-visual mb-4 border border-white/10">
                     <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
                   </div>
-                  <h3 className="font-serif text-base font-light text-neutral-900 uppercase tracking-wide">
+                  <h3 className="font-serif text-base font-light text-white uppercase tracking-wide">
                     {rel.title}
                   </h3>
-                  <p className="text-xs text-neutral-500 font-light mt-1 line-clamp-2">
+                  <p className="text-xs text-neutral-400 font-light mt-1 line-clamp-2">
                     {rel.description}
                   </p>
                 </div>
-                <span className="mt-4 inline-block text-[10px] uppercase tracking-[0.2em] font-light text-neutral-900">
+                <span className="mt-4 inline-block text-[10px] uppercase tracking-[0.2em] font-light text-neutral-300">
                   View Specs →
                 </span>
               </Link>

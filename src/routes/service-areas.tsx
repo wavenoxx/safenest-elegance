@@ -128,19 +128,19 @@ const REGIONAL_HUBS = [
 
 function ServiceAreasPage() {
   return (
-    <div className="bg-white text-neutral-900">
+    <div className="bg-[#050505] text-white min-h-screen">
       <SiteNav />
 
       {/* Hero */}
-      <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 bg-[#FAF9F6] border-b border-neutral-200">
+      <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 bg-[#050505] border-b border-white/10">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="sn-eyebrow text-neutral-500 mb-4">
+          <p className="sn-eyebrow text-neutral-400 mb-4">
             Regional Coverage
           </p>
-          <h1 className="sn-h1 text-neutral-900 mb-4">
+          <h1 className="sn-h1 text-white mb-4">
             Verified Service Areas
           </h1>
-          <p className="sn-subtext text-neutral-600 max-w-2xl mx-auto">
+          <p className="sn-subtext text-neutral-300 max-w-2xl mx-auto">
             {BRAND_CONFIG.name} deploys trained master technicians and digital laser survey teams
             across major metropolitan and coastal hubs in South India.
           </p>
@@ -152,36 +152,36 @@ function ServiceAreasPage() {
         {REGIONAL_HUBS.map((hub, idx) => (
           <article
             key={hub.city}
-            className="border border-neutral-200 p-8 md:p-12 bg-white hover:border-neutral-400 transition-colors duration-300"
+            className="border border-white/10 p-8 md:p-12 bg-white/[0.02] hover:border-white/30 transition-colors duration-300"
           >
-            <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2 border-b border-neutral-200 pb-6 mb-6">
+            <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2 border-b border-white/10 pb-6 mb-6">
               <div>
                 <span className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
                   Hub 0{idx + 1}
                 </span>
-                <h2 className="font-serif text-2xl md:text-3xl font-light text-neutral-900 uppercase tracking-wide mt-1">
+                <h2 className="font-serif text-2xl md:text-3xl font-light text-white uppercase tracking-wide mt-1">
                   {hub.city}
                 </h2>
               </div>
-              <span className="text-[11px] uppercase tracking-[0.2em] text-neutral-500 font-light">
+              <span className="text-[11px] uppercase tracking-[0.2em] text-neutral-400 font-light">
                 {hub.tag}
               </span>
             </div>
 
-            <p className="text-sm text-neutral-700 font-light leading-relaxed mb-6">
+            <p className="text-sm text-neutral-300 font-light leading-relaxed mb-6">
               {hub.description}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs font-light">
               <div>
-                <h3 className="font-medium text-neutral-900 uppercase tracking-wider mb-3">
+                <h3 className="font-medium text-white uppercase tracking-wider mb-3">
                   Key Service Localities
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {hub.neighborhoods.map((n) => (
                     <span
                       key={n}
-                      className="inline-block bg-neutral-100 text-neutral-700 px-3 py-1.5 text-[11px] border border-neutral-200/60"
+                      className="inline-block bg-white/[0.04] text-neutral-300 px-3 py-1.5 text-[11px] border border-white/10"
                     >
                       {n}
                     </span>
@@ -189,17 +189,17 @@ function ServiceAreasPage() {
                 </div>
               </div>
 
-              <div className="bg-neutral-50 p-6 border border-neutral-200/60 flex flex-col justify-between">
+              <div className="bg-white/[0.02] p-6 border border-white/10 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-medium text-neutral-900 uppercase tracking-wider mb-2">
+                  <h3 className="font-medium text-white uppercase tracking-wider mb-2">
                     Regional Climate &amp; Material Note
                   </h3>
-                  <p className="text-neutral-600 leading-relaxed">{hub.climateNotes}</p>
+                  <p className="text-neutral-400 leading-relaxed">{hub.climateNotes}</p>
                 </div>
-                <div className="mt-6 pt-4 border-t border-neutral-200">
+                <div className="mt-6 pt-4 border-t border-white/10">
                   <Link
                     to="/consultation"
-                    className="text-[10px] uppercase tracking-[0.2em] font-light text-neutral-900 hover:underline underline-offset-4 focus-ring"
+                    className="text-[10px] uppercase tracking-[0.2em] font-light text-neutral-300 hover:text-white hover:underline underline-offset-4 focus-ring"
                   >
                     Schedule Survey in {hub.city.split(" ")[0]} →
                   </Link>

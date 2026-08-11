@@ -163,7 +163,7 @@ function RootShell({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <html lang="en">
+    <html lang="en" style={{ backgroundColor: "#050505", color: "#ffffff" }} className="bg-[#050505]">
       <head>
         <HeadContent />
         {/* Google tag (gtag.js) */}
@@ -181,7 +181,7 @@ function RootShell({ children }: { children: ReactNode }) {
           }}
         />
       </head>
-      <body>
+      <body style={{ backgroundColor: "#050505", color: "#ffffff" }} className="bg-[#050505] text-white selection:bg-white/20">
         {children}
         <ConsentBanner />
         <Scripts />

@@ -115,7 +115,7 @@ function RevealSection({ image, quote }: { image: string; quote: string }) {
 
 function CampaignOne() {
   return (
-    <div className="relative bg-white text-black">
+    <div className="relative bg-[#050505] text-white min-h-screen">
       <style>{`
         @keyframes strum {
           0%, 100% { transform: translateX(0) scaleX(1); filter: drop-shadow(0 0 0px rgba(251,191,36,0)); }
@@ -136,14 +136,14 @@ function CampaignOne() {
         <div className="absolute inset-0 w-full h-full bg-radial from-neutral-900/25 to-[#050505]" />
       </section>
 
-      <section className="py-20 px-6 max-w-3xl mx-auto text-center bg-white">
+      <section className="py-20 px-6 max-w-3xl mx-auto text-center">
         <span className="font-sans text-[10px] tracking-[0.25em] text-neutral-400 mb-4 uppercase font-light block">
           The Edit
         </span>
-        <span className="font-serif text-2xl md:text-3xl font-light tracking-[0.15em] text-black mb-6 uppercase block">
+        <span className="font-serif text-2xl md:text-3xl font-light tracking-[0.15em] text-white mb-6 uppercase block">
           Light &amp; Sanctuary
         </span>
-        <p className="text-[13px] md:text-[14px] leading-relaxed text-neutral-600 font-light max-w-2xl mx-auto">
+        <p className="text-[13px] md:text-[14px] leading-relaxed text-neutral-300 font-light max-w-2xl mx-auto">
           An exploration of architectural lightness. At {BRAND_CONFIG.name}, we believe security
           should enhance your view, not hide it. Our campaign captures the dialogue between open
           spaces and unyielding invisible protection. Natural light and airy proportions run through
@@ -155,13 +155,13 @@ function CampaignOne() {
         <RevealSection key={i} image={s.image} quote={s.quote} />
       ))}
 
-      <section className="py-24 bg-neutral-50 flex flex-col items-center justify-center text-center px-6">
-        <h2 className="font-serif text-2xl md:text-3xl font-light tracking-[0.15em] text-neutral-900 mb-8 uppercase">
+      <section className="py-24 bg-white/[0.02] border-t border-white/10 flex flex-col items-center justify-center text-center px-6">
+        <h2 className="font-serif text-2xl md:text-3xl font-light tracking-[0.15em] text-white mb-8 uppercase">
           Curate Your Sanctuary
         </h2>
         <Link
           to="/consultation"
-          className="px-8 py-4 border border-neutral-800 text-[10px] tracking-[0.2em] font-sans font-light uppercase hover:bg-neutral-900 hover:text-white transition-all duration-300 rounded-none bg-transparent"
+          className="sn-btn-luxury-solid"
         >
           Request Survey
         </Link>

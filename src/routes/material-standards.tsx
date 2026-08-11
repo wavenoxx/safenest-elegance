@@ -18,25 +18,25 @@ export const Route = createFileRoute("/material-standards")({
 
 function MaterialStandardsPage() {
   return (
-    <div className="bg-white text-neutral-900 min-h-screen flex flex-col">
+    <div className="bg-[#050505] text-white min-h-screen flex flex-col">
       <SiteNav />
 
       <main className="flex-1 max-w-5xl mx-auto px-6 md:px-12 pt-32 pb-24">
-        <header className="mb-12 pb-8 border-b border-neutral-200">
+        <header className="mb-12 pb-8 border-b border-white/10">
           <p className="sn-eyebrow text-neutral-400 mb-3">
             Engineering Governance
           </p>
-          <h1 className="sn-h1 text-neutral-950">
+          <h1 className="sn-h1 text-white">
             Material Standards &amp; Tolerances
           </h1>
-          <p className="sn-subtext text-neutral-500 mt-3">
+          <p className="sn-subtext text-neutral-400 mt-3">
             Architectural integrity through verified metallurgical and polymer specifications.
           </p>
         </header>
 
-        <section className="space-y-12 text-sm font-light leading-relaxed text-neutral-700">
-          <div className="border-t border-neutral-200 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <h2 className="text-base uppercase tracking-widest font-normal text-neutral-950">
+        <section className="space-y-12 text-xs md:text-sm font-light leading-relaxed text-neutral-300">
+          <div className="border-t border-white/10 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <h2 className="text-base uppercase tracking-widest font-normal text-white">
               01. AISI 316 Stainless Steel
             </h2>
             <div className="md:col-span-2 space-y-3">
@@ -46,15 +46,15 @@ function MaterialStandardsPage() {
                 provides superior resistance to chloride pitting and crevice corrosion compared to
                 standard 304 stainless steel.
               </p>
-              <p className="text-xs text-neutral-500">
+              <p className="text-xs text-neutral-400">
                 Ideal for high-humidity coastal and urban environments including Hyderabad,
                 Bengaluru, Chennai, Visakhapatnam, and Kochi.
               </p>
             </div>
           </div>
 
-          <div className="border-t border-neutral-200 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <h2 className="text-base uppercase tracking-widest font-normal text-neutral-950">
+          <div className="border-t border-white/10 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <h2 className="text-base uppercase tracking-widest font-normal text-white">
               02. Nylon-12 Translucent Sheathing
             </h2>
             <div className="md:col-span-2 space-y-3">
@@ -67,8 +67,8 @@ function MaterialStandardsPage() {
             </div>
           </div>
 
-          <div className="border-t border-neutral-200 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <h2 className="text-base uppercase tracking-widest font-normal text-neutral-950">
+          <div className="border-t border-white/10 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <h2 className="text-base uppercase tracking-widest font-normal text-white">
               03. 6063-T6 Structural Aluminum Profiles
             </h2>
             <div className="md:col-span-2 space-y-3">
@@ -80,8 +80,8 @@ function MaterialStandardsPage() {
             </div>
           </div>
 
-          <div className="border-t border-neutral-200 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <h2 className="text-base uppercase tracking-widest font-normal text-neutral-950">
+          <div className="border-t border-white/10 pt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <h2 className="text-base uppercase tracking-widest font-normal text-white">
               04. Virgin High-Density Polyethylene (HDPE)
             </h2>
             <div className="md:col-span-2 space-y-3">
@@ -95,12 +95,12 @@ function MaterialStandardsPage() {
           </div>
         </section>
 
-        <div className="mt-14 pt-8 border-t border-neutral-200 text-center">
+        <div className="mt-14 pt-8 border-t border-white/10 text-center">
           <Link
             to="/craftsmanship"
-            className="inline-flex items-center justify-center rounded-full border border-neutral-900 text-neutral-900 px-10 py-3.5 text-[11px] uppercase tracking-[0.25em] font-light hover:bg-neutral-900 hover:text-white transition-colors min-h-11 focus-ring"
+            className="sn-btn-luxury-solid"
           >
-            Explore The Craftsmanship
+            Explore Craftsmanship Protocol →
           </Link>
         </div>
       </main>

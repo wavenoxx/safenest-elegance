@@ -105,7 +105,7 @@ function SolutionsExplorer() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#050505] text-white min-h-screen">
       <SiteNav />
       <style>{`
         @keyframes luxuryBreath {
@@ -119,7 +119,7 @@ function SolutionsExplorer() {
 
       {/* Mobile Magazine Lookbook */}
       <div
-        className="block md:hidden h-[100dvh] w-full overflow-y-scroll snap-y snap-mandatory relative bg-neutral-950"
+        className="block md:hidden h-[100dvh] w-full overflow-y-scroll snap-y snap-mandatory relative bg-[#050505]"
         onScroll={(e) => {
           const index = Math.round(e.currentTarget.scrollTop / window.innerHeight);
           if (index !== activeMobileIndex) setActiveMobileIndex(index);
@@ -128,19 +128,12 @@ function SolutionsExplorer() {
         {columns.map((col, index) => (
           <section
             key={col.id}
-            className="w-full h-[100dvh] snap-start relative flex flex-col justify-between p-6 overflow-hidden select-none bg-neutral-950"
+            className="w-full h-[100dvh] snap-start relative flex flex-col justify-between p-6 overflow-hidden select-none bg-[#050505]"
           >
             <div className="absolute inset-0 overflow-hidden sn-black-visual">
               <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(circle at 80% 15%, rgba(255,220,170,0.18) 0%, rgba(255,220,170,0) 45%)",
-              }}
-            />
 
             <div className="relative z-10 w-full mt-auto pb-10 flex flex-col items-start text-white">
               <span className="font-sans text-[9px] tracking-[0.25em] text-neutral-400 mb-1 uppercase font-light">
@@ -182,7 +175,7 @@ function SolutionsExplorer() {
       </div>
 
       {/* Desktop Shoji Accordion Layout */}
-      <div className="hidden md:flex w-full h-screen overflow-hidden bg-white flex-row relative font-sans">
+      <div className="hidden md:flex w-full h-screen overflow-hidden bg-[#050505] flex-row relative font-sans">
         {columns.map((col, i) => {
           const active = hoveredIndex === i;
           return (
@@ -190,29 +183,22 @@ function SolutionsExplorer() {
               key={col.id}
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className={`w-full ${widthClass(i)} transition-all duration-[1000ms] ease-out relative flex flex-col justify-between overflow-hidden p-8 border-r border-neutral-100`}
+              className={`w-full ${widthClass(i)} transition-all duration-[1000ms] ease-out relative flex flex-col justify-between overflow-hidden p-8 border-r border-white/10 bg-[#050505]`}
             >
               <div className="absolute inset-0 w-full h-full sn-black-visual">
                 <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
               </div>
-              <div
-                className="absolute inset-0 transition-opacity duration-[1000ms]"
-                style={{
-                  backgroundColor: col.color,
-                  opacity: active ? 0.3 : 0.1,
-                }}
-              />
-              <div className="absolute inset-0 bg-white/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
 
               <div className="relative z-10 flex flex-col h-full justify-between">
                 <div>
                   <p
-                    className="text-[10px] uppercase tracking-[0.3em] text-neutral-600 mb-3"
+                    className="text-[10px] uppercase tracking-[0.3em] text-neutral-400 mb-3"
                     style={{ fontWeight: 300 }}
                   >
                     Category
                   </p>
-                  <h2 className="font-serif text-xl tracking-[0.15em] text-neutral-900 mb-6 uppercase">
+                  <h2 className="font-serif text-xl tracking-[0.15em] text-white mb-6 uppercase">
                     {col.title}
                   </h2>
                 </div>
@@ -228,7 +214,7 @@ function SolutionsExplorer() {
                         key={s.slug}
                         to="/service/$serviceId"
                         params={{ serviceId: s.slug }}
-                        className="text-[12px] font-light text-neutral-800 tracking-wider hover:text-black block mb-4 underline decoration-[0.5px] underline-offset-4 focus-ring"
+                        className="text-[12px] font-light text-neutral-300 tracking-wider hover:text-white block mb-4 underline decoration-[0.5px] underline-offset-4 focus-ring"
                       >
                         {s.label}
                       </Link>
@@ -239,7 +225,7 @@ function SolutionsExplorer() {
                 <Link
                   to="/category/$categoryId"
                   params={{ categoryId: col.id }}
-                  className="relative z-10 text-[10px] uppercase tracking-[0.25em] text-neutral-700 hover:text-black mt-6 focus-ring"
+                  className="relative z-10 text-[10px] uppercase tracking-[0.25em] text-neutral-400 hover:text-white mt-6 focus-ring"
                 >
                   View Category →
                 </Link>

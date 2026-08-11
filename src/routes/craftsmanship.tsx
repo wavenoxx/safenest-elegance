@@ -49,7 +49,7 @@ const specs = [
 
 function CraftsmanshipPage() {
   return (
-    <div className="bg-white text-black">
+    <div className="bg-[#050505] text-white min-h-screen">
       <SiteNav />
 
       {/* Hero Visual (Pure Black Canvas) */}
@@ -58,14 +58,14 @@ function CraftsmanshipPage() {
       </section>
 
       {/* Editorial Header */}
-      <section className="py-16 px-8 md:py-24 max-w-3xl mx-auto text-center bg-white">
+      <section className="py-16 px-8 md:py-24 max-w-3xl mx-auto text-center">
         <p className="sn-eyebrow text-neutral-400 mb-4">
           The Craftsmanship
         </p>
-        <h1 className="sn-h1 text-neutral-950 mb-6">
+        <h1 className="sn-h1 text-white mb-6">
           Precision Engineering, Architectural Strength
         </h1>
-        <p className="font-serif italic text-lg md:text-xl text-neutral-700 leading-relaxed font-light">
+        <p className="font-serif italic text-lg md:text-xl text-neutral-300 leading-relaxed font-light">
           "High-tensile marine grade elements, engineered to disappear."
         </p>
       </section>
@@ -73,16 +73,10 @@ function CraftsmanshipPage() {
       {/* Technical Ledger */}
       <section className="max-w-6xl mx-auto px-6 md:px-12 pt-20 md:pt-28">
         <div className="text-center mb-12">
-          <p
-            className="uppercase text-[10px] tracking-[0.3em] text-neutral-500"
-            style={{ fontWeight: 300 }}
-          >
+          <p className="sn-eyebrow text-neutral-400">
             The Technical Ledger
           </p>
-          <h2
-            className="font-display mt-3 text-[24px] md:text-[28px] tracking-[0.15em] uppercase"
-            style={{ fontWeight: 300 }}
-          >
+          <h2 className="sn-h1 text-white mt-3 mb-2">
             Materials of Consequence
           </h2>
         </div>
@@ -90,26 +84,17 @@ function CraftsmanshipPage() {
         {ledger.map((b) => (
           <div
             key={b.title}
-            className="border-t border-neutral-200 py-12 px-2 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="border-t border-white/10 py-12 px-2 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-8"
           >
             <div>
-              <p
-                className="uppercase text-[10px] tracking-[0.3em] text-neutral-500"
-                style={{ fontWeight: 300 }}
-              >
+              <p className="sn-eyebrow text-neutral-400">
                 {b.eyebrow}
               </p>
-              <h3
-                className="font-display mt-4 uppercase text-[24px] md:text-[28px] tracking-[0.15em]"
-                style={{ fontWeight: 300 }}
-              >
+              <h3 className="font-serif text-lg md:text-xl font-light text-white uppercase tracking-wider mt-3">
                 {b.title}
               </h3>
             </div>
-            <p
-              className="text-[15px] leading-[1.9] font-light tracking-wide"
-              style={{ color: "#333" }}
-            >
+            <p className="text-sm md:text-[15px] leading-relaxed text-neutral-300 font-light tracking-wide">
               {b.copy}
             </p>
           </div>
@@ -117,41 +102,29 @@ function CraftsmanshipPage() {
       </section>
 
       {/* Specs Grid */}
-      <section className="bg-neutral-50 mt-20 md:mt-28 py-20 md:py-28">
+      <section className="bg-neutral-950 mt-20 md:mt-28 py-20 md:py-28 border-t border-b border-white/10">
         <div className="max-w-6xl mx-auto px-6 md:px-12">
           <div className="text-center mb-14">
-            <p
-              className="uppercase text-[10px] tracking-[0.3em] text-neutral-500"
-              style={{ fontWeight: 300 }}
-            >
+            <p className="sn-eyebrow text-neutral-400">
               Tolerances
             </p>
-            <h2
-              className="font-display mt-3 text-[24px] md:text-[28px] tracking-[0.15em] uppercase"
-              style={{ fontWeight: 300 }}
-            >
+            <h2 className="sn-h1 text-white mt-3">
               Specifications
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-neutral-200">
+          <div className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-white/10">
             {specs.map((s) => (
               <div
                 key={s.label}
-                className="border-r border-b border-neutral-200 p-8 text-center bg-white"
+                className="border-r border-b border-white/10 p-8 text-center bg-[#050505]"
               >
-                <p
-                  className="uppercase text-[9px] tracking-[0.3em] text-neutral-500"
-                  style={{ fontWeight: 300 }}
-                >
+                <p className="sn-eyebrow text-neutral-400">
                   {s.label}
                 </p>
-                <p
-                  className="font-display mt-4 text-[26px] tracking-wide"
-                  style={{ fontWeight: 300 }}
-                >
+                <p className="font-serif text-2xl md:text-3xl text-white font-light mt-4 tracking-wide">
                   {s.value}
                 </p>
-                <p className="mt-2 text-[11px] font-light tracking-wide" style={{ color: "#888" }}>
+                <p className="mt-2 text-[11px] font-light text-neutral-400 tracking-wide">
                   {s.note}
                 </p>
               </div>
@@ -161,28 +134,21 @@ function CraftsmanshipPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-28 border-t border-neutral-200">
+      <section className="py-20 md:py-28 border-t border-white/10">
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <p
-            className="uppercase text-[10px] tracking-[0.3em] text-neutral-500"
-            style={{ fontWeight: 300 }}
-          >
+          <p className="sn-eyebrow text-neutral-400">
             By Appointment
           </p>
-          <h2
-            className="font-display mt-4 text-[28px] md:text-[34px] tracking-[0.12em] uppercase"
-            style={{ fontWeight: 300 }}
-          >
+          <h2 className="sn-h1 text-white mt-4 mb-4">
             Inspect Your Space
           </h2>
-          <p className="mt-6 text-sm font-light leading-relaxed" style={{ color: "#555" }}>
+          <p className="sn-subtext text-neutral-300 max-w-md mx-auto mb-8">
             A safety advisor will visit your residence, conduct precision site measurements, and
             propose an installation tailored to your architecture.
           </p>
           <Link
             to="/consultation"
-            className="inline-flex items-center justify-center mt-10 rounded-full border border-black px-10 py-3 text-[11px] uppercase tracking-[0.25em] bg-transparent text-black hover:bg-black hover:text-white transition-colors duration-300 min-h-11 focus-ring"
-            style={{ fontWeight: 300 }}
+            className="sn-btn-luxury-solid"
           >
             Request Bespoke Measurement
           </Link>

@@ -18,7 +18,7 @@ export const Route = createFileRoute("/campaigns/weightless-pavilion")({
 
 function WeightlessPavilion() {
   return (
-    <div className="bg-white text-black min-h-screen">
+    <div className="bg-[#050505] text-white min-h-screen">
       <SiteNav />
       <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden sn-black-visual">
         <div className="absolute inset-0 w-full h-full bg-radial from-neutral-900/25 to-[#050505]" />
@@ -31,13 +31,13 @@ function WeightlessPavilion() {
         </div>
       </section>
       <section className="max-w-2xl mx-auto px-6 py-20 text-center">
-        <p className="font-serif italic text-lg md:text-xl font-light text-neutral-700 leading-relaxed">
+        <p className="font-serif italic text-lg md:text-xl font-light text-neutral-300 leading-relaxed">
           A meditation on tension, transparency, and the architecture of safety — coming soon to the{" "}
           {BRAND_CONFIG.name} journal.
         </p>
         <Link
           to="/solutions"
-          className="inline-block mt-10 text-xs font-light tracking-[0.2em] uppercase underline underline-offset-4 decoration-1 opacity-70 hover:opacity-100 transition-opacity"
+          className="inline-block mt-10 text-xs font-light tracking-[0.2em] uppercase underline underline-offset-4 decoration-1 text-neutral-300 hover:text-white transition-colors"
         >
           Explore Our Solutions →
         </Link>

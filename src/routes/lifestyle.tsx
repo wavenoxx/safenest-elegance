@@ -43,7 +43,7 @@ const pillars = [
 
 function LifestylePage() {
   return (
-    <div className="bg-white text-black">
+    <div className="bg-[#050505] text-white min-h-screen">
       <SiteNav />
 
       {/* Hero Visual (Pure Black Canvas) */}
@@ -52,14 +52,14 @@ function LifestylePage() {
       </section>
 
       {/* Editorial Header */}
-      <section className="py-16 px-8 md:py-24 max-w-3xl mx-auto text-center bg-white">
+      <section className="py-16 px-8 md:py-24 max-w-3xl mx-auto text-center">
         <p className="sn-eyebrow text-neutral-400 mb-4">
           The Lifestyle
         </p>
-        <h1 className="sn-h1 text-neutral-950 mb-6">
+        <h1 className="sn-h1 text-white mb-6">
           Living Without Hesitation
         </h1>
-        <p className="font-serif italic text-lg md:text-xl text-neutral-700 leading-relaxed font-light">
+        <p className="font-serif italic text-lg md:text-xl text-neutral-300 leading-relaxed font-light">
           "Breathtaking views, enjoyed in absolute peace of mind."
         </p>
       </section>
@@ -72,26 +72,17 @@ function LifestylePage() {
               key={p.title}
               className={`grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center ${p.reverse ? "md:[&>*:first-child]:order-2" : ""}`}
             >
-              <div className="sn-luxury-frame aspect-[3/4] sn-black-visual border border-neutral-200">
+              <div className="sn-luxury-frame aspect-[3/4] sn-black-visual border border-white/10">
                 <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
               </div>
               <div className="px-2 md:px-8">
-                <p
-                  className="uppercase text-[10px] tracking-[0.3em] text-neutral-500"
-                  style={{ fontWeight: 300 }}
-                >
+                <p className="sn-eyebrow text-neutral-400">
                   {p.eyebrow}
                 </p>
-                <h2
-                  className="font-display uppercase mt-4 text-[22px] md:text-[26px] tracking-[0.15em]"
-                  style={{ fontWeight: 300 }}
-                >
+                <h2 className="font-serif uppercase mt-4 text-xl md:text-2xl tracking-wider text-white font-light">
                   {p.title}
                 </h2>
-                <p
-                  className="mt-6 text-[15px] leading-[1.9] font-light tracking-wide"
-                  style={{ color: "#333" }}
-                >
+                <p className="mt-6 text-sm md:text-[15px] leading-relaxed font-light text-neutral-300 tracking-wide">
                   {p.copy}
                 </p>
               </div>
@@ -101,28 +92,21 @@ function LifestylePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-28 border-t border-neutral-200">
+      <section className="py-20 md:py-28 border-t border-white/10">
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <p
-            className="uppercase text-[10px] tracking-[0.3em] text-neutral-500"
-            style={{ fontWeight: 300 }}
-          >
+          <p className="sn-eyebrow text-neutral-400">
             An Invitation
           </p>
-          <h2
-            className="font-display mt-4 text-[28px] md:text-[34px] tracking-[0.12em] uppercase"
-            style={{ fontWeight: 300 }}
-          >
+          <h2 className="sn-h1 text-white mt-4 mb-4">
             Curate Your Sanctuary
           </h2>
-          <p className="mt-6 text-sm font-light leading-relaxed" style={{ color: "#555" }}>
+          <p className="sn-subtext text-neutral-300 max-w-md mx-auto mb-8">
             Begin a private survey of your space. Our advisors will compose a protection plan worthy
             of the home you've built.
           </p>
           <Link
             to="/consultation"
-            className="inline-flex items-center justify-center mt-10 rounded-full border border-black px-10 py-3 text-[11px] uppercase tracking-[0.25em] bg-transparent text-black hover:bg-black hover:text-white transition-colors duration-300"
-            style={{ fontWeight: 300 }}
+            className="sn-btn-luxury-solid"
           >
             Begin Survey
           </Link>

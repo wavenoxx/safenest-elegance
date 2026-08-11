@@ -75,10 +75,8 @@ function CampaignThree() {
     return `M ${defaultX} ${yRail} L ${clampedX} ${yFloor}`;
   };
 
-  const wires = Array.from({ length: 15 }, (_, i) => 250 + (i * 500) / 14);
-
-  return (
-    <div className="relative w-full min-h-screen bg-[#FAF9F6] text-neutral-900 select-none overflow-x-hidden font-sans">
+  const wires = Array.from({ length: 15 }, (_, i) => 250 + (i * 500) / 14);  return (
+    <div className="relative w-full min-h-screen bg-[#050505] text-white select-none overflow-x-hidden font-sans">
       <style>{`
         @keyframes breath {
           0%, 100% { transform: scale(1.02); }
@@ -115,16 +113,16 @@ function CampaignThree() {
         </div>
       </div>
 
-      {/* 2. EXPERIENCE 01 — CELESTIAL SKYDECK */}
-      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-28">
+      {/* 2. EXPERIENCE 01 — THE CELESTIAL SKYDECK */}
+      <section className="max-w-7xl mx-auto px-6 md:px-12 py-24">
         <div className="text-center mb-14">
-          <span className="font-sans text-[9px] tracking-[0.3em] text-[#767676] uppercase font-light">
+          <span className="font-sans text-[9px] tracking-[0.3em] text-neutral-400 uppercase font-light">
             INTERACTIVE EXPERIENCE 01
           </span>
-          <h2 className="font-serif text-lg md:text-2xl font-light tracking-[0.15em] uppercase whitespace-nowrap text-center mt-4 mb-5">
+          <h2 className="font-serif text-lg md:text-2xl font-light tracking-[0.15em] uppercase whitespace-nowrap text-center mt-4 mb-5 text-white">
             THE CELESTIAL SKYDECK
           </h2>
-          <p className="font-serif italic text-sm md:text-base text-neutral-600 font-light max-w-xl mx-auto">
+          <p className="font-serif italic text-sm md:text-base text-neutral-300 font-light max-w-xl mx-auto">
             Move your cursor across the window deck. Your cursor acts as a sunlight source,
             projecting dynamic angles of safety lines on the floor.
           </p>
@@ -133,7 +131,7 @@ function CampaignThree() {
         <div
           ref={shadowContainerRef}
           onMouseMove={handleMouseMove}
-          className="relative w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-neutral-900 cursor-crosshair"
+          className="relative w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-neutral-900 cursor-crosshair border border-white/10"
         >
           <div className="absolute inset-0 w-full h-full sn-black-visual opacity-90">
             <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
@@ -176,7 +174,7 @@ function CampaignThree() {
       </section>
 
       {/* 3. EXPERIENCE 02 — GUARDIAN PROMISE */}
-      <section className="w-full bg-neutral-950 text-white py-28">
+      <section className="w-full bg-neutral-950 text-white py-28 border-t border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-14">
             <span className="font-sans text-[9px] tracking-[0.3em] text-neutral-400 uppercase font-light">
@@ -261,16 +259,16 @@ function CampaignThree() {
       </section>
 
       {/* 4. EXPERIENCE 03 — HORIZON PORTAL */}
-      <section className="w-full bg-[#FAF9F6] py-28">
+      <section className="w-full bg-[#050505] py-28 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-14">
-            <span className="font-sans text-[9px] tracking-[0.3em] text-[#767676] uppercase font-light">
+            <span className="font-sans text-[9px] tracking-[0.3em] text-neutral-400 uppercase font-light">
               INTERACTIVE EXPERIENCE 03
             </span>
-            <h2 className="font-serif text-lg md:text-2xl font-light tracking-[0.15em] uppercase whitespace-nowrap text-center mt-4 mb-5">
+            <h2 className="font-serif text-lg md:text-2xl font-light tracking-[0.15em] uppercase whitespace-nowrap text-center mt-4 mb-5 text-white">
               THE HORIZON PORTAL
             </h2>
-            <p className="font-serif italic text-sm md:text-base text-neutral-600 font-light max-w-xl mx-auto">
+            <p className="font-serif italic text-sm md:text-base text-neutral-300 font-light max-w-xl mx-auto">
               Adjust the viewport layer selector to examine how {BRAND_CONFIG.name} integrates
               safety grids and insect screening without compromising your view.
             </p>
@@ -290,7 +288,7 @@ function CampaignThree() {
                     className={`w-full text-left p-4 border transition-all duration-500 rounded-none bg-transparent cursor-pointer font-sans text-[10px] tracking-[0.25em] uppercase font-light ${
                       viewportState === btn.state
                         ? "border-[#C5A880] text-[#C5A880] bg-[#C5A880]/5"
-                        : "border-neutral-300 text-neutral-700 hover:border-neutral-500"
+                        : "border-white/15 text-neutral-300 hover:border-white/40"
                     }`}
                   >
                     {btn.label}
@@ -337,16 +335,16 @@ function CampaignThree() {
       </section>
 
       {/* 5. CTA */}
-      <div className="py-28 bg-[#FAF9F6] w-full flex flex-col items-center justify-center text-center px-6 border-t border-[#C5A880]/15">
-        <span className="font-sans text-[9px] tracking-[0.3em] text-[#767676] mb-4 uppercase font-light">
+      <div className="py-28 bg-[#050505] w-full flex flex-col items-center justify-center text-center px-6">
+        <span className="font-sans text-[9px] tracking-[0.3em] text-neutral-400 mb-4 uppercase font-light">
           TAILORED PROTECTION
         </span>
-        <h2 className="font-serif text-2xl md:text-3xl font-light tracking-[0.15em] text-neutral-900 mb-8 uppercase">
+        <h2 className="font-serif text-2xl md:text-3xl font-light tracking-[0.15em] text-white mb-8 uppercase">
           CURATE YOUR VOIDS
         </h2>
         <Link
           to="/consultation"
-          className="px-10 py-4 border border-neutral-900 text-[10px] tracking-[0.25em] font-sans font-light uppercase hover:bg-neutral-950 hover:text-[#FAF9F6] transition-all duration-500 rounded-none bg-transparent"
+          className="sn-btn-luxury-solid"
         >
           REQUEST SURVEY
         </Link>
@@ -356,3 +354,5 @@ function CampaignThree() {
     </div>
   );
 }
+
+export default CampaignThree;

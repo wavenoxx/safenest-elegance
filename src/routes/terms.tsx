@@ -17,27 +17,27 @@ export const Route = createFileRoute("/terms")({
 
 function TermsPage() {
   return (
-    <div className="bg-white text-neutral-900 min-h-screen flex flex-col">
+    <div className="bg-[#050505] text-white min-h-screen flex flex-col">
       <SiteNav />
 
       <main className="flex-1 max-w-4xl mx-auto px-6 md:px-12 pt-32 pb-24">
-        <header className="mb-12 pb-8 border-b border-neutral-200">
+        <header className="mb-12 pb-8 border-b border-white/10">
           <p className="sn-eyebrow text-neutral-400 mb-3">
             Legal &amp; Operational Standards
           </p>
-          <h1 className="sn-h1 text-neutral-950">
+          <h1 className="sn-h1 text-white">
             Terms and Conditions
           </h1>
-          <p className="sn-subtext text-neutral-500 mt-3">
+          <p className="sn-subtext text-neutral-400 mt-3">
             Effective Date: March 2026 · Standard Terms for Residential &amp; Commercial Architectural
             Safety Installations
           </p>
         </header>
 
-        <article className="prose prose-neutral max-w-none space-y-8 text-sm font-light leading-relaxed text-neutral-700">
+        <article className="space-y-8 text-xs md:text-sm font-light leading-relaxed text-neutral-300">
           <section>
-            <h2 className="text-base uppercase tracking-widest font-normal text-neutral-950 mb-3">
-              1. Architectural Services & Site Survey
+            <h2 className="text-base uppercase tracking-widest font-normal text-white mb-3">
+              1. Architectural Services &amp; Site Survey
             </h2>
             <p>
               {BRAND_CONFIG.name} provides custom-engineered safety installations including AISI 316
@@ -48,8 +48,8 @@ function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-base uppercase tracking-widest font-normal text-neutral-950 mb-3">
-              2. Structural Feasibility & Sub-base Verification
+            <h2 className="text-base uppercase tracking-widest font-normal text-white mb-3">
+              2. Structural Feasibility &amp; Sub-base Verification
             </h2>
             <p>
               Installation requires structurally sound substrate anchoring (such as RCC concrete,
@@ -60,8 +60,8 @@ function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-base uppercase tracking-widest font-normal text-neutral-950 mb-3">
-              3. Quotations, Pricing & Milestone Payments
+            <h2 className="text-base uppercase tracking-widest font-normal text-white mb-3">
+              3. Quotations, Pricing &amp; Milestone Payments
             </h2>
             <p>
               Project quotations are formulated on verified square-footage dimensions, selected
@@ -71,14 +71,14 @@ function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-base uppercase tracking-widest font-normal text-neutral-950 mb-3">
-              4. Warranty & Maintenance Policy
+            <h2 className="text-base uppercase tracking-widest font-normal text-white mb-3">
+              4. Warranty &amp; Maintenance Policy
             </h2>
             <p>
               Warranty protections apply exclusively to systems installed by authorized SafeNest
               technicians according to manufacturer specifications. Complete warranty terms and
               coverage durations are detailed on our{" "}
-              <Link to="/warranty" className="underline text-neutral-900 font-normal">
+              <Link to="/warranty" className="underline text-white font-normal">
                 Warranty Policy Page
               </Link>
               .
@@ -86,19 +86,26 @@ function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-base uppercase tracking-widest font-normal text-neutral-950 mb-3">
-              5. Client Advisory & Contact
+            <h2 className="text-base uppercase tracking-widest font-normal text-white mb-3">
+              5. Client Advisory &amp; Contact
             </h2>
             <p>
               For legal inquiries, terms clarification, or maintenance support, contact our Client
               Service team at{" "}
               <a
                 href={`mailto:${BRAND_CONFIG.contact.email}`}
-                className="underline text-neutral-900 font-normal"
+                className="underline text-white font-normal"
               >
                 {BRAND_CONFIG.contact.email}
               </a>{" "}
-              or call {BRAND_CONFIG.contact.phoneDisplay}.
+              or call{" "}
+              <a
+                href={`tel:${BRAND_CONFIG.contact.phoneDial}`}
+                className="underline text-white font-normal"
+              >
+                {BRAND_CONFIG.contact.phoneDisplay}
+              </a>
+              .
             </p>
           </section>
         </article>
