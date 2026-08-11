@@ -137,14 +137,14 @@ function CategoryPage() {
               className="group flex flex-col justify-between border border-neutral-200 bg-white p-6 hover:border-neutral-900 transition-all duration-300 focus-ring min-h-[44px]"
             >
               <div>
-                <div className="overflow-hidden aspect-[4/5] bg-neutral-100 mb-6">
+                <div className="sn-luxury-frame aspect-[4/5] bg-neutral-100 mb-6">
                   <img
                     src={s.images[0]}
                     alt={`${s.title} - ${s.plainDescriptor}`}
                     width={600}
                     height={750}
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="sn-luxury-img w-full h-full object-cover"
                   />
                 </div>
                 <span className="text-[9px] font-mono tracking-widest text-neutral-400 uppercase block mb-1">

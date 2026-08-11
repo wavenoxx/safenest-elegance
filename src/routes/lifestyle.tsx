@@ -83,12 +83,12 @@ function LifestylePage() {
               key={p.title}
               className={`grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center ${p.reverse ? "md:[&>*:first-child]:order-2" : ""}`}
             >
-              <div className="overflow-hidden aspect-[3/4] bg-neutral-100 group">
+              <div className="sn-luxury-frame aspect-[3/4] bg-neutral-100 group">
                 <img
                   src={p.image}
                   alt={p.title}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-[1.04]"
+                  className="sn-luxury-img w-full h-full object-cover"
                 />
               </div>
               <div className="px-2 md:px-8">

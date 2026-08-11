@@ -237,29 +237,53 @@
   animation: sn-fade-up 800ms ease-out 600ms forwards;
 }
 
-@utility sn-anim-overlay {
-  animation: sn-fade 600ms ease forwards;
-}
-
 /* ────────────────────────────────────────────────
-   Dolly-zoom: subtle scale on hover for desktop
-   CinematicScrollway visuals (CSS-only, no JS)
+   Ultra-Luxury Butter Smooth Visual Animations
+   (Chanel-Inspired, GPU Accelerated, Eased Curves)
    ──────────────────────────────────────────────── */
 
-.sn-scrollway-slide {
-  /* Smooth boundary between sections */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+/* Universal luxury image container */
+.sn-luxury-frame {
+  position: relative;
+  overflow: hidden;
 }
 
-.sn-dolly-target {
-  transform: scale(1);
-  transition: transform 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+/* Universal butter-smooth image zoom on hover (no sudden jumps) */
+.sn-luxury-img {
+  transform: scale(1) translateZ(0);
+  transition: transform 1400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 800ms ease, filter 800ms ease;
   will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-.sn-scrollway-slide:hover .sn-dolly-target,
-.sn-scrollway-slide:focus-within .sn-dolly-target {
-  transform: scale(1.06);
+.group:hover .sn-luxury-img,
+.sn-luxury-frame:hover .sn-luxury-img,
+.sn-luxury-img:hover {
+  transform: scale(1.035) translateZ(0);
+}
+
+/* Chanel Homepage Mockup Visual-to-Visual Scroll Section */
+.sn-chanel-slide {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: #050505;
+}
+
+.sn-chanel-media {
+  transform: scale(1) translateZ(0);
+  transition: transform 1600ms cubic-bezier(0.16, 1, 0.3, 1), opacity 1000ms ease;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.group:hover .sn-chanel-media,
+.sn-chanel-slide:hover .sn-chanel-media,
+.sn-chanel-slide:focus-within .sn-chanel-media {
+  transform: scale(1.045) translateZ(0);
 }
 
 /* ────────────────────────────────────────────────
@@ -289,7 +313,9 @@
     filter: none !important;
   }
 
-  /* Disable dolly-zoom hover for reduced-motion users */
+  /* Disable all scale transforms for reduced-motion users */
+  .sn-luxury-img,
+  .sn-chanel-media,
   .sn-dolly-target {
     transition: none !important;
     transform: none !important;

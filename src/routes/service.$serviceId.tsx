@@ -307,14 +307,14 @@ function ServicePage() {
                 className="border border-neutral-200 p-6 bg-white hover:border-neutral-900 transition-colors duration-300 group focus-ring min-h-11 flex flex-col justify-between"
               >
                 <div>
-                  <div className="aspect-[4/3] bg-neutral-100 overflow-hidden mb-4">
+                  <div className="aspect-[4/3] bg-neutral-100 sn-luxury-frame mb-4">
                     <img
                       src={rel.images[0]}
                       alt={rel.title}
                       width={400}
                       height={300}
                       loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="sn-luxury-img w-full h-full object-cover"
                     />
                   </div>
                   <h3 className="font-serif text-base font-light text-neutral-900 uppercase tracking-wide">

@@ -204,7 +204,7 @@ function SolutionsExplorer() {
                 alt=""
                 width={800}
                 height={1200}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="sn-luxury-img absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
               />
               <div
