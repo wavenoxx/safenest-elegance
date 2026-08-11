@@ -20,16 +20,12 @@ function WeightlessPavilion() {
   return (
     <div className="bg-white text-black min-h-screen">
       <SiteNav />
-      <section className="relative w-full h-[70vh] overflow-hidden bg-neutral-100">
-        <img
-          src="/images/campaigns/campaign-2-hero.jpg"
-          alt="The Weightless Pavilion"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+      <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden sn-black-visual">
+        <div className="absolute inset-0 w-full h-full bg-radial from-neutral-900/25 to-[#050505]" />
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-x-0 bottom-12 text-center text-white px-6">
-          <p className="text-[10px] tracking-[0.3em] uppercase opacity-80">Collection Series</p>
-          <h1 className="mt-3 font-serif text-2xl md:text-4xl font-light tracking-[0.18em] uppercase">
+          <p className="sn-eyebrow text-neutral-400 mb-2">Collection Series</p>
+          <h1 className="sn-h1 text-white max-w-xl mx-auto">
             The Weightless Pavilion
           </h1>
         </div>

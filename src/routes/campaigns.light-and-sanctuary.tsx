@@ -95,14 +95,9 @@ function RevealSection({ image, quote }: { image: string; quote: string }) {
   return (
     <div
       ref={ref}
-      className="relative w-full h-[80vh] md:h-[90vh] overflow-hidden bg-neutral-900 my-16"
+      className="relative w-full h-[60vh] md:h-[75vh] overflow-hidden sn-black-visual my-16"
     >
-      <img
-        src={image}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover"
-        loading="lazy"
-      />
+      <div className="absolute inset-0 w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 px-6">
         <p className="font-serif italic text-xl md:text-2xl text-white tracking-wide font-light max-w-xl drop-shadow-md">
           {quote}
@@ -119,21 +114,6 @@ function RevealSection({ image, quote }: { image: string; quote: string }) {
 }
 
 function CampaignOne() {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [playing, setPlaying] = useState(true);
-
-  const toggle = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    if (v.paused) {
-      v.play();
-      setPlaying(true);
-    } else {
-      v.pause();
-      setPlaying(false);
-    }
-  };
-
   return (
     <div className="relative bg-white text-black">
       <style>{`
@@ -152,25 +132,8 @@ function CampaignOne() {
       <SiteNav />
       <SafetyHarp />
 
-      <section className="w-full aspect-[2.39/1] relative overflow-hidden bg-neutral-900">
-        <video
-          ref={videoRef}
-          src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c054f4c9b3e0d283f5d16d634b82d920&profile_id=165&oauth2_token_id=57447761"
-          poster="/images/campaigns/campaign-1-hero.jpg"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        />
-        <button
-          type="button"
-          onClick={toggle}
-          className="absolute bottom-6 right-6 z-20 px-4 py-2 border border-white/60 text-white text-[10px] tracking-[0.25em] font-light uppercase bg-black/20 hover:bg-white hover:text-black transition-colors duration-300"
-          aria-label={playing ? "Pause video" : "Play video"}
-        >
-          {playing ? "Pause" : "Play"}
-        </button>
+      <section className="w-full aspect-[2.39/1] min-h-[300px] relative overflow-hidden sn-black-visual">
+        <div className="absolute inset-0 w-full h-full bg-radial from-neutral-900/25 to-[#050505]" />
       </section>
 
       <section className="py-20 px-6 max-w-3xl mx-auto text-center bg-white">

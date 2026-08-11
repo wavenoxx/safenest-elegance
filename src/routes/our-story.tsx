@@ -257,14 +257,9 @@ function StoryPage() {
                     : "opacity-0 translate-y-10 scale-95"
                 }`}
               >
-                <img
-                  src={c.image}
-                  alt={`${c.name} — ${c.time}`}
-                  width={384}
-                  height={320}
-                  className="w-full h-64 md:h-80 object-cover border-[0.5px] border-white/30 mb-6"
-                  loading="lazy"
-                />
+                <div className="w-full h-64 md:h-80 sn-black-visual border-[0.5px] border-white/30 mb-6">
+                  <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
+                </div>
                 <p
                   className="text-[11px] uppercase tracking-[0.3em] opacity-70"
                   style={{

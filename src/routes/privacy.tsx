@@ -33,13 +33,13 @@ function PrivacyPage() {
       <main className="flex-1 max-w-4xl mx-auto px-6 md:px-12 pt-32 pb-24">
         {/* Header */}
         <header className="mb-12 pb-8 border-b border-neutral-200">
-          <p className="text-[10px] tracking-[0.3em] uppercase text-neutral-400 font-light mb-3">
+          <p className="sn-eyebrow text-neutral-400 mb-3">
             Governance &amp; Transparency
           </p>
-          <h1 className="font-serif text-3xl md:text-4xl uppercase tracking-[0.08em] font-light text-neutral-950">
+          <h1 className="sn-h1 text-neutral-950">
             Privacy Declaration
           </h1>
-          <p className="mt-3 text-xs text-neutral-500 font-light">
+          <p className="sn-subtext text-neutral-500 mt-3">
             Effective Date: January 1, 2026 · Last Updated: August 11, 2026
           </p>
         </header>

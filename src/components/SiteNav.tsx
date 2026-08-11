@@ -46,11 +46,11 @@ export function SiteNav() {
             </button>
           </div>
 
-          {/* Center */}
+          {/* Center Brand Name (+50% size increase, Quiet Luxury Serif) */}
           <Link
             to="/"
-            className="font-display text-[15px] sm:text-[18px] lg:text-[20px] tracking-[0.4em] uppercase whitespace-nowrap min-h-11 flex items-center justify-center focus-ring px-2"
-            style={{ fontWeight: 400 }}
+            className="font-serif text-[24px] sm:text-[28px] lg:text-[32px] tracking-[0.32em] uppercase whitespace-nowrap min-h-11 flex items-center justify-center focus-ring px-2 transition-all font-light"
+            style={{ fontWeight: 300 }}
           >
             {BRAND_CONFIG.name}
           </Link>

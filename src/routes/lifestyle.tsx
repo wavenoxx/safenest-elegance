@@ -46,31 +46,20 @@ function LifestylePage() {
     <div className="bg-white text-black">
       <SiteNav />
 
-      {/* Hero */}
-      <section className="relative w-full aspect-[2.39/1] overflow-hidden bg-neutral-100">
-        <img
-          src="/images/lifestyle/hero.jpg"
-          alt="Luxury balcony view at dawn"
-          className="absolute inset-0 w-full h-full object-cover scale-[1.12] origin-center animate-[kenburns_20s_ease-out_infinite_alternate]"
-        />
-        <style>{`@keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.08); } }`}</style>
+      {/* Hero Visual (Pure Black Canvas) */}
+      <section className="relative w-full aspect-[2.39/1] min-h-[300px] overflow-hidden sn-black-visual">
+        <div className="absolute inset-0 w-full h-full bg-radial from-neutral-900/20 to-[#050505]" />
       </section>
 
       {/* Editorial Header */}
       <section className="py-16 px-8 md:py-24 max-w-3xl mx-auto text-center bg-white">
-        <p
-          className="uppercase text-[10px] tracking-[0.25em] text-neutral-400 mb-4"
-          style={{ fontWeight: 300 }}
-        >
+        <p className="sn-eyebrow text-neutral-400 mb-4">
           The Lifestyle
         </p>
-        <h1
-          className="font-display uppercase text-2xl md:text-3xl font-light tracking-[0.1em] text-black mb-6"
-          style={{ fontWeight: 300 }}
-        >
+        <h1 className="sn-h1 text-neutral-950 mb-6">
           Living Without Hesitation
         </h1>
-        <p className="font-display italic text-lg md:text-xl text-neutral-700 leading-relaxed font-light">
+        <p className="font-serif italic text-lg md:text-xl text-neutral-700 leading-relaxed font-light">
           "Breathtaking views, enjoyed in absolute peace of mind."
         </p>
       </section>
@@ -83,13 +72,8 @@ function LifestylePage() {
               key={p.title}
               className={`grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center ${p.reverse ? "md:[&>*:first-child]:order-2" : ""}`}
             >
-              <div className="sn-luxury-frame aspect-[3/4] bg-neutral-100 group">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  loading="lazy"
-                  className="sn-luxury-img w-full h-full object-cover"
-                />
+              <div className="sn-luxury-frame aspect-[3/4] sn-black-visual border border-neutral-200">
+                <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
               </div>
               <div className="px-2 md:px-8">
                 <p

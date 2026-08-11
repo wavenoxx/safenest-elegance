@@ -130,15 +130,8 @@ function SolutionsExplorer() {
             key={col.id}
             className="w-full h-[100dvh] snap-start relative flex flex-col justify-between p-6 overflow-hidden select-none bg-neutral-950"
           >
-            <div className="absolute inset-0 overflow-hidden">
-              <img
-                src={mobileImages[col.id] ?? col.backdrop}
-                alt={col.title}
-                width={800}
-                height={1200}
-                className="w-full h-full object-cover animate-breath"
-                loading="lazy"
-              />
+            <div className="absolute inset-0 overflow-hidden sn-black-visual">
+              <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
             <div
@@ -199,14 +192,9 @@ function SolutionsExplorer() {
               onMouseLeave={() => setHoveredIndex(null)}
               className={`w-full ${widthClass(i)} transition-all duration-[1000ms] ease-out relative flex flex-col justify-between overflow-hidden p-8 border-r border-neutral-100`}
             >
-              <img
-                src={col.backdrop}
-                alt=""
-                width={800}
-                height={1200}
-                className="sn-luxury-img absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
+              <div className="absolute inset-0 w-full h-full sn-black-visual">
+                <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
+              </div>
               <div
                 className="absolute inset-0 transition-opacity duration-[1000ms]"
                 style={{

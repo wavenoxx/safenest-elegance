@@ -134,19 +134,13 @@ function ServiceAreasPage() {
       {/* Hero */}
       <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 bg-[#FAF9F6] border-b border-neutral-200">
         <div className="max-w-4xl mx-auto text-center">
-          <p
-            className="uppercase text-[10px] tracking-[0.3em] text-neutral-500 mb-4"
-            style={{ fontWeight: 300 }}
-          >
+          <p className="sn-eyebrow text-neutral-500 mb-4">
             Regional Coverage
           </p>
-          <h1
-            className="font-serif text-3xl md:text-5xl font-light tracking-[0.1em] uppercase text-neutral-900 leading-tight"
-            style={{ fontWeight: 300 }}
-          >
+          <h1 className="sn-h1 text-neutral-900 mb-4">
             Verified Service Areas
           </h1>
-          <p className="mt-6 text-sm md:text-base text-neutral-600 font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="sn-subtext text-neutral-600 max-w-2xl mx-auto">
             {BRAND_CONFIG.name} deploys trained master technicians and digital laser survey teams
             across major metropolitan and coastal hubs in South India.
           </p>

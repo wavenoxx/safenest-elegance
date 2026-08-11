@@ -114,28 +114,21 @@ function ServicePage() {
 
       {/* Main Split Layout: Left Imagery / Right Sticky Architecture */}
       <div className="flex-1 flex flex-col md:flex-row relative bg-transparent pt-16 md:pt-20">
-        {/* LEFT: Imagery Gallery */}
+        {/* LEFT: Imagery Gallery (Pure Black Visual Canvases) */}
         <div
           ref={scrollerRef}
-          className="w-full md:w-1/2 h-[60vh] md:h-[calc(100vh-80px)] overflow-y-auto snap-y snap-mandatory relative sn-noscrollbar bg-neutral-100"
+          className="w-full md:w-1/2 h-[60vh] md:h-[calc(100vh-80px)] overflow-y-auto snap-y snap-mandatory relative sn-noscrollbar bg-[#050505]"
         >
-          {service.images.map((src, i) => (
+          {service.images.map((_, i) => (
             <div
               key={i}
               data-idx={i}
               ref={(el) => {
                 imgRefs.current[i] = el;
               }}
-              className="snap-start w-full h-[60vh] md:h-[calc(100vh-80px)] bg-neutral-100"
+              className="snap-start w-full h-[60vh] md:h-[calc(100vh-80px)] sn-black-visual border-b border-neutral-900"
             >
-              <img
-                src={src}
-                alt={`${service.title} - ${service.plainDescriptor}`}
-                width={800}
-                height={1000}
-                className="w-full h-full object-cover"
-                loading={i === 0 ? "eager" : "lazy"}
-              />
+              <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
             </div>
           ))}
 
@@ -176,11 +169,8 @@ function ServicePage() {
               </p>
             </nav>
 
-            {/* Plain Factual H1 */}
-            <h1
-              className="font-serif text-3xl md:text-4xl font-light text-neutral-900 uppercase leading-tight"
-              style={{ letterSpacing: "0.08em", fontWeight: 300 }}
-            >
+            {/* Plain Factual H1 (Unified sn-h1) */}
+            <h1 className="sn-h1 text-neutral-900 mb-2">
               {service.title}
             </h1>
 
@@ -307,15 +297,8 @@ function ServicePage() {
                 className="border border-neutral-200 p-6 bg-white hover:border-neutral-900 transition-colors duration-300 group focus-ring min-h-11 flex flex-col justify-between"
               >
                 <div>
-                  <div className="aspect-[4/3] bg-neutral-100 sn-luxury-frame mb-4">
-                    <img
-                      src={rel.images[0]}
-                      alt={rel.title}
-                      width={400}
-                      height={300}
-                      loading="lazy"
-                      className="sn-luxury-img w-full h-full object-cover"
-                    />
+                  <div className="aspect-[4/3] sn-black-visual mb-4 border border-neutral-200">
+                    <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
                   </div>
                   <h3 className="font-serif text-base font-light text-neutral-900 uppercase tracking-wide">
                     {rel.title}

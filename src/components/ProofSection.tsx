@@ -11,19 +11,13 @@ export function ProofSection({ categorySlug }: ProofSectionProps) {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
-          <p
-            className="uppercase text-[10px] tracking-[0.3em] text-neutral-500 mb-3"
-            style={{ fontWeight: 300 }}
-          >
+          <p className="sn-eyebrow text-neutral-500 mb-3">
             Engineering Standards
           </p>
-          <h2
-            className="font-serif text-2xl md:text-3xl font-light tracking-[0.12em] text-neutral-900 uppercase"
-            style={{ fontWeight: 300 }}
-          >
+          <h2 className="sn-h1 text-neutral-900 mb-3">
             Proof, Not Promises
           </h2>
-          <p className="mt-4 text-xs md:text-sm text-neutral-600 font-light leading-relaxed">
+          <p className="sn-subtext text-neutral-600">
             Every {BRAND_CONFIG.name} installation is built upon verified material chemistry,
             precision laser site surveys, and documented mechanical anchoring.
           </p>

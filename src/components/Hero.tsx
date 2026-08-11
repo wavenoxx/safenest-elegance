@@ -2,122 +2,76 @@ import { Link } from "@tanstack/react-router";
 import { BRAND_CONFIG } from "@/config/brand";
 
 /**
- * Hero — Pure Black Screen & Quiet Luxury Typography.
+ * Hero — Pure Black Screen & Exact Quiet Luxury Typography.
  *
- * Design Directives:
- * - Starting homepage hero is a pure, serene black screen (no random placeholder visual).
- * - Desktop Container: Clean dark luxury canvas (ready for desktop visual asset update).
- * - Mobile Container: 9:16 aspect ratio canvas (ready for mobile portrait visual asset update).
- * - H1: Strictly 3 to 5 words ("Invisible Grills & Safety Nets" — 5 words).
- * - Subtext below H1: Strictly 5 to 7 words ("Architectural safety for modern discerning homes." — 6 words).
- * - Typography: Restrained, calm, spacious, Cormorant Garamond serif with Inter.
+ * Directives:
+ * - Pure black visual canvas (zero visual images).
+ * - Desktop & Mobile (9:16) containers styled as deep black canvases.
+ * - H1 Headline: "INVISIBLE GRILLS & SAFETY NETS" (Exact unified sn-h1 typography).
+ * - Subtext: "Architectural safety for modern discerning homes." (Exact sn-subtext).
+ * - Eyebrow: "SAFENEST · ARCHITECTURAL SAFETY" (Exact sn-eyebrow).
+ * - Luxury framed CTAs matching reference image.
  */
 const Hero = () => {
   return (
     <section
-      className="relative w-full overflow-hidden bg-[#050505] select-none"
+      className="relative w-full overflow-hidden bg-[#050505] sn-black-visual select-none"
       style={{ height: "100dvh", minHeight: "600px" }}
       aria-label="SafeNest Architectural Safety Hero"
     >
-      {/* ─────────────────────────────────────────────────────────────
-          VISUAL CONTAINERS (Black Screen — Ready for Custom Assets)
-          ───────────────────────────────────────────────────────────── */}
-
-      {/* Desktop Visual Canvas (Landscape Container) */}
+      {/* Desktop Visual Container (Pure Black Canvas) */}
       <div
         className="hidden md:block absolute inset-0 w-full h-full bg-[#050505] z-0"
-        data-slot="desktop-hero-visual"
+        data-slot="desktop-hero-canvas"
       >
-        {/* Placeholder ready for desktop visual: <img src="..." className="w-full h-full object-cover" /> */}
-        <div className="w-full h-full bg-radial from-neutral-900/20 to-[#050505]" />
+        <div className="w-full h-full bg-radial from-neutral-900/15 via-[#050505] to-[#050505]" />
       </div>
 
-      {/* Mobile Visual Canvas (9:16 Aspect Ratio Portrait Container) */}
+      {/* Mobile Visual Container (9:16 Aspect Ratio Canvas) */}
       <div
         className="md:hidden absolute inset-0 w-full h-full bg-[#050505] z-0"
-        data-slot="mobile-hero-visual-9-16"
+        data-slot="mobile-hero-canvas-9-16"
       >
-        {/* Placeholder ready for mobile 9:16 visual: <img src="..." className="w-full h-full object-cover" /> */}
-        <div className="w-full h-full bg-radial from-neutral-900/20 to-[#050505]" />
+        <div className="w-full h-full bg-radial from-neutral-900/15 via-[#050505] to-[#050505]" />
       </div>
 
-      {/* Subtle Atmospheric Vignette for Architectural Depth */}
+      {/* Subtle Atmospheric Vignette */}
       <div
         className="absolute inset-0 pointer-events-none z-10"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(5,5,5,0.4) 0%, rgba(5,5,5,0.1) 40%, rgba(5,5,5,0.2) 70%, rgba(5,5,5,0.85) 100%)",
+            "linear-gradient(to bottom, rgba(5,5,5,0.4) 0%, rgba(5,5,5,0.05) 40%, rgba(5,5,5,0.15) 70%, rgba(5,5,5,0.85) 100%)",
         }}
       />
 
-      {/* ─────────────────────────────────────────────────────────────
-          EDITORIAL CONTENT OVERLAY (Lower-Third Placement)
-          ───────────────────────────────────────────────────────────── */}
+      {/* Editorial Content Overlay (Lower-Third Placement matching Reference Image) */}
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-16 sm:pb-20 md:pb-24 px-6 md:px-12 text-center">
-        {/* Brand Eyebrow */}
-        <span
-          className="sn-anim-label text-white/70 uppercase block mb-3.5"
-          style={{
-            fontFamily: "'Inter', system-ui, sans-serif",
-            fontSize: "10px",
-            fontWeight: 300,
-            letterSpacing: "0.35em",
-          }}
-        >
+        {/* Eyebrow Category */}
+        <span className="sn-eyebrow text-neutral-400 block mb-3.5">
           {BRAND_CONFIG.name} · Architectural Safety
         </span>
 
-        {/* H1 Headline — Strictly 5 words */}
-        <h1
-          className="sn-anim-h1 text-white uppercase leading-tight"
-          style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontWeight: 300,
-            letterSpacing: "0.08em",
-            fontSize: "clamp(1.75rem, 3.8vw, 2.75rem)",
-            maxWidth: "680px",
-            textShadow: "0 0 12px rgba(0,0,0,0.6)",
-          }}
-        >
+        {/* Unified H1 Headline */}
+        <h1 className="sn-h1 text-white max-w-2xl drop-shadow-sm mb-3">
           Invisible Grills &amp; Safety Nets
         </h1>
 
-        {/* Supporting Line — Strictly 6 words */}
-        <p
-          className="sn-anim-sub mt-3.5 text-neutral-300 max-w-md leading-relaxed"
-          style={{
-            fontFamily: "'Inter', system-ui, sans-serif",
-            fontSize: "clamp(11.5px, 1.1vw, 13px)",
-            fontWeight: 300,
-            letterSpacing: "0.03em",
-          }}
-        >
+        {/* Unified Subtext Descriptor */}
+        <p className="sn-subtext text-neutral-300 max-w-md mb-8">
           Architectural safety for modern discerning homes.
         </p>
 
-        {/* Action CTAs */}
-        <div className="sn-anim-cta mt-8 flex flex-col sm:flex-row items-center gap-4">
+        {/* Luxury Framed Action Buttons */}
+        <div className="flex flex-col sm:flex-row items-center gap-4">
           <Link
             to="/consultation"
-            className="inline-flex items-center justify-center bg-white text-neutral-950 px-8 py-3 min-h-11 uppercase transition-colors duration-300 hover:bg-neutral-100 focus-ring shadow-sm"
-            style={{
-              fontFamily: "'Inter', system-ui, sans-serif",
-              fontSize: "10px",
-              fontWeight: 400,
-              letterSpacing: "0.25em",
-            }}
+            className="sn-btn-luxury-solid focus-ring"
           >
             Request Site Survey
           </Link>
           <Link
             to="/solutions"
-            className="inline-flex items-center justify-center border border-white/40 text-white px-8 py-3 min-h-11 uppercase transition-all duration-300 hover:border-white hover:bg-white/10 focus-ring"
-            style={{
-              fontFamily: "'Inter', system-ui, sans-serif",
-              fontSize: "10px",
-              fontWeight: 300,
-              letterSpacing: "0.25em",
-            }}
+            className="sn-btn-luxury focus-ring"
           >
             Explore Solutions
           </Link>

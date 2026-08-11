@@ -99,36 +99,20 @@ function CampaignThree() {
 
       <SiteNav />
 
-      {/* 1. HERO */}
-      <div className="w-full relative overflow-hidden bg-neutral-950 min-h-[80vh] md:min-h-0 md:aspect-[2.39/1]">
-        <video
-          ref={videoRef}
-          src={HERO_VIDEO}
-          poster={HERO_POSTER}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-85"
-        />
-        <div className="relative z-10 bg-black/45 flex flex-col items-center justify-center text-center px-6 pt-32 pb-16 md:pt-24 md:pb-12 min-h-[80vh] md:min-h-0 md:absolute md:inset-0">
-          <span className="font-sans text-[9px] tracking-[0.3em] text-neutral-300 mb-3 uppercase font-light opacity-90">
+      {/* 1. HERO (Pure Black Canvas) */}
+      <div className="w-full relative overflow-hidden sn-black-visual min-h-[60vh] md:min-h-0 md:aspect-[2.39/1] flex items-center justify-center">
+        <div className="absolute inset-0 w-full h-full bg-radial from-neutral-900/25 to-[#050505]" />
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-24">
+          <span className="sn-eyebrow text-neutral-400 mb-3 block">
             CAMPAIGN SERIES Ⅲ
           </span>
-          <h1 className="font-serif text-3xl md:text-4xl font-light tracking-[0.2em] text-white uppercase leading-tight mb-4">
+          <h1 className="sn-h1 text-white max-w-xl mb-4">
             THE SILENT PROMISE
           </h1>
           <p className="font-serif italic text-xs md:text-sm text-neutral-300 font-light tracking-wide max-w-sm">
             A pinky promise of protection, suspended in thin air.
           </p>
         </div>
-        <button
-          onClick={togglePlay}
-          className="absolute bottom-6 right-6 z-20 text-white hover:text-[#C5A880] transition-colors cursor-pointer bg-transparent border-0 p-2 focus:outline-none"
-          aria-label={isPlaying ? "Pause video" : "Play video"}
-        >
-          {isPlaying ? <Pause size={15} strokeWidth={1.5} /> : <Play size={15} strokeWidth={1.5} />}
-        </button>
       </div>
 
       {/* 2. EXPERIENCE 01 — CELESTIAL SKYDECK */}
@@ -151,11 +135,9 @@ function CampaignThree() {
           onMouseMove={handleMouseMove}
           className="relative w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-neutral-900 cursor-crosshair"
         >
-          <img
-            src={SKY_IMG}
-            alt="Sky deck"
-            className="absolute inset-0 w-full h-full object-cover breath-bg opacity-90"
-          />
+          <div className="absolute inset-0 w-full h-full sn-black-visual opacity-90">
+            <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
+          </div>
           <svg
             viewBox="0 0 1000 800"
             preserveAspectRatio="none"
@@ -319,11 +301,9 @@ function CampaignThree() {
 
             <div className="w-full max-w-sm md:max-w-none aspect-[4/5] bg-neutral-900 border-2 border-neutral-900 relative overflow-hidden p-3 mx-auto md:mr-0">
               <div className="relative w-full h-full overflow-hidden border border-[#C5A880]/40">
-                <img
-                  src={SUNSET_IMG}
-                  alt="Horizon"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+                <div className="absolute inset-0 w-full h-full sn-black-visual">
+                  <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
+                </div>
                 {/* Layer 1: THREAD */}
                 <div
                   className="absolute inset-0 transition-opacity duration-700"

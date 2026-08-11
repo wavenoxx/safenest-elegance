@@ -52,32 +52,20 @@ function CraftsmanshipPage() {
     <div className="bg-white text-black">
       <SiteNav />
 
-      {/* Hero */}
-      <section className="relative w-full h-[75vh] overflow-hidden bg-neutral-100">
-        <img
-          src="/images/craftsmanship/hero.jpg"
-          alt="Engineered steel cable hardware detail"
-          width={1920}
-          height={1080}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+      {/* Hero Visual (Pure Black Canvas) */}
+      <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden sn-black-visual">
+        <div className="absolute inset-0 w-full h-full bg-radial from-neutral-900/20 to-[#050505]" />
       </section>
 
       {/* Editorial Header */}
       <section className="py-16 px-8 md:py-24 max-w-3xl mx-auto text-center bg-white">
-        <p
-          className="uppercase text-[10px] tracking-[0.25em] text-neutral-400 mb-4"
-          style={{ fontWeight: 300 }}
-        >
+        <p className="sn-eyebrow text-neutral-400 mb-4">
           The Craftsmanship
         </p>
-        <h1
-          className="font-display uppercase text-2xl md:text-3xl font-light tracking-[0.1em] text-black mb-6"
-          style={{ fontWeight: 300 }}
-        >
+        <h1 className="sn-h1 text-neutral-950 mb-6">
           Precision Engineering, Architectural Strength
         </h1>
-        <p className="font-display italic text-lg md:text-xl text-neutral-700 leading-relaxed font-light">
+        <p className="font-serif italic text-lg md:text-xl text-neutral-700 leading-relaxed font-light">
           "High-tensile marine grade elements, engineered to disappear."
         </p>
       </section>
