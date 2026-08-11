@@ -12,12 +12,13 @@ export const Route = createFileRoute("/")({
       { name: "description", content: BRAND_CONFIG.description },
       { property: "og:title", content: `${BRAND_CONFIG.name} — ${BRAND_CONFIG.tagline}` },
       { property: "og:description", content: BRAND_CONFIG.description },
+      { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://safenestindia.com/images/homepage/banner-1.jpg" },
     ],
+    links: [{ rel: "canonical", href: "https://safenestindia.com/" }],
   }),
   component: Index,
 });
-
-
 
 function Index() {
   return (

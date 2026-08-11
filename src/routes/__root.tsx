@@ -11,26 +11,28 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { WishlistProvider } from "@/components/WishlistContext";
-import { WishlistDrawer } from "@/components/WishlistDrawer";
 import { Toaster } from "@/components/ui/sonner";
 import { BRAND_CONFIG } from "@/config/brand";
+import { captureAttribution } from "@/lib/attribution";
+import { trackEngagement } from "@/lib/analytics";
 
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+        <h1 className="text-7xl font-light text-foreground">404</h1>
+        <h2 className="mt-4 text-xl font-normal text-foreground uppercase tracking-widest">
+          Page not found
+        </h2>
+        <p className="mt-2 text-sm text-muted-foreground font-light">
+          The requested page does not exist or has been moved.
         </p>
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2.5 text-xs font-light uppercase tracking-widest text-primary-foreground transition-colors hover:bg-primary/90 min-h-11 focus-ring"
           >
-            Go home
+            Return to Home
           </Link>
         </div>
       </div>
@@ -48,33 +50,67 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+        <h1 className="text-xl font-normal tracking-wide text-foreground uppercase">
+          An error occurred
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+        <p className="mt-2 text-sm text-muted-foreground font-light">
+          Something went wrong loading this view. You may refresh or return home.
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
           <button
+            type="button"
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2.5 text-xs font-light uppercase tracking-widest text-primary-foreground transition-colors hover:bg-primary/90 min-h-11 focus-ring"
           >
             Try again
           </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-full border border-input bg-background px-6 py-2.5 text-xs font-light uppercase tracking-widest text-foreground transition-colors hover:bg-accent min-h-11 focus-ring"
           >
             Go home
-          </a>
+          </Link>
         </div>
       </div>
     </div>
   );
 }
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "SafeNest",
+  legalName: "SafeNest Architectural Safety Atelier",
+  url: "https://safenestindia.com",
+  logo: "https://safenestindia.com/images/homepage/banner-1.jpg",
+  image: "https://safenestindia.com/images/homepage/banner-1.jpg",
+  description:
+    "Bespoke architectural safety solutions: invisible grills, safety netting, and bird protection across South India.",
+  telephone: "+919553879931",
+  email: "safenestind@gmail.com",
+  priceRange: "₹₹₹",
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "South India",
+    addressCountry: "IN",
+  },
+  areaServed: [
+    { "@type": "State", name: "Telangana" },
+    { "@type": "State", name: "Andhra Pradesh" },
+    { "@type": "State", name: "Karnataka" },
+    { "@type": "State", name: "Tamil Nadu" },
+    { "@type": "State", name: "Kerala" },
+  ],
+  knowsAbout: [
+    "Invisible Grills",
+    "Balcony Safety Nets",
+    "Bird Protection Spikes",
+    "Architectural Fall Prevention",
+  ],
+};
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -87,18 +123,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: `${BRAND_CONFIG.name} — ${BRAND_CONFIG.tagline}` },
       { property: "og:description", content: BRAND_CONFIG.description },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:url", content: "https://safenestindia.com" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "canonical", href: "https://safenestindia.com/" },
+      { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(localBusinessSchema),
       },
     ],
   }),
@@ -109,6 +150,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  useEffect(() => {
+    // Capture attribution parameters (gclid, wbraid, gbraid, utms)
+    captureAttribution();
+
+    // Compatibility shim: map legacy trackGoogleConversion calls safely to secondary trackEngagement
+    window.trackGoogleConversion = function (actionType: string) {
+      trackEngagement(
+        actionType === "whatsapp" ? "whatsapp" : actionType === "phone" ? "phone" : "navigation",
+        "legacy_shim",
+      );
+    };
+  }, []);
+
   return (
     <html lang="en">
       <head>
@@ -121,24 +175,9 @@ function RootShell({ children }: { children: ReactNode }) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'AW-18289280987');
-
-              // Custom helper for tracking clicks and form submissions
-              window.trackGoogleConversion = function(actionType) {
-                if (typeof gtag === 'function') {
-                  gtag('event', 'click_' + actionType, {
-                    'event_category': 'Engagement',
-                    'event_label': actionType
-                  });
-                  // Trigger Google Ads conversion
-                  gtag('event', 'conversion', {
-                    'send_to': 'AW-18289280987/1LHOCIOz2sgcENuPgZFE',
-                    'value': 1.0,
-                    'currency': 'INR'
-                  });
-                  console.log('[Google Ads Tag] Tracked conversion event:', actionType);
-                }
-              };
+              gtag('config', 'AW-18289280987', {
+                'send_page_view': true
+              });
             `,
           }}
         />
@@ -156,12 +195,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <WishlistProvider>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
-        <WishlistDrawer />
-        <Toaster position="bottom-center" />
-      </WishlistProvider>
+      <Outlet />
+      <Toaster position="bottom-center" />
     </QueryClientProvider>
   );
 }

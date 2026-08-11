@@ -12,10 +12,6 @@
  *
  * The :root and .dark blocks define the actual color values using oklch.
  * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
  */
 
 @theme inline {
@@ -149,7 +145,8 @@
 }
 
 @layer base {
-  html, body {
+  html,
+  body {
     font-family: "Inter", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
@@ -160,13 +157,31 @@
   font-weight: 300;
 }
 
+@utility focus-ring {
+  outline: none;
+  &:focus-visible {
+    outline: 2px solid #171717;
+    outline-offset: 2px;
+  }
+}
+
 @keyframes sn-fade-up {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes sn-fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @utility sn-anim-label {
@@ -189,9 +204,28 @@
   animation: sn-fade 600ms ease forwards;
 }
 
-/* Global Editorial Image Vibrancy & Contrast Filter (Disabled for mobile performance check) */
-/*
-img {
-  filter: saturate(1.14) contrast(1.08) brightness(1.02);
+/* Global Prefers-Reduced-Motion Handling */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .sn-anim-label,
+  .sn-anim-h1,
+  .sn-anim-sub,
+  .sn-anim-cta,
+  .sn-anim-overlay,
+  .sn-fade-up,
+  .sn-fade,
+  .sn-dawn {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }
-*/

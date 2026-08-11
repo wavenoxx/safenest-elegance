@@ -8,14 +8,19 @@ export const Route = createFileRoute("/category/$categoryId")({
   head: ({ params }) => {
     const cat = categoriesData[params.categoryId];
     const title = cat ? `${cat.title} — ${BRAND_CONFIG.name}` : `Category — ${BRAND_CONFIG.name}`;
+    const canonical = `https://safenestindia.com/category/${params.categoryId}`;
     return {
       meta: [
         { title },
-        { name: "description", content: cat?.quote ?? `${BRAND_CONFIG.name} collection.` },
+        {
+          name: "description",
+          content: cat?.quote ?? `${BRAND_CONFIG.name} architectural safety collection.`,
+        },
         { property: "og:title", content: title },
         { property: "og:description", content: cat?.quote ?? "" },
         ...(cat ? [{ property: "og:image", content: cat.heroImage }] : []),
       ],
+      links: [{ rel: "canonical", href: canonical }],
     };
   },
   loader: ({ params }) => {
@@ -32,8 +37,8 @@ export const Route = createFileRoute("/category/$categoryId")({
 });
 
 function CategoryPage() {
-  const { cat } = Route.useLoaderData();
-  const services = cat.services
+  const { cat } = Route.useLoaderData() as { cat: (typeof categoriesData)[string] };
+  const services = (cat?.services || [])
     .map((id: string) => servicesData[id])
     .filter(Boolean) as ServiceDetail[];
 
@@ -46,6 +51,8 @@ function CategoryPage() {
         <img
           src={cat.heroImage}
           alt={cat.title}
+          width={1920}
+          height={800}
           className="absolute inset-0 w-full h-full object-cover sn-kenburns"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -63,9 +70,7 @@ function CategoryPage() {
       </section>
 
       {/* Quote */}
-      <p
-        className="font-display italic text-xl md:text-2xl font-light text-black mt-12 mb-8 tracking-wide px-8 text-center max-w-3xl mx-auto"
-      >
+      <p className="font-display italic text-xl md:text-2xl font-light text-black mt-12 mb-8 tracking-wide px-8 text-center max-w-3xl mx-auto">
         “{cat.quote}”
       </p>
 
@@ -76,12 +81,14 @@ function CategoryPage() {
             key={s.id}
             to="/service/$serviceId"
             params={{ serviceId: s.id }}
-            className="group block border-b border-r border-neutral-200 p-6 md:p-10 bg-white hover:bg-[#FAFAFA] transition-colors duration-500"
+            className="group block border-b border-r border-neutral-200 p-6 md:p-10 bg-white hover:bg-[#FAFAFA] transition-colors duration-500 focus-ring"
           >
             <div className="overflow-hidden aspect-[3/4] bg-[#F6F6F6]">
               <img
                 src={s.images[0]}
                 alt={s.title}
+                width={600}
+                height={800}
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
               />

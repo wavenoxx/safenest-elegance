@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { useNavigate } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 
 interface SlideItem {
   category: string;
@@ -95,10 +95,20 @@ const slides: SlideItem[] = [
 
 export function CinematicScrollway() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
   const [scrollOffsets, setScrollOffsets] = useState<number[]>(new Array(10).fill(0));
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+
+    const onMqChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", onMqChange);
+
+    if (mq.matches) return () => mq.removeEventListener("change", onMqChange);
+
     let animationFrameId: number;
 
     const handleScroll = () => {
@@ -123,6 +133,7 @@ export function CinematicScrollway() {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      mq.removeEventListener("change", onMqChange);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -131,19 +142,23 @@ export function CinematicScrollway() {
     <div ref={containerRef} className="w-full flex flex-col bg-neutral-950 z-10 relative">
       {slides.map((slide, index) => {
         const offset = scrollOffsets[index] || 0;
-        const translateY = offset * -100;
+        const translateY = reducedMotion ? 0 : offset * -80;
 
         return (
-          <div
+          <Link
             key={index}
-            className="w-full h-[55vh] md:h-auto md:aspect-[2.39/1] relative overflow-hidden flex flex-col justify-end pb-8 md:pb-12 px-6 md:px-12 group cursor-pointer"
-            onClick={() => navigate({ to: slide.link })}
+            to={slide.link}
+            className="w-full h-[55vh] md:h-auto md:aspect-[2.39/1] relative overflow-hidden flex flex-col justify-end pb-8 md:pb-12 px-6 md:px-12 group block focus-ring"
+            aria-label={`${slide.action}: ${slide.title} — ${slide.category}`}
           >
-            {/* GPU-accelerated parallax background */}
-            <div className="w-full h-[120%] absolute top-[-10%] left-0 overflow-hidden bg-neutral-900 z-0">
+            {/* Parallax background */}
+            <div className="w-full h-[120%] absolute top-[-10%] left-0 overflow-hidden bg-neutral-900 z-0 pointer-events-none">
               <img
                 src={slide.image}
-                alt={slide.title}
+                alt=""
+                aria-hidden="true"
+                width={1920}
+                height={803}
                 loading="lazy"
                 className="w-full h-full object-cover opacity-75 transition-transform duration-700 ease-out will-change-transform"
                 style={{
@@ -163,18 +178,11 @@ export function CinematicScrollway() {
               <h2 className="font-serif text-[17px] md:text-[23px] font-light tracking-[0.2em] uppercase mt-0.5 mb-4 text-white leading-relaxed transition-transform duration-700 ease-out group-hover:scale-[1.01]">
                 {slide.title}
               </h2>
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  navigate({ to: slide.link });
-                }}
-                className="rounded-none px-5 py-2 md:px-6 md:py-2.5 text-[8.5px] md:text-[9px] tracking-[0.25em] font-sans font-light uppercase bg-white text-neutral-900 border border-transparent hover:bg-transparent hover:text-white hover:border-white transition-all duration-500 shadow-sm cursor-pointer"
-              >
+              <span className="rounded-none px-5 py-2 md:px-6 md:py-2.5 text-[8.5px] md:text-[9px] tracking-[0.25em] font-sans font-light uppercase bg-white text-neutral-900 border border-transparent group-hover:bg-transparent group-hover:text-white group-hover:border-white transition-all duration-500 shadow-xs inline-block">
                 {slide.action}
-              </button>
+              </span>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>

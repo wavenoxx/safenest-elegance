@@ -1,8 +1,7 @@
-import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
-import { useWishlist } from "@/components/WishlistContext";
 import { servicesData, categoriesData, type ServiceDetail } from "@/data/servicesData";
 import { BRAND_CONFIG } from "@/config/brand";
 
@@ -10,14 +9,19 @@ export const Route = createFileRoute("/service/$serviceId")({
   head: ({ params }) => {
     const s = servicesData[params.serviceId];
     const title = s ? `${s.title} — ${BRAND_CONFIG.name}` : `Service — ${BRAND_CONFIG.name}`;
+    const canonical = `https://safenestindia.com/service/${params.serviceId}`;
     return {
       meta: [
         { title },
-        { name: "description", content: s?.description ?? `${BRAND_CONFIG.name} bespoke service.` },
+        {
+          name: "description",
+          content: s?.description ?? `${BRAND_CONFIG.name} bespoke safety system.`,
+        },
         { property: "og:title", content: title },
         { property: "og:description", content: s?.description ?? "" },
         ...(s ? [{ property: "og:image", content: s.images[0] }] : []),
       ],
+      links: [{ rel: "canonical", href: canonical }],
     };
   },
   loader: ({ params }) => {
@@ -35,9 +39,6 @@ export const Route = createFileRoute("/service/$serviceId")({
 
 function ServicePage() {
   const { service } = Route.useLoaderData() as { service: ServiceDetail };
-  const navigate = useNavigate();
-  const { has, toggle } = useWishlist();
-  const liked = has(service.id);
 
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const imgRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -61,16 +62,6 @@ function ServicePage() {
   }, [service.id]);
 
   const category = categoriesData[service.category];
-
-  const requestMeasurement = () => {
-    try {
-      sessionStorage.setItem(
-        "sn_preselected_service",
-        JSON.stringify({ id: service.id, title: service.title, category: service.category }),
-      );
-    } catch {}
-    navigate({ to: "/consultation" });
-  };
 
   const realmBg: Record<string, string> = {
     "invisible-grills": "bg-[#FAF9F6]",
@@ -193,7 +184,9 @@ function ServicePage() {
             >
               <img
                 src={src}
-                alt={`${service.title} ${i + 1}`}
+                alt={`${service.title} view ${i + 1}`}
+                width={800}
+                height={1000}
                 className="w-full h-full object-cover"
                 loading={i === 0 ? "eager" : "lazy"}
               />
@@ -224,7 +217,7 @@ function ServicePage() {
               <Link
                 to="/category/$categoryId"
                 params={{ categoryId: service.category }}
-                className="hover:text-black"
+                className="hover:text-black focus-ring"
               >
                 {(category?.title ?? service.category).toUpperCase()}
               </Link>{" "}
@@ -238,14 +231,13 @@ function ServicePage() {
               {service.title}
             </h1>
 
-            <button
-              type="button"
-              className="mt-3 text-[10px] uppercase underline underline-offset-4 decoration-[0.5px] text-neutral-500"
+            <Link
+              to="/consultation"
+              className="mt-3 inline-block text-[10px] uppercase underline underline-offset-4 decoration-[0.5px] text-neutral-500 hover:text-black transition-colors focus-ring"
               style={{ letterSpacing: "0.2em", fontWeight: 300 }}
-              onClick={requestMeasurement}
             >
-              Price Upon Request
-            </button>
+              Price Upon Request · Laser Site Survey →
+            </Link>
 
             <div className="mt-8 space-y-5">
               {service.detailParagraphs.map((p, i) => (
@@ -276,34 +268,13 @@ function ServicePage() {
           </div>
 
           <div className="mt-10 flex items-center gap-4">
-            <button
-              type="button"
-              onClick={requestMeasurement}
-              className="flex-1 inline-flex items-center justify-center rounded-full border border-black px-6 py-3 text-[11px] uppercase tracking-[0.25em] bg-transparent text-black hover:bg-black hover:text-white transition-colors duration-300"
+            <Link
+              to="/consultation"
+              className="flex-1 inline-flex items-center justify-center rounded-full border border-black px-6 py-3.5 text-[11px] uppercase tracking-[0.25em] bg-black text-white hover:bg-neutral-800 transition-colors duration-300 min-h-11 focus-ring"
               style={{ fontWeight: 300 }}
             >
               Request Bespoke Measurement
-            </button>
-            <button
-              type="button"
-              aria-label={liked ? "Remove from wishlist" : "Add to wishlist"}
-              onClick={() =>
-                toggle({ id: service.id, title: service.title, image: service.images[0] })
-              }
-              className="p-3 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-300"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill={liked ? "currentColor" : "none"}
-                stroke="currentColor"
-                strokeWidth="1.2"
-              >
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-              </svg>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

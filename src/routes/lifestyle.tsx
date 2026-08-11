@@ -7,35 +7,41 @@ export const Route = createFileRoute("/lifestyle")({
   head: () => ({
     meta: [
       { title: `The Lifestyle — ${BRAND_CONFIG.name}` },
-      { name: "description", content: "Living without hesitation: breathtaking views, enjoyed in absolute peace of mind." },
+      {
+        name: "description",
+        content:
+          "Living without hesitation: breathtaking views, enjoyed in absolute peace of mind.",
+      },
       { property: "og:title", content: `The Lifestyle — ${BRAND_CONFIG.name}` },
-      { property: "og:description", content: "Breathtaking views, enjoyed in absolute peace of mind." },
+      {
+        property: "og:description",
+        content: "Breathtaking views, enjoyed in absolute peace of mind.",
+      },
       { property: "og:image", content: "/images/lifestyle/hero.jpg" },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://safenestindia.com/lifestyle" }],
   }),
   component: LifestylePage,
 });
 
 const pillars = [
   {
-    image:
-      "/images/lifestyle/feature-1.jpg",
+    image: "/images/lifestyle/feature-1.jpg",
     title: "CURIOSITY WITHOUT BOUNDARIES",
     eyebrow: "The Child's Exploration",
     copy: "Curiosity knows no limits, and safety shouldn't feel like confinement. A home should be a canvas of discovery, not a constant source of parental anxiety. We weave a silent, unyielding guardian around your edges, letting your children explore while you breathe freely.",
     reverse: false,
   },
   {
-    image:
-      "/images/lifestyle/feature-2.jpg",
+    image: "/images/lifestyle/feature-2.jpg",
     title: "WOVEN INTO THE LIGHT",
     eyebrow: "The Preserved Horizon",
     copy: `Your view is a premium asset — a daily connection to the sky. Traditional iron bars secure your space by building cages, trapping the light and blocking the breeze. ${BRAND_CONFIG.name} protects what you cherish while disappearing completely into the horizon. Security is invisible.`,
     reverse: true,
   },
   {
-    image:
-      "/images/lifestyle/feature-3.jpg",
+    image: "/images/lifestyle/feature-3.jpg",
     title: "THE NIGHT WIND",
     eyebrow: "The Sanctuary of Sleep",
     copy: "Welcoming the night breeze, keeping the vectors out. True rest is breathing natural air. Our micro-pore fiberglass meshes fit flush into your frame, letting in the cool night wind while locking out insect vectors. Sleep in pure, unpolluted ventilation.",
@@ -60,10 +66,16 @@ function LifestylePage() {
 
       {/* Editorial Header */}
       <section className="py-16 px-8 md:py-24 max-w-3xl mx-auto text-center bg-white">
-        <p className="uppercase text-[10px] tracking-[0.25em] text-neutral-400 mb-4" style={{ fontWeight: 300 }}>
+        <p
+          className="uppercase text-[10px] tracking-[0.25em] text-neutral-400 mb-4"
+          style={{ fontWeight: 300 }}
+        >
           The Lifestyle
         </p>
-        <h1 className="font-display uppercase text-2xl md:text-3xl font-light tracking-[0.1em] text-black mb-6" style={{ fontWeight: 300 }}>
+        <h1
+          className="font-display uppercase text-2xl md:text-3xl font-light tracking-[0.1em] text-black mb-6"
+          style={{ fontWeight: 300 }}
+        >
           Living Without Hesitation
         </h1>
         <p className="font-display italic text-lg md:text-xl text-neutral-700 leading-relaxed font-light">
@@ -128,7 +140,8 @@ function LifestylePage() {
             Curate Your Sanctuary
           </h2>
           <p className="mt-6 text-sm font-light leading-relaxed" style={{ color: "#555" }}>
-            Begin a private survey of your space. Our advisors will compose a protection plan worthy of the home you've built.
+            Begin a private survey of your space. Our advisors will compose a protection plan worthy
+            of the home you've built.
           </p>
           <Link
             to="/consultation"

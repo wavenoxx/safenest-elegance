@@ -7,7 +7,10 @@ export const Route = createFileRoute("/campaigns/weightless-pavilion")({
   head: () => ({
     meta: [
       { title: `The Weightless Pavilion — ${BRAND_CONFIG.name}` },
-      { name: "description", content: `An ongoing campaign exploring weightless structure and invisible protection.` },
+      {
+        name: "description",
+        content: `An ongoing campaign exploring weightless structure and invisible protection.`,
+      },
     ],
   }),
   component: WeightlessPavilion,
@@ -33,8 +36,8 @@ function WeightlessPavilion() {
       </section>
       <section className="max-w-2xl mx-auto px-6 py-20 text-center">
         <p className="font-serif italic text-lg md:text-xl font-light text-neutral-700 leading-relaxed">
-          A meditation on tension, transparency, and the architecture of safety —
-          coming soon to the {BRAND_CONFIG.name} journal.
+          A meditation on tension, transparency, and the architecture of safety — coming soon to the{" "}
+          {BRAND_CONFIG.name} journal.
         </p>
         <Link
           to="/solutions"

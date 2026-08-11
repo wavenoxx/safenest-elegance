@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WarrantyRouteImport } from './routes/warranty'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as SitemapRouteImport } from './routes/sitemap'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as OurStoryRouteImport } from './routes/our-story'
+import { Route as MaterialStandardsRouteImport } from './routes/material-standards'
 import { Route as LifestyleRouteImport } from './routes/lifestyle'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as CraftsmanshipRouteImport } from './routes/craftsmanship'
 import { Route as ConsultationRouteImport } from './routes/consultation'
 import { Route as IndexRouteImport } from './routes/index'
@@ -21,9 +27,29 @@ import { Route as CampaignsWeightlessPavilionRouteImport } from './routes/campai
 import { Route as CampaignsSilentPromiseRouteImport } from './routes/campaigns.silent-promise'
 import { Route as CampaignsLightAndSanctuaryRouteImport } from './routes/campaigns.light-and-sanctuary'
 
+const WarrantyRoute = WarrantyRouteImport.update({
+  id: '/warranty',
+  path: '/warranty',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapRoute = SitemapRouteImport.update({
+  id: '/sitemap',
+  path: '/sitemap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OurStoryRoute = OurStoryRouteImport.update({
@@ -31,9 +57,19 @@ const OurStoryRoute = OurStoryRouteImport.update({
   path: '/our-story',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MaterialStandardsRoute = MaterialStandardsRouteImport.update({
+  id: '/material-standards',
+  path: '/material-standards',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LifestyleRoute = LifestyleRouteImport.update({
   id: '/lifestyle',
   path: '/lifestyle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CraftsmanshipRoute = CraftsmanshipRouteImport.update({
@@ -83,9 +119,15 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/consultation': typeof ConsultationRoute
   '/craftsmanship': typeof CraftsmanshipRoute
+  '/faq': typeof FaqRoute
   '/lifestyle': typeof LifestyleRoute
+  '/material-standards': typeof MaterialStandardsRoute
   '/our-story': typeof OurStoryRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap': typeof SitemapRoute
   '/solutions': typeof SolutionsRoute
+  '/terms': typeof TermsRoute
+  '/warranty': typeof WarrantyRoute
   '/campaigns/light-and-sanctuary': typeof CampaignsLightAndSanctuaryRoute
   '/campaigns/silent-promise': typeof CampaignsSilentPromiseRoute
   '/campaigns/weightless-pavilion': typeof CampaignsWeightlessPavilionRoute
@@ -96,9 +138,15 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/consultation': typeof ConsultationRoute
   '/craftsmanship': typeof CraftsmanshipRoute
+  '/faq': typeof FaqRoute
   '/lifestyle': typeof LifestyleRoute
+  '/material-standards': typeof MaterialStandardsRoute
   '/our-story': typeof OurStoryRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap': typeof SitemapRoute
   '/solutions': typeof SolutionsRoute
+  '/terms': typeof TermsRoute
+  '/warranty': typeof WarrantyRoute
   '/campaigns/light-and-sanctuary': typeof CampaignsLightAndSanctuaryRoute
   '/campaigns/silent-promise': typeof CampaignsSilentPromiseRoute
   '/campaigns/weightless-pavilion': typeof CampaignsWeightlessPavilionRoute
@@ -110,9 +158,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/consultation': typeof ConsultationRoute
   '/craftsmanship': typeof CraftsmanshipRoute
+  '/faq': typeof FaqRoute
   '/lifestyle': typeof LifestyleRoute
+  '/material-standards': typeof MaterialStandardsRoute
   '/our-story': typeof OurStoryRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap': typeof SitemapRoute
   '/solutions': typeof SolutionsRoute
+  '/terms': typeof TermsRoute
+  '/warranty': typeof WarrantyRoute
   '/campaigns/light-and-sanctuary': typeof CampaignsLightAndSanctuaryRoute
   '/campaigns/silent-promise': typeof CampaignsSilentPromiseRoute
   '/campaigns/weightless-pavilion': typeof CampaignsWeightlessPavilionRoute
@@ -125,9 +179,15 @@ export interface FileRouteTypes {
     | '/'
     | '/consultation'
     | '/craftsmanship'
+    | '/faq'
     | '/lifestyle'
+    | '/material-standards'
     | '/our-story'
+    | '/privacy'
+    | '/sitemap'
     | '/solutions'
+    | '/terms'
+    | '/warranty'
     | '/campaigns/light-and-sanctuary'
     | '/campaigns/silent-promise'
     | '/campaigns/weightless-pavilion'
@@ -138,9 +198,15 @@ export interface FileRouteTypes {
     | '/'
     | '/consultation'
     | '/craftsmanship'
+    | '/faq'
     | '/lifestyle'
+    | '/material-standards'
     | '/our-story'
+    | '/privacy'
+    | '/sitemap'
     | '/solutions'
+    | '/terms'
+    | '/warranty'
     | '/campaigns/light-and-sanctuary'
     | '/campaigns/silent-promise'
     | '/campaigns/weightless-pavilion'
@@ -151,9 +217,15 @@ export interface FileRouteTypes {
     | '/'
     | '/consultation'
     | '/craftsmanship'
+    | '/faq'
     | '/lifestyle'
+    | '/material-standards'
     | '/our-story'
+    | '/privacy'
+    | '/sitemap'
     | '/solutions'
+    | '/terms'
+    | '/warranty'
     | '/campaigns/light-and-sanctuary'
     | '/campaigns/silent-promise'
     | '/campaigns/weightless-pavilion'
@@ -165,9 +237,15 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ConsultationRoute: typeof ConsultationRoute
   CraftsmanshipRoute: typeof CraftsmanshipRoute
+  FaqRoute: typeof FaqRoute
   LifestyleRoute: typeof LifestyleRoute
+  MaterialStandardsRoute: typeof MaterialStandardsRoute
   OurStoryRoute: typeof OurStoryRoute
+  PrivacyRoute: typeof PrivacyRoute
+  SitemapRoute: typeof SitemapRoute
   SolutionsRoute: typeof SolutionsRoute
+  TermsRoute: typeof TermsRoute
+  WarrantyRoute: typeof WarrantyRoute
   CampaignsLightAndSanctuaryRoute: typeof CampaignsLightAndSanctuaryRoute
   CampaignsSilentPromiseRoute: typeof CampaignsSilentPromiseRoute
   CampaignsWeightlessPavilionRoute: typeof CampaignsWeightlessPavilionRoute
@@ -177,11 +255,39 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/warranty': {
+      id: '/warranty'
+      path: '/warranty'
+      fullPath: '/warranty'
+      preLoaderRoute: typeof WarrantyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions': {
       id: '/solutions'
       path: '/solutions'
       fullPath: '/solutions'
       preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap': {
+      id: '/sitemap'
+      path: '/sitemap'
+      fullPath: '/sitemap'
+      preLoaderRoute: typeof SitemapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/our-story': {
@@ -191,11 +297,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OurStoryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/material-standards': {
+      id: '/material-standards'
+      path: '/material-standards'
+      fullPath: '/material-standards'
+      preLoaderRoute: typeof MaterialStandardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lifestyle': {
       id: '/lifestyle'
       path: '/lifestyle'
       fullPath: '/lifestyle'
       preLoaderRoute: typeof LifestyleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/craftsmanship': {
@@ -261,9 +381,15 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ConsultationRoute: ConsultationRoute,
   CraftsmanshipRoute: CraftsmanshipRoute,
+  FaqRoute: FaqRoute,
   LifestyleRoute: LifestyleRoute,
+  MaterialStandardsRoute: MaterialStandardsRoute,
   OurStoryRoute: OurStoryRoute,
+  PrivacyRoute: PrivacyRoute,
+  SitemapRoute: SitemapRoute,
   SolutionsRoute: SolutionsRoute,
+  TermsRoute: TermsRoute,
+  WarrantyRoute: WarrantyRoute,
   CampaignsLightAndSanctuaryRoute: CampaignsLightAndSanctuaryRoute,
   CampaignsSilentPromiseRoute: CampaignsSilentPromiseRoute,
   CampaignsWeightlessPavilionRoute: CampaignsWeightlessPavilionRoute,

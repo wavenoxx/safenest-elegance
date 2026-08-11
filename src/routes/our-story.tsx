@@ -8,10 +8,18 @@ export const Route = createFileRoute("/our-story")({
   head: () => ({
     meta: [
       { title: `Our Story — ${BRAND_CONFIG.name}` },
-      { name: "description", content: `The story of ${BRAND_CONFIG.name} — invisible protection crafted to honor your home.` },
+      {
+        name: "description",
+        content: `The story of ${BRAND_CONFIG.name} — invisible protection crafted to honor your home with quiet architectural grace.`,
+      },
       { property: "og:title", content: `Our Story — ${BRAND_CONFIG.name}` },
-      { property: "og:description", content: `The story of ${BRAND_CONFIG.name} — invisible protection crafted to honor your home.` },
+      {
+        property: "og:description",
+        content: `The story of ${BRAND_CONFIG.name} — invisible protection crafted to honor your home with quiet architectural grace.`,
+      },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://safenestindia.com/our-story" }],
   }),
   component: StoryPage,
 });
@@ -19,17 +27,72 @@ export const Route = createFileRoute("/our-story")({
 type Chapter = { time: string; name: string; copy: string; image: string };
 
 const CHAPTERS: Chapter[] = [
-  { time: "05:00", name: "Dawn",      copy: "A silent guardian wakes. Before the first light touches South India, your sanctuary is secured.", image: "/images/our-story/chapter-1.jpg" },
-  { time: "06:15", name: "Sunrise",   copy: "Horizon liberated. We greet the morning light without iron bars. Boundless skies.",               image: "/images/our-story/chapter-2.jpg" },
-  { time: "08:30", name: "Morning",   copy: "Unfiltered brightness. 100% sunshine, 0% confinement. The view is entirely yours.",               image: "/images/our-story/chapter-3.jpg" },
-  { time: "12:00", name: "Midday",    copy: "Zenith strength. Under the blazing sun, our marine elements stand unyielding.",                   image: "/images/our-story/chapter-4.jpg" },
-  { time: "15:00", name: "Afternoon", copy: "Play without borders. Children explore freely; balcony edges hold zero fear.",                    image: "/images/our-story/chapter-5.jpg" },
-  { time: "17:30", name: "Evening",   copy: "The evening breeze. Mesh barriers invite the cooling wind while keeping vectors out.",            image: "/images/our-story/chapter-6.jpg" },
-  { time: "18:15", name: "Sunset",    copy: "Pristine dusk. Pigeons seek other ledges; your balcony remains untouched.",                       image: "/images/our-story/chapter-7.jpg" },
-  { time: "18:45", name: "Twilight",  copy: "Velvet horizons. The city lights fade in through a screen of pure transparency.",                 image: "/images/our-story/chapter-8.jpg" },
-  { time: "19:15", name: "Dusk",      copy: "Shadows merge. The boundary between home and nature dissolves.",                                  image: "/images/our-story/chapter-9.jpg" },
-  { time: "21:00", name: "Night",     copy: "Under the stars. Woven lines of steel stand watch while your home rests.",                        image: "/images/our-story/chapter-10.jpg" },
-  { time: "24:00", name: "Midnight",  copy: `Breathe deeply. ${BRAND_CONFIG.name} guards the edge. Rest well, baby.`,                                      image: "/images/our-story/chapter-11.jpg" },
+  {
+    time: "05:00",
+    name: "Dawn",
+    copy: "A silent guardian wakes. Before the first light touches South India, your sanctuary is secured.",
+    image: "/images/our-story/chapter-1.jpg",
+  },
+  {
+    time: "06:15",
+    name: "Sunrise",
+    copy: "Horizon liberated. We greet the morning light without iron bars. Boundless skies.",
+    image: "/images/our-story/chapter-2.jpg",
+  },
+  {
+    time: "08:30",
+    name: "Morning",
+    copy: "Pure natural daylight without visual confinement. The view is entirely yours.",
+    image: "/images/our-story/chapter-3.jpg",
+  },
+  {
+    time: "12:00",
+    name: "Midday",
+    copy: "Zenith strength. Under the blazing sun, our marine elements stand unyielding.",
+    image: "/images/our-story/chapter-4.jpg",
+  },
+  {
+    time: "15:00",
+    name: "Afternoon",
+    copy: "Play without borders. Children explore freely with engineered perimeter micro-spacing.",
+    image: "/images/our-story/chapter-5.jpg",
+  },
+  {
+    time: "17:30",
+    name: "Evening",
+    copy: "The evening breeze. Engineered barriers invite cooling airflow while keeping vectors out.",
+    image: "/images/our-story/chapter-6.jpg",
+  },
+  {
+    time: "18:15",
+    name: "Sunset",
+    copy: "Pristine dusk. Pigeons seek other ledges; your balcony remains untouched.",
+    image: "/images/our-story/chapter-7.jpg",
+  },
+  {
+    time: "18:45",
+    name: "Twilight",
+    copy: "Velvet horizons. The city lights fade in through a screen of pure transparency.",
+    image: "/images/our-story/chapter-8.jpg",
+  },
+  {
+    time: "19:15",
+    name: "Dusk",
+    copy: "Shadows merge. The boundary between home and nature dissolves.",
+    image: "/images/our-story/chapter-9.jpg",
+  },
+  {
+    time: "21:00",
+    name: "Night",
+    copy: "Under the stars. Woven lines of steel stand watch while your home rests.",
+    image: "/images/our-story/chapter-10.jpg",
+  },
+  {
+    time: "24:00",
+    name: "Midnight",
+    copy: `Breathe deeply. ${BRAND_CONFIG.name} guards the edge. Rest well.`,
+    image: "/images/our-story/chapter-11.jpg",
+  },
 ];
 
 const PHASES: { from: string; to: string; dark: boolean }[] = [
@@ -77,7 +140,7 @@ function StoryPage() {
       setScrollProgress(scrollPercent);
     };
 
-    container.addEventListener("scroll", handleScroll);
+    container.addEventListener("scroll", handleScroll, { passive: true });
     return () => container.removeEventListener("scroll", handleScroll);
   }, [activeIndex]);
 
@@ -85,7 +148,7 @@ function StoryPage() {
     () => () => {
       if (transitionTimer.current) clearTimeout(transitionTimer.current);
     },
-    []
+    [],
   );
 
   const phase = PHASES[Math.min(11, activeIndex)];
@@ -106,7 +169,7 @@ function StoryPage() {
         delay: Math.random() * 3,
         dur: 1 + Math.random() * 2,
       })),
-    []
+    [],
   );
 
   return (
@@ -118,15 +181,6 @@ function StoryPage() {
         aria-hidden="true"
       />
 
-      {/* God rays */}
-      <div
-        className={`w-[200vw] h-[200vh] fixed -top-1/2 -left-1/2 bg-gradient-to-b from-white/10 via-transparent to-transparent rotate-[45deg] origin-center mix-blend-overlay pointer-events-none -z-10 transition-all duration-[800ms] ease-out animate-spin ${
-          isTransitioning ? "opacity-80" : "opacity-30"
-        }`}
-        style={{ animationDuration: isTransitioning ? "8s" : "120s" }}
-        aria-hidden="true"
-      />
-
       {/* Volumetric parallax clouds */}
       <div
         className="fixed inset-0 pointer-events-none -z-10 opacity-70 transition-all duration-[800ms] ease-out"
@@ -134,7 +188,9 @@ function StoryPage() {
           background:
             "radial-gradient(ellipse 60% 30% at 20% 40%, rgba(255,255,255,0.55), transparent 70%), radial-gradient(ellipse 50% 25% at 75% 60%, rgba(255,255,255,0.4), transparent 70%)",
           filter: isTransitioning ? "blur(40px)" : "blur(8px)",
-          transform: isTransitioning ? "scale(1.45) translate(-30px, -20px)" : "scale(1) translate(0,0)",
+          transform: isTransitioning
+            ? "scale(1.45) translate(-30px, -20px)"
+            : "scale(1) translate(0,0)",
         }}
         aria-hidden="true"
       />
@@ -144,7 +200,9 @@ function StoryPage() {
           background:
             "radial-gradient(ellipse 45% 22% at 55% 30%, rgba(255,255,255,0.55), transparent 70%), radial-gradient(ellipse 40% 20% at 25% 75%, rgba(255,255,255,0.45), transparent 70%)",
           filter: isTransitioning ? "blur(50px)" : "blur(10px)",
-          transform: isTransitioning ? "scale(1.5) translate(40px, 20px)" : "scale(1) translate(0,0)",
+          transform: isTransitioning
+            ? "scale(1.5) translate(40px, 20px)"
+            : "scale(1) translate(0,0)",
         }}
         aria-hidden="true"
       />
@@ -152,7 +210,9 @@ function StoryPage() {
       {/* Celestial orb */}
       <div
         className={`fixed pointer-events-none -z-10 rounded-full transition-all duration-[1000ms] ease-out ${
-          isMoon ? "w-20 h-20 bg-slate-200 blur-2xl opacity-40" : "w-28 h-28 bg-yellow-100 blur-3xl opacity-50"
+          isMoon
+            ? "w-20 h-20 bg-slate-200 blur-2xl opacity-40"
+            : "w-28 h-28 bg-yellow-100 blur-3xl opacity-50"
         }`}
         style={{ left: `${orbX}vw`, top: `${orbY}vh` }}
         aria-hidden="true"
@@ -199,18 +259,25 @@ function StoryPage() {
             >
               <div
                 className={`border-[0.5px] border-white/40 bg-white/10 backdrop-blur-md p-8 md:p-12 w-80 md:w-96 flex flex-col items-center justify-center transition-all duration-[1000ms] ease-out ${
-                  active ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"
+                  active
+                    ? "opacity-100 translate-y-0 scale-100"
+                    : "opacity-0 translate-y-10 scale-95"
                 }`}
               >
                 <img
                   src={c.image}
                   alt={`${c.name} — ${c.time}`}
+                  width={384}
+                  height={320}
                   className="w-full h-64 md:h-80 object-cover border-[0.5px] border-white/30 mb-6"
                   loading="lazy"
                 />
                 <p
                   className="text-[11px] uppercase tracking-[0.3em] opacity-70"
-                  style={{ fontFamily: "'Inter', sans-serif", color: isDark ? "#E5E5E5" : "#262626" }}
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    color: isDark ? "#E5E5E5" : "#262626",
+                  }}
                 >
                   {c.time}
                 </p>
@@ -240,7 +307,9 @@ function StoryPage() {
           <div className="flex-1 flex items-center justify-center w-full pt-24 pb-12">
             <div
               className={`border-[0.5px] border-white/40 bg-white/10 backdrop-blur-md p-10 md:p-14 w-80 md:w-96 flex flex-col items-center transition-all duration-[1000ms] ease-out ${
-                activeIndex === 11 ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"
+                activeIndex === 11
+                  ? "opacity-100 translate-y-0 scale-100"
+                  : "opacity-0 translate-y-10 scale-95"
               }`}
             >
               <h3

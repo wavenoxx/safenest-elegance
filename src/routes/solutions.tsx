@@ -7,8 +7,18 @@ export const Route = createFileRoute("/solutions")({
   head: () => ({
     meta: [
       { title: `Solutions Explorer — ${BRAND_CONFIG.name}` },
-      { name: "description", content: `Explore the full ${BRAND_CONFIG.name} catalog of invisible protection.` },
+      {
+        name: "description",
+        content: `Explore the architectural catalog of ${BRAND_CONFIG.name}: invisible grills, safety netting, and bird protection across South India.`,
+      },
+      { property: "og:title", content: `Solutions Explorer — ${BRAND_CONFIG.name}` },
+      {
+        property: "og:description",
+        content: `Explore the architectural catalog of ${BRAND_CONFIG.name}.`,
+      },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://safenestindia.com/solutions" }],
   }),
   component: SolutionsExplorer,
 });
@@ -131,6 +141,8 @@ function SolutionsExplorer() {
               <img
                 src={mobileImages[col.id] ?? col.backdrop}
                 alt={col.title}
+                width={800}
+                height={1200}
                 className="w-full h-full object-cover animate-breath"
                 loading="lazy"
               />
@@ -168,7 +180,7 @@ function SolutionsExplorer() {
                       key={s.slug}
                       to="/service/$serviceId"
                       params={{ serviceId: s.slug }}
-                      className={`w-full border-t border-white/15 py-3.5 flex justify-between items-center text-[11px] font-sans font-light text-neutral-200 hover:text-white uppercase tracking-wider transition-all duration-700 ease-out transform ${delay} ${
+                      className={`w-full border-t border-white/15 py-3.5 flex justify-between items-center text-[11px] font-sans font-light text-neutral-200 hover:text-white uppercase tracking-wider transition-all duration-700 ease-out transform focus-ring ${delay} ${
                         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                       }`}
                     >
@@ -197,6 +209,8 @@ function SolutionsExplorer() {
               <img
                 src={col.backdrop}
                 alt=""
+                width={800}
+                height={1200}
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
               />
@@ -233,7 +247,7 @@ function SolutionsExplorer() {
                         key={s.slug}
                         to="/service/$serviceId"
                         params={{ serviceId: s.slug }}
-                        className="text-[12px] font-light text-neutral-800 tracking-wider hover:text-black block mb-4 underline decoration-[0.5px] underline-offset-4"
+                        className="text-[12px] font-light text-neutral-800 tracking-wider hover:text-black block mb-4 underline decoration-[0.5px] underline-offset-4 focus-ring"
                       >
                         {s.label}
                       </Link>
@@ -244,7 +258,7 @@ function SolutionsExplorer() {
                 <Link
                   to="/category/$categoryId"
                   params={{ categoryId: col.id }}
-                  className="relative z-10 text-[10px] uppercase tracking-[0.25em] text-neutral-700 hover:text-black mt-6"
+                  className="relative z-10 text-[10px] uppercase tracking-[0.25em] text-neutral-700 hover:text-black mt-6 focus-ring"
                 >
                   View Category →
                 </Link>

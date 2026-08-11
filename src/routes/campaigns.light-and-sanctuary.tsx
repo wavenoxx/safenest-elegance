@@ -8,10 +8,18 @@ export const Route = createFileRoute("/campaigns/light-and-sanctuary")({
   head: () => ({
     meta: [
       { title: `Light & Sanctuary — ${BRAND_CONFIG.name} Campaign` },
-      { name: "description", content: "An interactive sensory portal exploring the philosophy of invisible safety." },
+      {
+        name: "description",
+        content: "An interactive sensory portal exploring the philosophy of invisible safety.",
+      },
       { property: "og:title", content: `Light & Sanctuary — ${BRAND_CONFIG.name} Campaign` },
-      { property: "og:description", content: "A sanctuary of light. Where the edge fades, absolute trust begins." },
+      {
+        property: "og:description",
+        content: "A sanctuary of light. Where the edge fades, trust begins.",
+      },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://safenestindia.com/campaigns/light-and-sanctuary" }],
   }),
   component: CampaignOne,
 });
@@ -20,18 +28,15 @@ const HARP_LINES = 8;
 
 const REVEAL_SECTIONS = [
   {
-    image:
-      "/images/campaigns/campaign-1-story-1.jpg",
+    image: "/images/campaigns/campaign-1-story-1.jpg",
     quote: "We do not build walls. We liberate the threshold.",
   },
   {
-    image:
-      "/images/campaigns/campaign-1-story-2.jpg",
+    image: "/images/campaigns/campaign-1-story-2.jpg",
     quote: "Security is not a cage. It is a dialogue with the sky.",
   },
   {
-    image:
-      "/images/campaigns/campaign-1-story-3.jpg",
+    image: "/images/campaigns/campaign-1-story-3.jpg",
     quote: "Where the edge fades, absolute trust begins.",
   },
 ];
@@ -75,13 +80,7 @@ function SafetyHarp() {
   );
 }
 
-function RevealSection({
-  image,
-  quote,
-}: {
-  image: string;
-  quote: string;
-}) {
+function RevealSection({ image, quote }: { image: string; quote: string }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [revealed, setRevealed] = useState(false);
 
@@ -189,7 +188,10 @@ function CampaignOne() {
           Light &amp; Sanctuary
         </span>
         <p className="text-[13px] md:text-[14px] leading-relaxed text-neutral-600 font-light max-w-2xl mx-auto">
-          An exploration of architectural lightness. At {BRAND_CONFIG.name}, we believe security should enhance your view, not hide it. Our campaign captures the dialogue between open spaces and unyielding invisible protection. Natural light and airy proportions run through our installations, defining an aesthetic balanced between safety, precision, and freedom.
+          An exploration of architectural lightness. At {BRAND_CONFIG.name}, we believe security
+          should enhance your view, not hide it. Our campaign captures the dialogue between open
+          spaces and unyielding invisible protection. Natural light and airy proportions run through
+          our installations, defining an aesthetic balanced between safety, precision, and freedom.
         </p>
       </section>
 

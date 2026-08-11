@@ -9,10 +9,15 @@ export const Route = createFileRoute("/campaigns/silent-promise")({
   head: () => ({
     meta: [
       { title: `The Silent Promise — ${BRAND_CONFIG.name} Campaign` },
-      { name: "description", content: "A pinky promise of protection, suspended in thin air." },
+      {
+        name: "description",
+        content: "A promise of architectural protection, suspended in thin air.",
+      },
       { property: "og:title", content: `The Silent Promise — ${BRAND_CONFIG.name} Campaign` },
-      { property: "og:description", content: "Trust, telemetry, and invisible safety." },
+      { property: "og:description", content: "Integrity, design, and invisible safety." },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "https://safenestindia.com/campaigns/silent-promise" }],
   }),
   component: CampaignThree,
 });
@@ -35,9 +40,9 @@ interface TrustNode {
 }
 
 const trustNodes: TrustNode[] = [
-  { id: 1, x: 500, y: 200, label: "TENSION LOCK", spec: "450KG DUO-KEY STABILITY" },
-  { id: 2, x: 300, y: 400, label: "SWISS CABLE CORE", spec: "AISI 316 MARINE GRADE ALLOY" },
-  { id: 3, x: 700, y: 400, label: "NYLON-12 COATING", spec: "UV-PROOF THERMOPLASTIC EXTRA" },
+  { id: 1, x: 500, y: 200, label: "TENSION LOCK", spec: "HIGH-TENSILE ANCHORAGE PROFILE" },
+  { id: 2, x: 300, y: 400, label: "MARINE GRADE CABLE", spec: "AISI 316 MARINE GRADE ALLOY" },
+  { id: 3, x: 700, y: 400, label: "NYLON-12 COATING", spec: "UV-RESISTANT THERMOPLASTIC SHEATH" },
   { id: 4, x: 500, y: 600, label: "PRESSURE ANCHOR", spec: "EXTRUDED DUAL-KEY ALUMINUM PROFILE" },
 ];
 
@@ -140,7 +145,8 @@ function CampaignThree() {
             THE CELESTIAL SKYDECK
           </h2>
           <p className="font-serif italic text-sm md:text-base text-neutral-600 font-light max-w-xl mx-auto">
-            Move your cursor across the window deck. Your cursor acts as a sunlight source, projecting dynamic angles of safety lines on the floor.
+            Move your cursor across the window deck. Your cursor acts as a sunlight source,
+            projecting dynamic angles of safety lines on the floor.
           </p>
         </div>
 
@@ -154,7 +160,11 @@ function CampaignThree() {
             alt="Sky deck"
             className="absolute inset-0 w-full h-full object-cover breath-bg opacity-90"
           />
-          <svg viewBox="0 0 1000 800" preserveAspectRatio="none" className="absolute inset-0 w-full h-full">
+          <svg
+            viewBox="0 0 1000 800"
+            preserveAspectRatio="none"
+            className="absolute inset-0 w-full h-full"
+          >
             {/* Balcony floor */}
             <rect x="0" y="750" width="1000" height="50" fill="#1a1a1a" opacity="0.7" />
             <rect x="0" y="445" width="1000" height="6" fill="#C5A880" opacity="0.5" />
@@ -198,12 +208,17 @@ function CampaignThree() {
               THE GUARDIAN PROMISE
             </h2>
             <p className="font-serif italic text-sm md:text-base text-neutral-400 font-light max-w-xl mx-auto">
-              Hover over the structural connection nodes to activate the integrity telemetry of {BRAND_CONFIG.name}'s safety anchors.
+              Hover over the structural connection nodes to activate the integrity telemetry of{" "}
+              {BRAND_CONFIG.name}'s safety anchors.
             </p>
           </div>
 
           <div className="relative w-full aspect-[16/10] bg-gradient-to-b from-neutral-900 via-neutral-950 to-black border border-[#C5A880]/15 overflow-hidden">
-            <svg viewBox="0 0 1000 800" preserveAspectRatio="none" className="absolute inset-0 w-full h-full">
+            <svg
+              viewBox="0 0 1000 800"
+              preserveAspectRatio="none"
+              className="absolute inset-0 w-full h-full"
+            >
               {/* Constellation links */}
               {trustNodes.map((a) =>
                 trustNodes
@@ -219,7 +234,7 @@ function CampaignThree() {
                       strokeOpacity={0.25}
                       strokeWidth={0.6}
                     />
-                  ))
+                  )),
               )}
               <text
                 x="500"
@@ -278,7 +293,8 @@ function CampaignThree() {
               THE HORIZON PORTAL
             </h2>
             <p className="font-serif italic text-sm md:text-base text-neutral-600 font-light max-w-xl mx-auto">
-              Adjust the viewport layer selector to examine how {BRAND_CONFIG.name} integrates safety grids and insect screening without compromising your view.
+              Adjust the viewport layer selector to examine how {BRAND_CONFIG.name} integrates
+              safety grids and insect screening without compromising your view.
             </p>
           </div>
 
