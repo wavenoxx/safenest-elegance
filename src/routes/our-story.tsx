@@ -3,14 +3,13 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
-
 import { buildMetaTags } from "@/lib/seo";
 
 export const Route = createFileRoute("/our-story")({
   head: () =>
     buildMetaTags({
-      title: "Atelier Heritage & Brand Ethos",
-      description: `The story of ${BRAND_CONFIG.name} — invisible safety engineered to honor modern architectural living with quiet grace.`,
+      title: "Genesis of Serenity — Atelier Heritage & Brand Ethos",
+      description: `The story of ${BRAND_CONFIG.name} — 11 times of the day from dawn to midnight, invisible safety engineered to honor modern architectural living with quiet grace.`,
       canonicalPath: "/our-story",
       ogImage: "/images/our-story/chapter-1.jpg",
     }),
@@ -156,7 +155,7 @@ function StoryPage() {
 
   const stars = useMemo(
     () =>
-      Array.from({ length: 15 }, () => ({
+      Array.from({ length: 18 }, () => ({
         top: Math.random() * 100,
         left: Math.random() * 100,
         delay: Math.random() * 3,
@@ -166,17 +165,26 @@ function StoryPage() {
   );
 
   return (
-    <div className="relative h-screen w-screen">
-      {/* Fixed sky gradient canvas */}
+    <div className="relative h-screen w-screen overflow-hidden select-none">
+      {/* 1. Fixed Sky Gradient Canvas (Atmospheric Times of Day Realism) */}
       <div
-        className="fixed inset-0 w-full h-full pointer-events-none -z-10 transition-all duration-[1000ms] ease-in-out"
+        className="fixed inset-0 w-full h-full pointer-events-none z-0 transition-all duration-[1000ms] ease-in-out"
         style={{ background: `linear-gradient(to bottom, ${phase.from}, ${phase.to})` }}
         aria-hidden="true"
       />
 
-      {/* Volumetric parallax clouds */}
+      {/* 2. God Rays Overlay */}
       <div
-        className="fixed inset-0 pointer-events-none -z-10 opacity-70 transition-all duration-[800ms] ease-out"
+        className={`w-[200vw] h-[200vh] fixed -top-1/2 -left-1/2 bg-gradient-to-b from-white/10 via-transparent to-transparent rotate-[45deg] origin-center mix-blend-overlay pointer-events-none z-0 transition-all duration-[800ms] ease-out animate-spin ${
+          isTransitioning ? "opacity-80" : "opacity-30"
+        }`}
+        style={{ animationDuration: isTransitioning ? "8s" : "120s" }}
+        aria-hidden="true"
+      />
+
+      {/* 3. Volumetric Parallax Clouds */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0 opacity-70 transition-all duration-[800ms] ease-out"
         style={{
           background:
             "radial-gradient(ellipse 60% 30% at 20% 40%, rgba(255,255,255,0.55), transparent 70%), radial-gradient(ellipse 50% 25% at 75% 60%, rgba(255,255,255,0.4), transparent 70%)",
@@ -188,7 +196,7 @@ function StoryPage() {
         aria-hidden="true"
       />
       <div
-        className="fixed inset-0 pointer-events-none -z-10 opacity-60 transition-all duration-[800ms] ease-out"
+        className="fixed inset-0 pointer-events-none z-0 opacity-60 transition-all duration-[800ms] ease-out"
         style={{
           background:
             "radial-gradient(ellipse 45% 22% at 55% 30%, rgba(255,255,255,0.55), transparent 70%), radial-gradient(ellipse 40% 20% at 25% 75%, rgba(255,255,255,0.45), transparent 70%)",
@@ -200,20 +208,20 @@ function StoryPage() {
         aria-hidden="true"
       />
 
-      {/* Celestial orb */}
+      {/* 4. Celestial Orb (Sun/Moon traversing the sky) */}
       <div
-        className={`fixed pointer-events-none -z-10 rounded-full transition-all duration-[1000ms] ease-out ${
+        className={`fixed pointer-events-none z-0 rounded-full transition-all duration-[1000ms] ease-out ${
           isMoon
-            ? "w-20 h-20 bg-slate-200 blur-2xl opacity-40"
-            : "w-28 h-28 bg-yellow-100 blur-3xl opacity-50"
+            ? "w-20 h-20 bg-slate-200 blur-2xl opacity-50 shadow-[0_0_50px_rgba(255,255,255,0.4)]"
+            : "w-28 h-28 bg-yellow-100 blur-3xl opacity-60 shadow-[0_0_80px_rgba(254,240,138,0.5)]"
         }`}
         style={{ left: `${orbX}vw`, top: `${orbY}vh` }}
         aria-hidden="true"
       />
 
-      {/* Stars */}
+      {/* 5. Twinkling Stars (Night / Midnight) */}
       {showStars && (
-        <div className="fixed inset-0 pointer-events-none -z-10" aria-hidden="true">
+        <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
           {stars.map((s, i) => (
             <span
               key={i}
@@ -229,59 +237,66 @@ function StoryPage() {
         </div>
       )}
 
-      {/* Nav */}
+      {/* 6. Sticky Site Navigation with Adaptive Contrast */}
       <div
-        className="fixed top-0 left-0 right-0 z-30 transition-colors duration-700"
-        style={{ color: isDark ? "#F5F5F5" : "#000000" }}
+        className="fixed top-0 left-0 right-0 z-40 transition-colors duration-700"
+        style={{ color: isDark ? "#FFFFFF" : "#0A0A0A" }}
       >
         <SiteNav />
       </div>
 
-      {/* Scroll-snap container */}
+      {/* 7. Scroll-snap Container for 11 Times of Day */}
       <div
         ref={containerRef}
-        className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory relative bg-transparent"
+        className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory relative z-10 bg-transparent"
       >
-        {/* 11 chapter snap sections */}
         {CHAPTERS.map((c, i) => {
           const active = activeIndex === i;
           return (
             <section
               key={c.name}
-              className="w-screen h-screen snap-start relative flex items-center justify-center overflow-hidden bg-transparent"
+              className="w-screen h-screen snap-start relative flex items-center justify-center overflow-hidden bg-transparent p-4 sm:p-6"
             >
               <div
-                className={`border-[0.5px] border-white/40 bg-white/10 backdrop-blur-md p-8 md:p-12 w-80 md:w-96 flex flex-col items-center justify-center transition-all duration-[1000ms] ease-out ${
+                className={`border border-white/30 bg-black/25 backdrop-blur-xl p-6 sm:p-8 md:p-10 w-full max-w-sm sm:max-w-md md:max-w-lg flex flex-col items-center justify-center shadow-2xl transition-all duration-[800ms] ease-out ${
                   active
                     ? "opacity-100 translate-y-0 scale-100"
-                    : "opacity-0 translate-y-10 scale-95"
+                    : "opacity-0 translate-y-8 scale-95"
                 }`}
               >
-                <div className="w-full h-64 md:h-80 sn-black-visual border-[0.5px] border-white/30 mb-6">
-                  <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
+                {/* Visual Card Image (Atmospheric Weather & Time Realism) */}
+                <div className="w-full h-56 sm:h-64 md:h-72 overflow-hidden border border-white/20 mb-5 relative group">
+                  <img
+                    src={c.image}
+                    alt={`${c.name} — ${c.time} atmospheric safety setting`}
+                    className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
                 </div>
+
+                {/* Time Indicator */}
                 <p
-                  className="text-[11px] uppercase tracking-[0.3em] opacity-70"
+                  className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-light"
                   style={{
                     fontFamily: "'Inter', sans-serif",
-                    color: isDark ? "#E5E5E5" : "#262626",
+                    color: isDark ? "#E5E5E5" : "#F5F5F5",
                   }}
                 >
                   {c.time}
                 </p>
+
+                {/* Chapter / Phase Title */}
                 <h2
-                  className="font-display uppercase text-xl font-light text-center mt-2"
-                  style={{ letterSpacing: "0.12em", color: isDark ? "#FFFFFF" : "#0A0A0A" }}
+                  className="font-serif uppercase text-xl sm:text-2xl font-light text-center mt-1.5 text-white tracking-[0.18em]"
                 >
                   {c.name}
                 </h2>
+
+                {/* Narrative Copy */}
                 <p
-                  className="text-[12px] text-center mt-2 font-light"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    lineHeight: 1.8,
-                    color: isDark ? "#E5E5E5" : "#262626",
-                  }}
+                  className="text-[12px] sm:text-[13px] text-center mt-2.5 font-light max-w-xs leading-relaxed text-neutral-200"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {c.copy}
                 </p>
@@ -290,42 +305,47 @@ function StoryPage() {
           );
         })}
 
-        {/* Section 12 — CTA + Footer */}
+        {/* Section 12 — Curate Your Sanctuary CTA + Footer */}
         <section className="w-screen min-h-screen snap-start relative flex flex-col items-center justify-between overflow-hidden bg-transparent">
-          <div className="flex-1 flex items-center justify-center w-full pt-24 pb-12">
+          <div className="flex-1 flex items-center justify-center w-full pt-28 pb-12 px-6">
             <div
-              className={`border-[0.5px] border-white/40 bg-white/10 backdrop-blur-md p-10 md:p-14 w-80 md:w-96 flex flex-col items-center transition-all duration-[1000ms] ease-out ${
+              className={`border border-white/30 bg-black/35 backdrop-blur-xl p-8 sm:p-10 md:p-14 w-full max-w-sm sm:max-w-md flex flex-col items-center shadow-2xl transition-all duration-[800ms] ease-out ${
                 activeIndex === 11
                   ? "opacity-100 translate-y-0 scale-100"
-                  : "opacity-0 translate-y-10 scale-95"
+                  : "opacity-0 translate-y-8 scale-95"
               }`}
             >
-              <h3
-                className="font-display uppercase text-xl font-light text-center text-white"
-                style={{ letterSpacing: "0.18em" }}
-              >
+              <span className="sn-eyebrow text-neutral-300 mb-3 block">
+                Genesis of Serenity
+              </span>
+              <h3 className="font-serif uppercase text-2xl font-light text-center text-white tracking-[0.18em]">
                 Curate Your Sanctuary
               </h3>
+              <p className="text-xs text-neutral-300 text-center font-light mt-3 mb-8 leading-relaxed max-w-xs">
+                From dawn to midnight, preserve your sanctuary with invisible architectural grace.
+              </p>
               <Link
                 to="/consultation"
-                className="mt-8 inline-flex items-center justify-center rounded-full border border-white/85 text-white px-8 py-3 text-[11px] uppercase tracking-[0.3em] hover:bg-white/10 transition"
-                style={{ fontWeight: 300 }}
+                className="sn-btn-luxury-solid focus-ring"
               >
                 Request Survey
               </Link>
             </div>
           </div>
-          <div className="w-full relative z-10 bg-[#050505]">
+          <div className="w-full relative z-20 bg-[#050505]">
             <Footer />
           </div>
         </section>
       </div>
 
-      {/* Scroll hint */}
+      {/* Scroll Hint */}
       {activeIndex === 0 && (
         <div
-          className="fixed bottom-8 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.4em] opacity-60 animate-pulse pointer-events-none z-30"
-          style={{ fontFamily: "'Inter', sans-serif", color: isDark ? "#F5F5F5" : "#000000" }}
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 text-[9px] uppercase tracking-[0.35em] opacity-70 animate-pulse pointer-events-none z-30 font-light"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            color: isDark ? "#F5F5F5" : "#1A1A1A",
+          }}
         >
           Scroll to Begin
         </div>
@@ -333,3 +353,5 @@ function StoryPage() {
     </div>
   );
 }
+
+export default StoryPage;

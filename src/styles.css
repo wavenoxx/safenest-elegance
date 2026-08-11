@@ -141,6 +141,8 @@
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     scroll-behavior: auto;
+    scrollbar-gutter: stable;
+    overflow-x: hidden;
   }
 
   body {
@@ -152,6 +154,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
   /* Form Elements: Ensure min 16px on mobile to prevent iOS Safari auto-zoom */
