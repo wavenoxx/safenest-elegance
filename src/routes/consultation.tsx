@@ -5,23 +5,16 @@ import { supabase } from "@/integrations/supabase/client";
 import { trackQualifiedLead } from "@/lib/analytics";
 import { getStoredAttribution } from "@/lib/attribution";
 
+import { buildMetaTags } from "@/lib/seo";
+
 export const Route = createFileRoute("/consultation")({
-  head: () => ({
-    meta: [
-      { title: `Bespoke Consultation — ${BRAND_CONFIG.name}` },
-      {
-        name: "description",
-        content: `Request a complimentary ${BRAND_CONFIG.name} site survey. Our regional safety advisory team will connect with you promptly to coordinate measurements and material review.`,
-      },
-      { property: "og:title", content: `Bespoke Consultation — ${BRAND_CONFIG.name}` },
-      {
-        property: "og:description",
-        content: `Request a complimentary ${BRAND_CONFIG.name} site survey. Our regional safety advisory team will connect with you promptly.`,
-      },
-      { property: "og:type", content: "website" },
-    ],
-    links: [{ rel: "canonical", href: "https://safenestindia.com/consultation" }],
-  }),
+  head: () =>
+    buildMetaTags({
+      title: "Bespoke Consultation & Site Survey",
+      description: `Request a complimentary ${BRAND_CONFIG.name} site survey. Our regional safety advisory team will connect with you promptly to coordinate measurements and material review.`,
+      canonicalPath: "/consultation",
+      noIndex: true,
+    }),
   component: ConsultationPage,
 });
 

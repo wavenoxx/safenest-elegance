@@ -1,25 +1,367 @@
 export interface ServiceDetail {
   id: string;
   title: string;
+  plainDescriptor: string;
+  editorialTitle?: string;
   category: string;
   description: string;
   detailParagraphs: string[];
   images: string[];
   specs: { label: string; value: string }[];
+  processSteps?: string[];
+}
+
+export interface CategoryFaq {
+  question: string;
+  answer: string;
 }
 
 export interface CategoryDetail {
   id: string;
   title: string;
+  plainDescriptor: string;
   quote: string;
   heroImage: string;
   services: string[];
+  overview: string;
+  applications: string[];
+  materials: { name: string; detail: string }[];
+  measurementProcess: string;
+  installationMethod: string;
+  maintenanceGuide: string;
+  limitations: string;
+  faqs: CategoryFaq[];
 }
+
+export const categoriesData: Record<string, CategoryDetail> = {
+  "invisible-grills": {
+    id: "invisible-grills",
+    title: "Invisible Grills",
+    plainDescriptor: "High-Tensile Stainless Steel Cable Safety Grills",
+    quote: "A dialogue between open space and architectural safety.",
+    heroImage: "/images/category-invisible-grills.png",
+    services: [
+      "balcony-invisible-grills",
+      "staircase-invisible-grills",
+      "windows-invisible-grills",
+      "child-safety-invisible-grills",
+    ],
+    overview:
+      "SafeNest Invisible Grills are modern architectural fall-prevention systems engineered for high-rise balconies, stairwells, and windows. Made with high-tensile AISI 316 marine-grade stainless steel cables encased in clear UV-stabilized Nylon-12, they provide robust edge protection while maintaining uninterrupted panoramic views and building exterior aesthetics.",
+    applications: [
+      "High-rise residential apartment balconies and utility decks",
+      "Full-height French windows and sliding glass fenestrations",
+      "Internal open staircases, duplex mezzanine edges, and atriums",
+      "Commercial office breakout spaces and terrace corridors",
+    ],
+    materials: [
+      {
+        name: "AISI 316 Marine-Grade Core",
+        detail:
+          "High-tensile 316-grade austenitic stainless steel wire rope (7x7 / 7x19 construction) offering high corrosion resistance even in high-humidity and coastal environments.",
+      },
+      {
+        name: "Virgin Nylon-12 Thermoplastic Sheath",
+        detail:
+          "UV-stabilized, non-reactive outer polymer jacket protecting against atmospheric oxidation, dust abrasion, and direct skin contact.",
+      },
+      {
+        name: "6063-T6 Extruded Aluminum Track",
+        detail:
+          "Structural extruded aluminum top and bottom channel profile with anodized or powder-coated finish matching your facade palette.",
+      },
+    ],
+    measurementProcess:
+      "Our technicians perform precision digital laser measurements across all structural boundaries. We evaluate RCC wall density, balcony parapet alignment, railing load points, and structural clearances to fabricate custom-dimensioned aluminum tracks with uniform cable spacing (typically 2-inch for child protection or 3-inch for standard openings).",
+    installationMethod:
+      "Diamond-core drill bits are used to anchor the aluminum track profiles into RCC slabs or brickwork with heavy-duty stainless steel anchor fasteners. High-tensile cables are threaded continuously through precision nylon grommets and mechanically tensioned using calibrated dual-key locking mechanisms before final inspection handover.",
+    maintenanceGuide:
+      "Clean every 3 to 6 months using a soft microfiber cloth dampened with clean freshwater and mild neutral soap. Avoid abrasive scouring pads, hydrochloric acid, or harsh tile cleaners. For coastal residences, monthly freshwater wiping preserves the clear luster of the polymer sheath.",
+    limitations:
+      "Invisible grills are engineered primarily as fall-prevention barriers and child safety systems; they are not intended to withstand automotive vehicular impacts or replace structural load-bearing balustrades. In case of emergency fire evacuation, cables can be severed rapidly with standard handheld wire cutters.",
+    faqs: [
+      {
+        question: "Can invisible grills be cut during a fire emergency?",
+        answer:
+          "Yes. Unlike traditional wrought iron grates that require power angle grinders or welding torches to breach, SafeNest stainless steel cables can be cleanly severed in seconds with a heavy-duty handheld wire cutter for emergency egress.",
+      },
+      {
+        question: "Will the cables rust or discolor over time?",
+        answer:
+          "We use authentic AISI 316 marine-grade stainless steel with a protective Nylon-12 sheath. Under normal atmospheric conditions and regular freshwater maintenance, the system resists corrosion, tarnishing, and UV yellowing.",
+      },
+      {
+        question: "What cable spacing options are available?",
+        answer:
+          "We offer 2-inch (50 mm) micro-spacing recommended for homes with infants, toddlers, and small pets, as well as 3-inch (75 mm) spacing for standard balconies and window safety.",
+      },
+      {
+        question: "How long does installation take?",
+        answer:
+          "A standard 2-to-3 balcony installation is typically completed within 4 to 8 hours following initial laser site survey and track fabrication.",
+      },
+    ],
+  },
+  "core-safety-nets": {
+    id: "core-safety-nets",
+    title: "Core Safety Nets",
+    plainDescriptor: "UV-Stabilized High-Density Safety Netting Systems",
+    quote: "The quiet embrace of edge-to-edge fall containment.",
+    heroImage: "/images/category-core-safety-nets.png",
+    services: [
+      "balcony-safety-nets",
+      "children-safety-nets",
+      "staircase-safety-nets",
+      "building-safety-nets",
+    ],
+    overview:
+      "SafeNest Core Safety Nets provide dependable containment solutions for apartment balconies, open stairwells, and structural building shafts. Fabricated from 100% virgin high-density polyethylene (HDPE) monofilament with integrated UV carbon stabilizers, they absorb kinetic impact and prevent accidental falls without obstructing airflow or daylight.",
+    applications: [
+      "Balcony open perimeters and utility wash areas",
+      "Multi-story staircase voids and elevator shaft drops",
+      "School, daycare, and children play area balconies",
+      "Building duct shafts, courtyards, and lightwells",
+    ],
+    materials: [
+      {
+        name: "Virgin HDPE Monofilament",
+        detail:
+          "High-Density Polyethylene polymers spun into multi-strand twisted cords with high tensile breaking strength and flexibility.",
+      },
+      {
+        name: "Thermal UV-Stabilization",
+        detail:
+          "Formulated with UV absorbers and carbon additives to prevent polymer chain degradation from intense tropical sunlight.",
+      },
+      {
+        name: "Marine-Grade Fasteners",
+        detail:
+          "Non-corrosive stainless steel expansion eye-bolts, stainless steel wire borders, and heavy-duty nylon anchor ties.",
+      },
+    ],
+    measurementProcess:
+      "Technicians measure full perimeter drops including uneven ceiling beams, side pillars, and parapet walls. Custom net panels are drafted to exact site geometry to ensure tensioned, sag-free alignment without open gaps.",
+    installationMethod:
+      "Perimeter stainless steel anchor hooks are embedded into masonry or concrete at 8-to-12 inch intervals. A high-tensile border cord is tensioned around the perimeter, and the net mesh is laced tightly to the border with secure knotting.",
+    maintenanceGuide:
+      "Rinse with garden hose water every 6 months to dislodge accumulated urban dust and bird feathers. Do not use open flames, solvent-based paint thinners, or sharp abrasive tools near the net fibers.",
+    limitations:
+      "HDPE safety netting is designed for fall containment and debris capture; it should not be subjected to sharp cutting blades, chemical acid splashes, or direct open heat sources.",
+    faqs: [
+      {
+        question: "How long do HDPE safety nets last under direct sunlight?",
+        answer:
+          "Our UV-stabilized virgin HDPE nets typically maintain structural integrity for 3 to 5+ years under standard tropical sun exposure, backed by a documented material warranty.",
+      },
+      {
+        question: "Does the netting block ventilation or balcony airflow?",
+        answer:
+          "No. The open diamond mesh geometry allows over 90% of natural airflow and sunlight to pass freely into your home while maintaining complete perimeter containment.",
+      },
+      {
+        question: "Can these nets safely protect children and pets?",
+        answer:
+          "Yes. Our children safety net specifications use reinforced mesh gauges with tightly spaced knots engineered to prevent children or pets from squeezing through railings.",
+      },
+      {
+        question: "What happens if a net cord gets cut?",
+        answer:
+          "Our nets feature heat-set knotted construction. If one mesh cord is cut, the surrounding knots prevent the entire net from unraveling.",
+      },
+    ],
+  },
+  "construction-industrial": {
+    id: "construction-industrial",
+    title: "Construction & Industrial",
+    plainDescriptor: "Heavy-Duty Structural & Debris Containment Systems",
+    quote: "Industrial strength engineered for active structural horizons.",
+    heroImage: "/images/category-construction-industrial.png",
+    services: [
+      "construction-safety-nets",
+      "industrial-safety-nets",
+      "terrace-top-nets",
+      "car-parking-safety-nets",
+    ],
+    overview:
+      "Heavy-duty safety containment grids engineered for active commercial job sites, multi-story building perimeters, industrial mezzanine floors, and parking facilities. Designed to catch falling tools, structural debris, and provide personnel fall-arrest containment in accordance with standard safety protocols.",
+    applications: [
+      "Active high-rise construction scaffolds and perimeter perimeters",
+      "Industrial warehouse storage racks and mezzanine edges",
+      "Commercial building open terrace tops and skylight covers",
+      "Residential & commercial basement car parking canopies",
+    ],
+    materials: [
+      {
+        name: "Braided Polyamide (Nylon) & High-Tenacity Polypropylene",
+        detail:
+          "Multi-filament braided construction offering high kinetic energy absorption and shock resistance.",
+      },
+      {
+        name: "Reinforced Debris Lining",
+        detail:
+          "Secondary micro-mesh overlay (shade net / mono-screen) to capture small falling debris, masonry aggregate, and fasteners.",
+      },
+      {
+        name: "High-Load Steel Carabiners & Wire Ropes",
+        detail:
+          "Heavy-gauge steel wire boundary ropes, turnbuckles, and industrial D-shackles for structural anchoring.",
+      },
+    ],
+    measurementProcess:
+      "Structural engineers evaluate span distance, potential drop heights, scaffold anchoring points, and wind load dynamics to specify appropriate mesh size, border rope diameter, and anchor spacing.",
+    installationMethod:
+      "Boundary wire ropes are rigged along structural columns or scaffold frameworks using heavy-duty turnbuckles. Net panels are secured using rated carabiners and continuous spiral lacing.",
+    maintenanceGuide:
+      "Conduct monthly visual inspections for abrasion wear, chemical exposure, or damage from heavy fallen objects. Promptly clear accumulated construction debris to maintain optimal impact deflection.",
+    limitations:
+      "Must be rigged in accordance with site safety load specifications. Any net panel subjected to a severe heavy impact should be inspected by a safety supervisor before continued use.",
+    faqs: [
+      {
+        question: "Do you supply dual-layer debris and personnel safety nets?",
+        answer:
+          "Yes. We configure heavy-duty braided personnel arrest nets combined with secondary micro-mesh overlays to capture fine construction debris and dropped hand tools.",
+      },
+      {
+        question: "Can industrial nets be installed across terrace skylights?",
+        answer:
+          "Yes. We custom-fabricate terrace skylight covers and roof boundary nets anchored to structural metal frames or concrete parapets.",
+      },
+      {
+        question: "What certifications accompany industrial installations?",
+        answer:
+          "We provide manufacturer material test datasheets, verified technical specifications, and site handover inspection reports for commercial compliance.",
+      },
+    ],
+  },
+  "animal-bird-protection": {
+    id: "animal-bird-protection",
+    title: "Animal & Bird Protection",
+    plainDescriptor: "Humane Bird Spikes, Pigeon Nets & Monkey Deterrence",
+    quote: "Humane, discreet barriers preserving hygiene and serene living.",
+    heroImage: "/images/category-animal-bird-protection.png",
+    services: [
+      "pigeon-safety-nets",
+      "pigeons-bird-spikes",
+      "monkey-safety-nets",
+      "mosquito-safety-nets",
+    ],
+    overview:
+      "Discreet and humane protective systems designed to safeguard balconies, AC ledges, window sills, and ventilation shafts against pigeon nesting, bird droppings, monkey intrusion, and insect vectors. Our systems maintain clean architectural aesthetics without harming wildlife.",
+    applications: [
+      "Apartment balconies, utility terraces, and AC outdoor unit ledges",
+      "Building window parapets, decorative facade cornices, and signage",
+      "Villas and residential societies bordering green belts or forest areas",
+      "Bedrooms and living room sliding windows and ventilators",
+    ],
+    materials: [
+      {
+        name: "UV Polycarbonate & 304 Stainless Steel Spikes",
+        detail:
+          "Blunt-tip 304-grade stainless steel rods mounted on flexible, UV-stabilized clear polycarbonate bases that do not injure birds.",
+      },
+      {
+        name: "Translucent / Dark HDPE Bird Netting",
+        detail:
+          "Ultra-fine 0.8mm to 1.0mm monofilament mesh available in translucent white or dark grey to blend seamlessly into building shadows.",
+      },
+      {
+        name: "Pleated & Fiberglass Mosquito Mesh",
+        detail:
+          "Precision-woven fiberglass or stainless steel 304 insect screens mounted on slim extruded aluminum sliding or magnetic frames.",
+      },
+    ],
+    measurementProcess:
+      "Technicians inspect bird nesting hotspots, ledge depths, AC compressor clearances, and window frame profiles to recommend the ideal blend of netting, spikes, and insect screening.",
+    installationMethod:
+      "Bird spikes are bonded using exterior-grade neutral-cure silicone adhesives or stainless steel anchor screws. Pigeon netting is tensioned edge-to-edge with no gaps for birds to enter.",
+    maintenanceGuide:
+      "Spikes are virtually maintenance-free. Netting can be gently rinsed with water to remove dust. Insect screens can be wiped down or vacuumed using a soft brush attachment.",
+    limitations:
+      "Bird spikes are designed for solid landing ledges and parapets; open balcony voids require perimeter netting for complete exclusion.",
+    faqs: [
+      {
+        question: "Do bird spikes harm pigeons or other birds?",
+        answer:
+          "No. Our spikes feature blunt tips designed to make landing uncomfortable without piercing or injuring birds, encouraging them to roost elsewhere.",
+      },
+      {
+        question: "Is the pigeon net visible from the ground?",
+        answer:
+          "Our thin 0.8mm–1.0mm HDPE monofilament lines in translucent or dark tones become virtually invisible when viewed from a distance of 15 to 20 feet.",
+      },
+      {
+        question: "Can bird spikes be installed on curved AC pipes or ledges?",
+        answer:
+          "Yes. The polycarbonate base is segmented and flexible, allowing it to conform securely to curved surfaces, pipes, and uneven ledges.",
+      },
+    ],
+  },
+  "specialty-solutions": {
+    id: "specialty-solutions",
+    title: "Specialty Solutions",
+    plainDescriptor: "Sports Practice Cages, Coconut Drop Nets & Pulley Systems",
+    quote: "Bespoke protection crafted for unique architectural requirements.",
+    heroImage: "/images/category-specialty-solutions.png",
+    services: [
+      "sports-practice-nets",
+      "coconut-safety-nets",
+      "swimming-pool-nets",
+      "cloth-drying-hangers",
+    ],
+    overview:
+      "Tailored containment and lifestyle safety installations including custom cricket practice cages, swimming pool perimeter covers, coconut fall-protection canopies, and ceiling-mounted balcony cloth drying pulley systems.",
+    applications: [
+      "Residential society terrace cricket pitches and sports turfs",
+      "Villas and farmhouses with tall coconut palms over parking or walkways",
+      "Swimming pool security covers to prevent accidental water falls",
+      "Apartment utility balconies and indoor laundry areas",
+    ],
+    materials: [
+      {
+        name: "High-Impact Sports Braided Netting",
+        detail:
+          "High-density nylon and HDPE braided meshes engineered to absorb high-velocity cricket, golf, and football ball impacts.",
+      },
+      {
+        name: "Heavy-Gauge Tree Canopy Netting",
+        detail:
+          "Thick multi-strand containment grids suspended on structural steel guide cables to decelerate falling coconuts.",
+      },
+      {
+        name: "Stainless Steel 304 / Aluminum Pulley Hardware",
+        detail:
+          "Heavy-duty nylon pulleys, stainless steel cables, and rust-proof aluminum ceiling rods for cloth drying hangers.",
+      },
+    ],
+    measurementProcess:
+      "Site survey accounts for ball trajectory dimensions, tree clearance envelopes, pool water perimeters, or ceiling concrete load points for smooth mechanical pulley operation.",
+    installationMethod:
+      "Custom steel tension poles, ground anchors, or ceiling anchors are installed to support structural cable networks before securing net panels.",
+    maintenanceGuide:
+      "Periodically inspect tension turnbuckles and pulley lines for smooth operation. Clear fallen debris and leaves from tree and pool nets.",
+    limitations:
+      "Sports nets must be specified with appropriate mesh density based on ball diameter (e.g. cricket ball vs golf ball).",
+    faqs: [
+      {
+        question: "Can sports nets be installed on residential apartment terraces?",
+        answer:
+          "Yes. We design freestanding or roof-anchored cricket practice cages with full top and side enclosures.",
+      },
+      {
+        question: "How do ceiling cloth drying hangers save balcony space?",
+        answer:
+          "Individual stainless steel or aluminum rods lower effortlessly with smooth nylon pulley cords for loading, then raise flush to the ceiling to preserve floor space.",
+      },
+    ],
+  },
+};
 
 export const servicesData: Record<string, ServiceDetail> = {
   "balcony-invisible-grills": {
     id: "balcony-invisible-grills",
     title: "Balcony Invisible Grills",
+    plainDescriptor: "Balcony High-Tensile Stainless Steel Cable Grills",
+    editorialTitle: "The High-Rise Aperture",
     category: "invisible-grills",
     description:
       "Architectural safety panels offering unobstructed skyline views with precision-engineered fall protection.",
@@ -35,13 +377,22 @@ export const servicesData: Record<string, ServiceDetail> = {
       { label: "Structural Profile", value: "6063-T6 Structural Aluminum Track" },
       {
         label: "Warranty Terms",
-        value: "Warranty coverage varies by system; see written warranty terms",
+        value: "5-Year Material Warranty on Cable & Track Systems",
       },
+    ],
+    processSteps: [
+      "Digital laser perimeter measurement and structural substrate inspection",
+      "Precision drilling with diamond-core bits into concrete RCC slabs",
+      "Structural aluminum track anchoring with stainless steel expansion fasteners",
+      "Continuous cable threading through anti-friction nylon grommets",
+      "Mechanical tension locking and individual line calibration",
     ],
   },
   "staircase-invisible-grills": {
     id: "staircase-invisible-grills",
     title: "Staircase Invisible Grills",
+    plainDescriptor: "Staircase & Duplex Void Stainless Steel Safety Lines",
+    editorialTitle: "The Spiral Ascent",
     category: "invisible-grills",
     description:
       "Graceful vertical safety lines running along staircases, securing stairwells without compromising volume.",
@@ -51,19 +402,21 @@ export const servicesData: Record<string, ServiceDetail> = {
     ],
     images: ["/images/staircase-invisible-grills.png"],
     specs: [
-      { label: "Material Composition", value: "High-tension stainless steel safety cords" },
+      { label: "Material Composition", value: "AISI 316 Stainless Steel Core" },
       { label: "Spacing Option", value: "3-inch gap density (stair void protection)" },
       { label: "Tensile Resistance", value: "High-tensile multi-point load resistance" },
-      { label: "Mounting Sub-base", value: "Solid wood/marble anchor bolts" },
+      { label: "Mounting Sub-base", value: "Solid wood / marble / RCC anchor bolts" },
       {
         label: "Warranty Terms",
-        value: "Warranty coverage varies by system; see written warranty terms",
+        value: "5-Year Material Warranty on Cable & Track Systems",
       },
     ],
   },
   "windows-invisible-grills": {
     id: "windows-invisible-grills",
     title: "Windows Invisible Grills",
+    plainDescriptor: "Window Fenestration Stainless Steel Safety Grids",
+    editorialTitle: "The Frameless Fenestration",
     category: "invisible-grills",
     description:
       "Ultra-sleek window safety grids designed to replace bulky, heavy metal iron bars.",
@@ -75,17 +428,19 @@ export const servicesData: Record<string, ServiceDetail> = {
     specs: [
       { label: "Material Composition", value: "AISI 316 Stainless Steel Core" },
       { label: "Cable Gauge", value: "2.5 mm thin profile" },
-      { label: "Tension System", value: "Internal tension lock" },
+      { label: "Tension System", value: "Internal mechanical tension lock" },
       { label: "Frame Integration", value: "Flush mounts for sliding/casement tracks" },
       {
         label: "Warranty Terms",
-        value: "Warranty coverage varies by system; see written warranty terms",
+        value: "5-Year Material Warranty on Cable & Track Systems",
       },
     ],
   },
   "child-safety-invisible-grills": {
     id: "child-safety-invisible-grills",
     title: "Child Safety Invisible Grills",
+    plainDescriptor: "Child & Pet Safety Micro-Gap Invisible Grills (2-Inch)",
+    editorialTitle: "The Unseen Guardian",
     category: "invisible-grills",
     description:
       "Enhanced safety grids featuring high-density micro-spacing and dual-key tension lockers.",
@@ -97,387 +452,327 @@ export const servicesData: Record<string, ServiceDetail> = {
     specs: [
       { label: "Material Composition", value: "Heavy-duty 3.0 mm stainless steel cables" },
       { label: "Cable Spacing", value: "2-inch micro-gap child safety spacing" },
-      { label: "Safety Locking", value: "Double-key manual tension lock" },
-      { label: "Tensile Resistance", value: "High-tensile structural load rating" },
+      { label: "Safety Locking", value: "Double-key mechanical tension lock" },
+      { label: "Coating Grade", value: "UV-stabilized Virgin Nylon-12 sheath" },
       {
         label: "Warranty Terms",
-        value: "Warranty coverage varies by system; see written warranty terms",
+        value: "5-Year Material Warranty on Cable & Track Systems",
       },
     ],
   },
   "balcony-safety-nets": {
     id: "balcony-safety-nets",
     title: "Balcony Safety Nets",
+    plainDescriptor: "Balcony UV-Stabilized HDPE Fall Protection Nets",
+    editorialTitle: "The Suspended Haven",
     category: "core-safety-nets",
     description:
-      "UV-stabilized mesh systems wrapping your balcony in a light, durable boundary of perimeter security.",
+      "High-density mesh barriers engineered to secure balcony perimeters against accidental falls.",
     detailParagraphs: [
-      "Let the wind flow, without the fear. Balconies are where we connect with the open air, welcoming the breeze and the skyline. But in high-rise residences, that relaxation is often shadowed by subtle vertigo. A single gust of wind or an accidental slip shouldn't compromise peace of mind.",
-      "Our Balcony Safety Nets wrap your outdoor space in a high-density mesh. Engineered with UV-stabilized, high-strength polymers, they remain almost weightless to your architecture while offering a durable perimeter boundary.",
+      "Complete perimeter security without structural enclosure. Open balconies on upper floors create constant concern when children, pets, or visitors lean against railings.",
+      "Our balcony safety nets are crafted from virgin HDPE monofilament with integrated carbon-black UV stabilizers. They anchor edge-to-edge to create a resilient, flexible containment barrier.",
     ],
     images: ["/images/balcony-safety-nets.png"],
     specs: [
-      { label: "Material Composition", value: "UV-Stabilized High-Density Polyethylene (HDPE)" },
-      { label: "Mesh Spacing", value: "40 mm x 40 mm square mesh" },
-      { label: "Breaking Strength", value: "High-tensile polymer strand weave" },
-      { label: "Installation Hardware", value: "Rust-resistant stainless steel wall anchors" },
-      { label: "Durability Calibration", value: "Weather-resistant UV-stabilized finish" },
+      { label: "Polymer", value: "100% Virgin High-Density Polyethylene (HDPE)" },
+      { label: "Mesh Size", value: "25 mm / 30 mm square diamond mesh" },
+      { label: "Anchorage", value: "Stainless steel expansion eye-hooks & border cord" },
+      { label: "UV Resistance", value: "Thermal UV-stabilized for tropical sun" },
+      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
     ],
   },
   "children-safety-nets": {
     id: "children-safety-nets",
     title: "Children Safety Nets",
+    plainDescriptor: "Reinforced Children & Toddler Balcony Safety Netting",
+    editorialTitle: "The Cradle Horizon",
     category: "core-safety-nets",
     description:
-      "Triple-strand safety nets engineered as a soft protective barrier to help absorb impact forces.",
+      "Reinforced netting with tightly spaced knots designed specifically for infant and toddler protection.",
     detailParagraphs: [
-      "A safety net for their curiosity. Children explore with enthusiasm, viewing every balcony ledge, window sill, and open stairwell as an invitation to adventure. As parents, we want to give them freedom without constant worry near elevated edges.",
-      "Our Children Safety Nets create an engineered perimeter barrier. Woven from triple-strand, high-impact polymers, this safety net acts as a soft protective cradle. It absorbs impact forces, guarding toddlers and pets without creating a dark, enclosed feeling.",
+      "Peace of mind for growing families. Toddlers are naturally drawn to open edges and railing slats. SafeNest children safety nets close every void from floor to ceiling.",
+      "Tightly woven heat-set knots ensure that the netting never loosens, giving you the freedom to let children play safely in the open air.",
     ],
     images: ["/images/children-safety-nets.png"],
     specs: [
-      { label: "Material Composition", value: "Triple-strand braided HDPE mesh" },
-      { label: "Mesh Spacing", value: "30 mm x 30 mm micro-gap configuration" },
-      { label: "Breaking Strength", value: "Impact-absorbing multi-strand load resistance" },
-      { label: "Color Profiles", value: "Translucent neutral or stone tone" },
-      { label: "Safety System", value: "Double-lock perimeter border stitching" },
+      { label: "Mesh Pitch", value: "20 mm micro-gap child safety mesh" },
+      { label: "Cord Ply", value: "Multi-ply high-tenacity HDPE yarn" },
+      { label: "Installation", value: "Full floor-to-ceiling perimeter anchoring" },
+      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
     ],
   },
   "staircase-safety-nets": {
     id: "staircase-safety-nets",
     title: "Staircase Safety Nets",
+    plainDescriptor: "Internal Stairwell & Multi-Story Drop Safety Nets",
+    editorialTitle: "The Vertical Lattice",
     category: "core-safety-nets",
     description:
-      "High-tension safety screens bridging open staircase banisters without blocking light.",
+      "Vertical containment nets securing multi-story stairwell voids in duplexes and schools.",
     detailParagraphs: [
-      "Secure the vertical void. Grand stairwells and open spiral staircases are the architectural highlights of modern duplexes and villas. Yet, open volumes present a real drop hazard for children and elders.",
-      "We bridge the vertical gap without interrupting your home's geometric lines. Our Staircase Safety Nets form a structural, high-tension screen across banister voids, providing a lightweight safeguard that preserves natural light.",
+      "Open central stairwells look grand but represent a serious vertical drop hazard. Our staircase containment nets fit cleanly between banisters and ceilings.",
+      "They secure the drop zone while preserving natural air circulation and ambient light throughout your stairwell.",
     ],
     images: ["/images/staircase-safety-nets.png"],
     specs: [
-      { label: "Material Composition", value: "High-grade virgin copolymer nylon cords" },
-      { label: "Knotting profile", value: "Double-knotted non-slip mesh junctions" },
-      { label: "Tensile Resistance", value: "High-load breaking threshold" },
-      { label: "Perimeter Support", value: "Heavy border rope anchoring" },
-      {
-        label: "Warranty Terms",
-        value: "Warranty coverage varies by system; see written warranty terms",
-      },
+      { label: "Application", value: "Duplex stairwells, school corridors, atriums" },
+      { label: "Cord Material", value: "High-tenacity nylon / HDPE monofilament" },
+      { label: "Color Tone", value: "Translucent white / neutral beige / dark grey" },
+      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
     ],
   },
   "building-safety-nets": {
     id: "building-safety-nets",
     title: "Building Safety Nets",
+    plainDescriptor: "High-Rise Building Shaft & Duct Safety Netting",
+    editorialTitle: "The Perimeter Veil",
     category: "core-safety-nets",
     description:
-      "Industrial-grade perimeter mesh shields designed to contain falling debris and secure building perimeters.",
+      "Large-scale containment nets for multi-story duct shafts, open courtyards, and lightwells.",
     detailParagraphs: [
-      "An engineering shield for the vertical perimeter. High-rise structures and vertical maintenance require structured perimeter containment. Falling objects from height carry significant kinetic force, posing risks to pedestrians and property below.",
-      "Our Building Safety Nets wrap the outer facade in heavy-duty industrial mesh. Engineered to catch falling tools and structural debris, this perimeter netting secures work zones and grounds below.",
+      "Building duct shafts and central courtyards in modern apartment complexes require protective containment to prevent falling objects and accidental falls.",
+      "SafeNest engineers large-span building safety nets anchored into concrete beams, protecting technicians, residents, and utility systems below.",
     ],
     images: ["/images/building-safety-nets.png"],
     specs: [
-      { label: "Material Composition", value: "Heavy industrial-grade nylon/polypropylene" },
-      { label: "Mesh Thickness", value: "4.0 mm heavy-gauge cord" },
-      { label: "Containment Matrix", value: "Micro-liner backing for small debris containment" },
-      { label: "Breaking Strength", value: "High-impact kinetic catch capacity" },
-      { label: "Engineering Standard", value: "High-tenacity perimeter containment weave" },
+      { label: "Coverage", value: "Large-span duct shafts & internal lightwells" },
+      { label: "Anchoring", value: "Heavy-duty steel tension wire & turnbuckles" },
+      { label: "UV Protection", value: "High-density carbon black UV additive" },
+      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
     ],
   },
   "construction-safety-nets": {
     id: "construction-safety-nets",
     title: "Construction Safety Nets",
+    plainDescriptor: "Scaffolding & Structural Debris Fall Protection Nets",
+    editorialTitle: "The Heavy Debris Matrix",
     category: "construction-industrial",
     description:
-      "Heavy-duty perimeter safety netting designed to protect crews and contain falling structural debris.",
+      "High-impact personnel and debris safety nets for active building construction scaffolds.",
     detailParagraphs: [
-      "Safeguarding the path of structural rise. High-altitude construction is a dynamic zone of progress, where gravity represents a continuous hazard at open slab edges, scaffolds, and elevator shafts.",
-      "Our Construction Safety Nets provide a heavy-duty containment perimeter. Woven from high-tenacity industrial fibers, they absorb kinetic impacts, serving as a catch system that helps protect workers and contains falling debris.",
+      "On active construction job sites, safety is the primary priority. Our heavy-duty safety nets are rigged around building perimeters and floor slabs.",
+      "They capture falling debris and tools, protecting site personnel and pedestrians below.",
     ],
     images: ["/images/construction-safety-nets.png"],
     specs: [
-      { label: "Material Composition", value: "High-Tenacity Polypropylene (PP) / Nylon" },
-      { label: "Mesh Diameter", value: "3.0 mm heavy-gauge cord" },
-      { label: "Knot Construction", value: "Solid knotless weave (prevents strand slippage)" },
-      { label: "Impact Capacity", value: "Engineered kinetic drop containment" },
-      { label: "Engineering Standard", value: "Reinforced industrial debris catch matrix" },
+      { label: "Material", value: "Braided polyamide / high-tenacity polypropylene" },
+      { label: "Overlay", value: "Fine mesh debris liner attached" },
+      { label: "Border Rope", value: "12 mm high-tensile polypropylene border" },
+      { label: "Compliance", value: "Standard industrial safety specifications" },
     ],
   },
   "industrial-safety-nets": {
     id: "industrial-safety-nets",
     title: "Industrial Safety Nets",
+    plainDescriptor: "Warehouse Mezzanine & Heavy Storage Safety Nets",
+    editorialTitle: "The Heavy-Duty Grid",
     category: "construction-industrial",
     description:
-      "Horizontal safety netting layouts engineered for factories, warehouses, and overhead maintenance zones.",
+      "Robust protective nets designed for warehouse racking, conveyor systems, and industrial plants.",
     detailParagraphs: [
-      "Engineered protection for high-altitude facilities. Modern industrial plants and warehouses feature overhead cranes, high rafters, and deep mezzanine configurations where dropped tools carry substantial risk.",
-      "Our Industrial Safety Nets establish a structural horizontal canopy. Engineered with high-strength polymer netting, they form a protective catch layer below overhead work zones, allowing ground operations to proceed with greater security.",
+      "Industrial facilities face risks from falling warehouse inventory and open mezzanine walkways.",
+      "SafeNest industrial nets secure high-bay storage racks and elevated platforms, preventing product loss and workplace injuries.",
     ],
     images: ["/images/industrial-safety-nets.png"],
     specs: [
-      { label: "Material Composition", value: "High-strength polymer filaments" },
-      { label: "Mesh Spacing", value: "25 mm x 25 mm square mesh" },
-      { label: "Tensile Resistance", value: "High breaking force capacity" },
-      { label: "Border Support", value: "10 mm heavy border cord with steel shackles" },
-      { label: "Property Calibration", value: "High UV and environmental resistance" },
+      { label: "Application", value: "Warehouse racking, mezzanine edges, plants" },
+      { label: "Breaking Load", value: "Engineered for industrial pallet/box containment" },
+      { label: "Mounting", value: "Steel beam clamps & industrial carabiners" },
+      { label: "Warranty Terms", value: "As specified per commercial project contract" },
     ],
   },
   "terrace-top-nets": {
     id: "terrace-top-nets",
     title: "Terrace Top Nets",
+    plainDescriptor: "Open Terrace & Rooftop Safety Enclosures",
+    editorialTitle: "The Open Skyway",
     category: "construction-industrial",
     description:
-      "High-tension perimeter nets extending rooftop borders to secure open sky terrace spaces.",
+      "Comprehensive overhead and perimeter netting enclosing open terraces and rooftop decks.",
     detailParagraphs: [
-      "Unbounded sky, secure boundaries. Terraces are the luxury crowns of residential structures—spaces of relaxation, rooftop gatherings, and starry nights. An open terrace perimeter on high floors can create subtle anxiety for parents and pet owners.",
-      "Our Terrace Top Nets form an elegant, high-tension safety wall. By extending your terrace parapet with near-invisible, high-strength HDPE vertical lines, we secure the perimeter so you can enjoy open vertical vistas in comfort.",
+      "Open terrace rooftops provide great outdoor recreation space, but low parapet walls pose a risk during family gatherings or sports.",
+      "Our terrace top netting systems enclose rooftops completely, keeping balls within the court and preventing falls over the edge.",
     ],
     images: ["/images/terrace-top-nets.png"],
     specs: [
-      { label: "Material Composition", value: "Monofilament UV-Stabilized Polyethylene" },
-      { label: "Line Spacing", value: "1.5-inch grid layout (pet & bird barrier)" },
-      { label: "Height Calibration", value: "Custom vertical spans from 5 ft to 12 ft" },
-      { label: "Anchor Track", value: "Powder-coated structural steel anchor tracks" },
-      { label: "Tension Limit", value: "Calibrated tension threshold" },
+      { label: "Structure", value: "Galvanized steel support posts with overhead wire grid" },
+      { label: "Netting Type", value: "UV-stabilized HDPE sports/containment mesh" },
+      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
     ],
   },
   "car-parking-safety-nets": {
     id: "car-parking-safety-nets",
     title: "Car Parking Safety Nets",
+    plainDescriptor: "Basement & Open Parking Overhead Debris Protection Nets",
+    editorialTitle: "The Vehicle Canopy",
     category: "construction-industrial",
     description:
-      "Overhead safety mesh shields designed to protect parked vehicles from falling debris or objects.",
+      "Overhead safety nets protecting vehicles in parking bays from falling plaster and bird droppings.",
     detailParagraphs: [
-      "Protection for your valuable assets. Multi-level parking blocks and open residential parking courts face exposure to debris, falling plaster, or objects accidentally dropped from balconies above.",
-      "Our Car Parking Safety Nets establish a robust overhead canopy. Crafted from impact-absorbing HDPE mesh, they catch falling debris and dropped items, shielding vehicles and parking bays with silent vigilance.",
+      "Vehicles parked in open-to-sky podium bays or older apartment basements are exposed to falling plaster, concrete spalling, and bird fouling.",
+      "SafeNest installs horizontal canopy nets suspended above parking slots to keep vehicles clean and protected.",
     ],
     images: ["/images/car-parking-safety-nets.png"],
     specs: [
-      { label: "Material Composition", value: "High-Density Polyethylene monofilament" },
-      { label: "Mesh Configuration", value: "Dual-layer micro-pore mesh" },
-      { label: "Debris Containment", value: "Absorbs small to medium debris falls" },
-      { label: "Shading Properties", value: "Partial UV blocking shade" },
-      { label: "Mounting Support", value: "Tensioned wire rope cable framework" },
+      { label: "Netting", value: "High-density shade/safety mesh composite" },
+      { label: "Rigging", value: "Stainless steel tension cables & turnbuckles" },
+      { label: "Warranty Terms", value: "3-Year Material Warranty" },
     ],
   },
   "pigeon-safety-nets": {
     id: "pigeon-safety-nets",
     title: "Pigeon Safety Nets",
+    plainDescriptor: "Anti-Pigeon Balcony & Duct Exclusion Netting",
+    editorialTitle: "The Avian Screen",
     category: "animal-bird-protection",
     description:
-      "Translucent high-density mesh barriers designed to block bird access to balconies and windows.",
+      "Discreet monofilament nets preventing pigeons and birds from entering balconies and duct shafts.",
     detailParagraphs: [
-      "Preserve the purity of your sanctuary. Pigeons bring health concerns, persistent noise, and acidic droppings that erode masonry. You deserve to enjoy your outdoor lounge without constant cleaning chores.",
-      "Our Pigeon Safety Nets weave a translucent, high-density barrier. Custom-framed to your openings, they block bird access while remaining subtle to the eye, ensuring your terrace or balcony stays clean and sanitized.",
+      "Pigeons cause severe hygiene issues, droppings, and respiratory allergens in urban high-rises. SafeNest pigeon nets solve this permanently without harming birds.",
+      "The fine translucent mesh creates an impenetrable physical boundary that blends into building facades.",
     ],
     images: ["/images/pigeon-safety-nets.png"],
     specs: [
-      { label: "Material Composition", value: "UV-Stabilized High-Density Polyethylene (HDPE)" },
-      { label: "Mesh Grid Spacing", value: "30 mm x 30 mm square mesh" },
-      { label: "Breaking Strength", value: "High-tenacity polymer strand rating" },
-      { label: "Color Profile", value: "Transparent monofilament / stone-gray mesh" },
-      { label: "Attachment Hooks", value: "Durable polycarbonate wall hooks" },
+      { label: "Mesh Gauge", value: "0.8 mm / 1.0 mm translucent monofilament" },
+      { label: "Mesh Gap", value: "1-inch / 1.25-inch pigeon-exclusion spacing" },
+      { label: "Color", value: "Translucent white / shadow grey" },
+      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
     ],
   },
   "pigeons-bird-spikes": {
     id: "pigeons-bird-spikes",
-    title: "Pigeons Bird Spikes",
+    title: "Stainless Steel Bird Spikes",
+    plainDescriptor: "Polycarbonate Base 304 Stainless Steel Anti-Bird Spikes",
+    editorialTitle: "The Architectural Deterrent",
     category: "animal-bird-protection",
     description:
-      "Sleek polycarbonate and stainless steel spike tracks providing humane deterrence for ledges.",
+      "Discreet blunt-tip stainless steel spikes preventing birds from roosting on ledges and AC units.",
     detailParagraphs: [
-      "Silent deterrence for architectural edges. Parapet walls, window ledges, and external air conditioning boxes are common roosting spots. Our bird spikes offer a humane, elegant alternative to netting on narrow ledges.",
-      "Constructed from high-tensile stainless steel spikes mounted on a polycarbonate track, they modify ledges so birds cannot land or roost. Your building exterior remains clean while architectural lines stay sharp.",
+      "Narrow window ledges, parapet copings, and AC outdoor compressors are prime roosting spots for pigeons. SafeNest bird spikes eliminate landing spots cleanly.",
+      "Manufactured with 304-grade stainless steel rods on UV-stabilized polycarbonate bases, they withstand intense weathering without rusting.",
     ],
     images: ["/images/pigeons-bird-spikes.png"],
     specs: [
-      { label: "Spike Material", value: "AISI 316 Stainless Steel Spikes" },
-      { label: "Base Track", value: "UV-Resistant Polycarbonate track" },
-      { label: "Spike Density", value: "Multi-angle array per linear foot" },
-      { label: "Installation Method", value: "High-tack outdoor structural adhesive" },
-      { label: "Safety Rating", value: "Rounded tips (deters without harming birds)" },
+      { label: "Rod Material", value: "AISI 304 Stainless Steel (Blunt tip)" },
+      { label: "Base Material", value: "100% Virgin UV-Stabilized Polycarbonate" },
+      { label: "Adhesion", value: "Neutral-cure silicone sealant / anchor screws" },
+      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
     ],
   },
   "monkey-safety-nets": {
     id: "monkey-safety-nets",
     title: "Monkey Safety Nets",
+    plainDescriptor: "Heavy-Gauge Reinforced Monkey Exclusion Netting",
+    editorialTitle: "The High-Impact Barrier",
     category: "animal-bird-protection",
     description:
-      "Heavy-duty reinforced safety nets designed to prevent animal intrusions into living spaces.",
+      "High-gauge, tear-resistant safety nets designed to withstand aggressive monkey intrusion.",
     detailParagraphs: [
-      "Durable perimeters for peaceful living. In areas bordering green belts or hillsides, wildlife intrusions into balconies and windows can pose real safety concerns for children and pets.",
-      "Our Monkey Safety Nets are built with reinforced polymer cords. They create a strong structural screen that keeps wild animals outside while preserving natural ventilation.",
+      "Residences located near hills, green belts, or suburban zones frequently deal with aggressive monkey incursions onto balconies and terraces.",
+      "SafeNest monkey nets use extra-thick braided cords and structural perimeter fasteners that withstand pulling and biting forces without tearing.",
     ],
     images: ["/images/monkey-safety-nets.png"],
     specs: [
-      { label: "Material Composition", value: "Heavy-gauge HDPE (2.5 mm thread) or steel core" },
-      { label: "Mesh Grid Spacing", value: "50 mm x 50 mm heavy-duty mesh" },
-      { label: "Tensile Resistance", value: "High physical barrier load capacity" },
-      { label: "Anchoring System", value: "Heavy steel border ropes tensioned to walls" },
-      { label: "Special Property", value: "Reinforced tear-resistant construction" },
+      { label: "Cord Thickness", value: "2.5 mm heavy-gauge braided HDPE" },
+      { label: "Mesh Spacing", value: "40 mm square mesh" },
+      { label: "Anchoring", value: "Heavy-duty concrete anchor bolts & steel frame" },
+      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
     ],
   },
   "mosquito-safety-nets": {
     id: "mosquito-safety-nets",
     title: "Mosquito Safety Nets",
+    plainDescriptor: "Sliding & Pleated Window Insect Screens",
+    editorialTitle: "The Micro-Weave Shield",
     category: "animal-bird-protection",
     description:
-      "Breathable micro-pore fiberglass window frames blocking mosquitoes and flying insects.",
+      "Precision-woven fiberglass and stainless steel window screens that block insects while allowing fresh air.",
     detailParagraphs: [
-      "Natural ventilation, zero vectors. Sleeping under the threat of mosquitoes disrupts restful home life. Chemical repellents can irritate breathing, while closed glass sashes trap indoor air. We offer a breathable alternative.",
-      "Our Mosquito Safety Nets use high-definition micro-pore fiberglass mesh. Custom-fitted to slide or hinge flush inside your window frames, they keep out flying insects while maximizing natural airflow.",
+      "Enjoy the cool evening breeze without worrying about mosquitoes, flies, or pests. SafeNest window insect screens integrate flush with your existing window frames.",
+      "Available in sliding, pleated, magnetic, and openable aluminum shutter configurations.",
     ],
     images: ["/images/mosquito-safety-nets.png"],
     specs: [
-      { label: "Material Composition", value: "High-Definition Micro-pore Fiberglass mesh" },
-      { label: "Mesh Grid Density", value: "18 x 16 threads per square inch" },
-      { label: "Frame Track", value: "Extruded powder-coated aluminum track" },
-      { label: "Hinges & Seals", value: "Magnetic strip seal / sliding track option" },
-      { label: "Transparency", value: "High-transparency glare-free weave" },
+      { label: "Mesh Screen", value: "Fiberglass / SS 304 micro-mesh" },
+      { label: "Frame Material", value: "Extruded 6063 Aluminum Profile" },
+      { label: "Finish", value: "Powder-coated anodized finish" },
+      { label: "Warranty Terms", value: "2 to 3-Year Mechanism Warranty" },
     ],
   },
   "sports-practice-nets": {
     id: "sports-practice-nets",
     title: "Sports Practice Nets",
+    plainDescriptor: "Cricket, Golf & Football Practice Net Cages",
+    editorialTitle: "The Practice Enclosure",
     category: "specialty-solutions",
     description:
-      "High-impact nylon netting grids custom-tensioned to create private practice zones.",
+      "Custom sports enclosures engineered for cricket batting practice, golf drives, and sports turf courts.",
     detailParagraphs: [
-      "Unleash their energy, secure the surroundings. In residential communities, stray sports balls carry property and window damage risks. A broken window shouldn't halt healthy recreation.",
-      "Our Sports Practice Nets create a private sports enclosure. Woven from high-tenacity nylon cords, they catch and contain high-velocity balls, letting your family play freely while keeping surroundings secure.",
+      "Transform open terraces, backyards, or society clubhouses into professional cricket and sports practice zones.",
+      "Our sports netting absorbs high-velocity ball impacts and prevents balls from flying off the roof or hitting nearby windows.",
     ],
-    images: ["/images/cricket-sports-nets.png"],
+    images: ["/images/sports-practice-nets.png"],
     specs: [
-      { label: "Material Composition", value: "High-Tensile UV-Stabilized Nylon cords" },
-      { label: "Mesh Grid Spacing", value: "20 mm / 40 mm custom sizing options" },
-      { label: "Breaking Force Limit", value: "High tensile load resistance" },
-      { label: "Perimeter Borders", value: "Tensioned wire rope boundaries" },
-      { label: "Visual Color Profile", value: "Charcoal-black glare-free weave" },
+      { label: "Netting Type", value: "High-impact braided nylon / HDPE sports mesh" },
+      { label: "Support Framework", value: "Galvanized iron (GI) structural poles" },
+      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
     ],
   },
   "coconut-safety-nets": {
     id: "coconut-safety-nets",
     title: "Coconut Safety Nets",
+    plainDescriptor: "Overhead Coconut Fall-Arrest Protection Nets",
+    editorialTitle: "The Canopy Defense",
     category: "specialty-solutions",
     description:
-      "Suspended heavy-duty net canopies catching falling coconuts to safeguard paths and vehicles.",
+      "Heavy-gauge canopy nets suspended beneath coconut palms to catch falling coconuts.",
     detailParagraphs: [
-      "Quiet vigilance for tropical spaces. Coconut palms define the natural elegance of South Indian estates. Yet, falling coconuts carry significant kinetic force that can damage cars or injure pedestrians.",
-      "We preserve palm trees while mitigating falling fruit hazards. Our Coconut Safety Nets form a suspended canopy that catches falling coconuts, protecting pathways, cars, and residents without detracting from your landscape.",
+      "Tall coconut trees surrounding driveways, walkways, and parking areas pose a significant hazard from falling coconuts.",
+      "SafeNest coconut nets are rigged beneath palm crowns on high-tensile steel wire ropes, catching falling coconuts gently before they can cause damage.",
     ],
     images: ["/images/coconut-safety-nets.png"],
     specs: [
-      { label: "Material Composition", value: "Virgin HDPE heavy monofilament" },
-      { label: "Mesh Grid Configuration", value: "50 mm x 50 mm reinforced mesh" },
-      { label: "Load Capacity", value: "Engineered canopy drop containment" },
-      { label: "Border Anchoring", value: "Heavy-duty braided perimeter cords" },
-      { label: "Lifespan Rating", value: "Rot-resistant & weatherproof build" },
+      { label: "Netting", value: "Thick multi-strand knotted HDPE grid" },
+      { label: "Support", value: "Stainless steel tension wire harness" },
+      { label: "Warranty Terms", value: "3 to 5-Year Material Warranty" },
     ],
   },
   "swimming-pool-nets": {
     id: "swimming-pool-nets",
     title: "Swimming Pool Nets",
+    plainDescriptor: "Swimming Pool Child Safety & Debris Covers",
+    editorialTitle: "The Water Perimeter",
     category: "specialty-solutions",
     description:
-      "High-tension pool safety covers stretched flush across the water to help prevent accidental submersion.",
+      "High-tension security nets enclosing residential swimming pools to protect toddlers and pets.",
     detailParagraphs: [
-      "Pool perimeter security, preserved views. A swimming pool is the centerpiece of your villa architecture, but for parents of young children and pet owners, water voids require careful safeguarding.",
-      "Our Swimming Pool Nets provide a sleek, high-tension safety cover. Stretched flush across the pool surface and anchored to the deck, the net creates a supportive physical barrier while keeping the water view open.",
+      "Open swimming pools in private villas and apartment communities require vigilant containment to prevent accidental drowning incidents.",
+      "Our swimming pool safety nets anchor securely into pool coping stones, creating a taut horizontal barrier that keeps children and pets safe.",
     ],
-    images: ["/images/swimming-pool-safety-nets.png"],
+    images: ["/images/swimming-pool-nets.png"],
     specs: [
-      { label: "Material Composition", value: "4.0 mm UV-Treated Polyethylene cords" },
-      { label: "Mesh Grid Spacing", value: "80 mm x 80 mm crawl-resistant grid" },
-      { label: "Load Support Weight", value: "High-tension surface load capacity" },
-      { label: "Deck Anchoring keys", value: "Flush brass key anchors (lies flat with deck)" },
-      { label: "Tensioner Mechanism", value: "Central pulley system for smooth handling" },
+      { label: "Material", value: "High-tensile UV-resistant HDPE mesh" },
+      { label: "Anchorage", value: "Flush brass / stainless steel deck anchors" },
+      { label: "Warranty Terms", value: "3-Year Material Warranty" },
     ],
   },
   "cloth-drying-hangers": {
     id: "cloth-drying-hangers",
-    title: "Cloth Drying Hangers",
+    title: "Balcony Cloth Drying Hangers",
+    plainDescriptor: "Ceiling-Mounted Pulley Clothes Drying Systems",
+    editorialTitle: "The Ceiling Pulley System",
     category: "specialty-solutions",
     description:
-      "Ceiling-mounted pulley drying racks utilizing overhead space to keep balconies clean and spacious.",
+      "Ceiling-mounted pulley systems with independent stainless steel rods that maximize balcony floor space.",
     detailParagraphs: [
-      "Reclaim your balcony floor space. A luxurious balcony view shouldn't be cluttered by wet laundry draped over glass railings and folding racks.",
-      "Our Ceiling-Mounted Cloth Drying Hangers offer an architectural solution. Engineered with a smooth pulley system, they let you dry laundry in the overhead zone, preserving floor space and maintaining a tidy balcony.",
+      "Free up your balcony floor space while drying laundry effortlessly. SafeNest ceiling cloth drying hangers feature individual rods that lower smoothly for loading.",
+      "Constructed with rust-proof stainless steel or aluminum pipes and smooth nylon pulleys for effortless daily use.",
     ],
     images: ["/images/cloth-drying-hangers.png"],
     specs: [
-      { label: "Material Profile", value: "Rust-free anodized structural aluminum tubes" },
-      { label: "Pulley System", value: "Dual-shaft nylon cord pulley blocks" },
-      { label: "Max Load Limit", value: "Supports standard domestic wet laundry loads" },
-      { label: "Rods Count", value: "4 to 6 individual ceiling-suspended tubes" },
-      { label: "Space Efficiency", value: "Preserves full balcony floor space" },
-    ],
-  },
-};
-
-export const categoriesData: Record<string, CategoryDetail> = {
-  "invisible-grills": {
-    id: "invisible-grills",
-    title: "Invisible Grills",
-    quote:
-      "Minimalism meets engineered protection — structural lines that preserve your skyline views.",
-    heroImage: "/images/hero-invisible-grills.png",
-    services: [
-      "balcony-invisible-grills",
-      "staircase-invisible-grills",
-      "windows-invisible-grills",
-      "child-safety-invisible-grills",
-    ],
-  },
-  "core-safety-nets": {
-    id: "core-safety-nets",
-    title: "Core Safety Nets",
-    quote:
-      "A structural envelope of calm — defining the boundary between open space and architectural safety.",
-    heroImage: "/images/hero-core-safety-nets.png",
-    services: [
-      "balcony-safety-nets",
-      "children-safety-nets",
-      "staircase-safety-nets",
-      "building-safety-nets",
-    ],
-  },
-  "construction-industrial": {
-    id: "construction-industrial",
-    title: "Construction & Industrial",
-    quote:
-      "Integrity at every elevation — structural perimeters designed to absorb forces and secure elevated work zones.",
-    heroImage: "/images/hero-construction-industrial.png",
-    services: [
-      "construction-safety-nets",
-      "industrial-safety-nets",
-      "terrace-top-nets",
-      "car-parking-safety-nets",
-    ],
-  },
-  "animal-bird-protection": {
-    id: "animal-bird-protection",
-    title: "Animal & Bird Protection",
-    quote:
-      "Coexistence without intrusion — preserving the cleanliness of your architecture and the peace of your sanctuary.",
-    heroImage: "/images/hero-animal-bird-protection.png",
-    services: [
-      "pigeon-safety-nets",
-      "pigeons-bird-spikes",
-      "monkey-safety-nets",
-      "mosquito-safety-nets",
-    ],
-  },
-  "specialty-solutions": {
-    id: "specialty-solutions",
-    title: "Specialty Solutions",
-    quote:
-      "Engineered convenience, tailored protection — securing the active dimensions of modern living.",
-    heroImage: "/images/hero-specialty-solutions.png",
-    services: [
-      "sports-practice-nets",
-      "coconut-safety-nets",
-      "swimming-pool-nets",
-      "cloth-drying-hangers",
+      { label: "Pipes", value: "6 / 8 independent stainless steel / aluminum rods" },
+      { label: "Pulley System", value: "Heavy-duty nylon pulleys with braided nylon rope" },
+      { label: "Warranty Terms", value: "2-Year Mechanism Warranty" },
     ],
   },
 };

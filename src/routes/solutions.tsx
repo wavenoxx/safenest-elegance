@@ -3,23 +3,16 @@ import { useState } from "react";
 import { SiteNav } from "@/components/SiteNav";
 import { BRAND_CONFIG } from "@/config/brand";
 
+import { buildMetaTags } from "@/lib/seo";
+
 export const Route = createFileRoute("/solutions")({
-  head: () => ({
-    meta: [
-      { title: `Solutions Explorer — ${BRAND_CONFIG.name}` },
-      {
-        name: "description",
-        content: `Explore the architectural catalog of ${BRAND_CONFIG.name}: invisible grills, safety netting, and bird protection across South India.`,
-      },
-      { property: "og:title", content: `Solutions Explorer — ${BRAND_CONFIG.name}` },
-      {
-        property: "og:description",
-        content: `Explore the architectural catalog of ${BRAND_CONFIG.name}.`,
-      },
-      { property: "og:type", content: "website" },
-    ],
-    links: [{ rel: "canonical", href: "https://safenestindia.com/solutions" }],
-  }),
+  head: () =>
+    buildMetaTags({
+      title: "Architectural Safety Solutions Explorer",
+      description: `Explore the complete architectural catalog of ${BRAND_CONFIG.name}: invisible grills, safety netting, construction containment, and bird protection across South India.`,
+      canonicalPath: "/solutions",
+      ogImage: "/images/campaigns/campaign-2-card-1.jpg",
+    }),
   component: SolutionsExplorer,
 });
 

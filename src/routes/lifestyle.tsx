@@ -3,25 +3,17 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 
+import { buildMetaTags } from "@/lib/seo";
+
 export const Route = createFileRoute("/lifestyle")({
-  head: () => ({
-    meta: [
-      { title: `The Lifestyle — ${BRAND_CONFIG.name}` },
-      {
-        name: "description",
-        content:
-          "Living without hesitation: breathtaking views, enjoyed in absolute peace of mind.",
-      },
-      { property: "og:title", content: `The Lifestyle — ${BRAND_CONFIG.name}` },
-      {
-        property: "og:description",
-        content: "Breathtaking views, enjoyed in absolute peace of mind.",
-      },
-      { property: "og:image", content: "/images/lifestyle/hero.jpg" },
-      { property: "og:type", content: "website" },
-    ],
-    links: [{ rel: "canonical", href: "https://safenestindia.com/lifestyle" }],
-  }),
+  head: () =>
+    buildMetaTags({
+      title: "Architectural Living Spaces & Open Horizons",
+      description:
+        "Living without hesitation: breathtaking panoramic views, open breezes, and child safety enjoyed in complete peace of mind.",
+      canonicalPath: "/lifestyle",
+      ogImage: "/images/lifestyle/hero.jpg",
+    }),
   component: LifestylePage,
 });
 

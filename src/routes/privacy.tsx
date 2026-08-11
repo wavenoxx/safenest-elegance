@@ -3,17 +3,15 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 
+import { buildMetaTags } from "@/lib/seo";
+
 export const Route = createFileRoute("/privacy")({
-  head: () => ({
-    meta: [
-      { title: `Privacy & Cookies — ${BRAND_CONFIG.name}` },
-      {
-        name: "description",
-        content: `Privacy declaration, cookie policies, and data protection practices of ${BRAND_CONFIG.name}.`,
-      },
-    ],
-    links: [{ rel: "canonical", href: "https://safenestindia.com/privacy" }],
-  }),
+  head: () =>
+    buildMetaTags({
+      title: "Privacy Declaration & Data Governance",
+      description: `Privacy declaration, cookie policies, and data protection practices of ${BRAND_CONFIG.name}.`,
+      canonicalPath: "/privacy",
+    }),
   component: PrivacyPage,
 });
 

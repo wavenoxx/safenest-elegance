@@ -3,17 +3,16 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 
+import { buildMetaTags } from "@/lib/seo";
+
 export const Route = createFileRoute("/material-standards")({
-  head: () => ({
-    meta: [
-      { title: `Material Standards & Specifications — ${BRAND_CONFIG.name}` },
-      {
-        name: "description",
-        content: `Engineering specifications, alloy compositions, and polymer tolerances behind SafeNest invisible safety systems.`,
-      },
-    ],
-    links: [{ rel: "canonical", href: "https://safenestindia.com/material-standards" }],
-  }),
+  head: () =>
+    buildMetaTags({
+      title: "Material Standards, Alloys & Polymer Tolerances",
+      description:
+        "Engineering specifications, alloy compositions, and polymer tolerances behind SafeNest invisible safety systems.",
+      canonicalPath: "/material-standards",
+    }),
   component: MaterialStandardsPage,
 });
 

@@ -3,18 +3,15 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 import { servicesData } from "@/data/servicesData";
+import { buildMetaTags } from "@/lib/seo";
 
 export const Route = createFileRoute("/sitemap")({
-  head: () => ({
-    meta: [
-      { title: `Sitemap — ${BRAND_CONFIG.name}` },
-      {
-        name: "description",
-        content: `Complete directory of all SafeNest architectural safety services, category explorers, stories, and customer care resources.`,
-      },
-    ],
-    links: [{ rel: "canonical", href: "https://safenestindia.com/sitemap" }],
-  }),
+  head: () =>
+    buildMetaTags({
+      title: "Site Directory & Architectural Safety Index",
+      description: `Complete directory of all ${BRAND_CONFIG.name} architectural safety services, category explorers, regional hubs, and customer care resources.`,
+      canonicalPath: "/sitemap",
+    }),
   component: SitemapPage,
 });
 
@@ -25,7 +22,7 @@ function SitemapPage() {
     <div className="bg-white text-neutral-900 min-h-screen flex flex-col">
       <SiteNav />
 
-      <main className="flex-1 max-w-5xl mx-auto px-6 md:px-12 pt-32 pb-24">
+      <main className="flex-1 max-w-6xl mx-auto px-6 md:px-12 pt-32 pb-24">
         <header className="mb-12 pb-8 border-b border-neutral-200">
           <p className="text-[10px] tracking-[0.3em] uppercase text-neutral-400 font-light mb-3">
             Index &amp; Navigation
@@ -121,31 +118,23 @@ function SitemapPage() {
             </ul>
 
             <h2 className="text-xs uppercase tracking-widest font-normal text-neutral-950 mt-10 mb-6 pb-2 border-b border-neutral-200">
-              Editorial Campaigns
+              Regional Operations
             </h2>
             <ul className="space-y-3">
               <li>
                 <Link
-                  to="/campaigns/silent-promise"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4"
+                  to="/service-areas"
+                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 font-medium"
                 >
-                  The Silent Promise
+                  Verified Service Areas →
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/campaigns/light-and-sanctuary"
+                  to="/maintenance-repair"
                   className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4"
                 >
-                  Light &amp; Sanctuary
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/campaigns/weightless-pavilion"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4"
-                >
-                  The Weightless Pavilion
+                  Care &amp; Maintenance Protocol
                 </Link>
               </li>
             </ul>
@@ -205,10 +194,10 @@ function SitemapPage() {
               </li>
               <li>
                 <Link
-                  to="/faq"
+                  to="/safety-faq"
                   className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4"
                 >
-                  Safety &amp; Installation FAQ
+                  Safety &amp; Architecture FAQ
                 </Link>
               </li>
               <li>

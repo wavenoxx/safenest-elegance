@@ -4,23 +4,16 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 
+import { buildMetaTags } from "@/lib/seo";
+
 export const Route = createFileRoute("/our-story")({
-  head: () => ({
-    meta: [
-      { title: `Our Story — ${BRAND_CONFIG.name}` },
-      {
-        name: "description",
-        content: `The story of ${BRAND_CONFIG.name} — invisible protection crafted to honor your home with quiet architectural grace.`,
-      },
-      { property: "og:title", content: `Our Story — ${BRAND_CONFIG.name}` },
-      {
-        property: "og:description",
-        content: `The story of ${BRAND_CONFIG.name} — invisible protection crafted to honor your home with quiet architectural grace.`,
-      },
-      { property: "og:type", content: "website" },
-    ],
-    links: [{ rel: "canonical", href: "https://safenestindia.com/our-story" }],
-  }),
+  head: () =>
+    buildMetaTags({
+      title: "Atelier Heritage & Brand Ethos",
+      description: `The story of ${BRAND_CONFIG.name} — invisible safety engineered to honor modern architectural living with quiet grace.`,
+      canonicalPath: "/our-story",
+      ogImage: "/images/our-story/chapter-1.jpg",
+    }),
   component: StoryPage,
 });
 

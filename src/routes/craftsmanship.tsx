@@ -3,25 +3,17 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 
+import { buildMetaTags } from "@/lib/seo";
+
 export const Route = createFileRoute("/craftsmanship")({
-  head: () => ({
-    meta: [
-      { title: `The Craftsmanship — ${BRAND_CONFIG.name}` },
-      {
-        name: "description",
-        content:
-          "Precision engineering, architectural strength. High-tensile marine grade elements, engineered to disappear.",
-      },
-      { property: "og:title", content: `The Craftsmanship — ${BRAND_CONFIG.name}` },
-      {
-        property: "og:description",
-        content: "High-tensile marine grade elements, engineered to disappear.",
-      },
-      { property: "og:image", content: "/images/craftsmanship/hero.jpg" },
-      { property: "og:type", content: "website" },
-    ],
-    links: [{ rel: "canonical", href: "https://safenestindia.com/craftsmanship" }],
-  }),
+  head: () =>
+    buildMetaTags({
+      title: "Materials, Metallurgy & Tensile Engineering",
+      description:
+        "Precision engineering and architectural strength. Verified AISI 316 marine-grade stainless steel cables, UV-stabilized Nylon-12 coating, and 6063-T6 aluminum tracks.",
+      canonicalPath: "/craftsmanship",
+      ogImage: "/images/craftsmanship/hero.jpg",
+    }),
   component: CraftsmanshipPage,
 });
 

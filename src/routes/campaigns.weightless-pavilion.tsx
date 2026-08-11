@@ -3,16 +3,16 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 
+import { buildMetaTags } from "@/lib/seo";
+
 export const Route = createFileRoute("/campaigns/weightless-pavilion")({
-  head: () => ({
-    meta: [
-      { title: `The Weightless Pavilion — ${BRAND_CONFIG.name}` },
-      {
-        name: "description",
-        content: `An ongoing campaign exploring weightless structure and invisible protection.`,
-      },
-    ],
-  }),
+  head: () =>
+    buildMetaTags({
+      title: "The Weightless Pavilion — Editorial Campaign",
+      description: "An ongoing campaign exploring weightless structure and invisible protection.",
+      canonicalPath: "/campaigns/weightless-pavilion",
+      noIndex: true,
+    }),
   component: WeightlessPavilion,
 });
 

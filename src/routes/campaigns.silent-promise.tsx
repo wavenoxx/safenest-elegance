@@ -5,20 +5,16 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 
+import { buildMetaTags } from "@/lib/seo";
+
 export const Route = createFileRoute("/campaigns/silent-promise")({
-  head: () => ({
-    meta: [
-      { title: `The Silent Promise — ${BRAND_CONFIG.name} Campaign` },
-      {
-        name: "description",
-        content: "A promise of architectural protection, suspended in thin air.",
-      },
-      { property: "og:title", content: `The Silent Promise — ${BRAND_CONFIG.name} Campaign` },
-      { property: "og:description", content: "Integrity, design, and invisible safety." },
-      { property: "og:type", content: "website" },
-    ],
-    links: [{ rel: "canonical", href: "https://safenestindia.com/campaigns/silent-promise" }],
-  }),
+  head: () =>
+    buildMetaTags({
+      title: "The Silent Promise — Editorial Campaign",
+      description: "A promise of architectural protection, suspended in thin air.",
+      canonicalPath: "/campaigns/silent-promise",
+      noIndex: true,
+    }),
   component: CampaignThree,
 });
 

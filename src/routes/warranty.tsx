@@ -3,17 +3,16 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 
+import { buildMetaTags } from "@/lib/seo";
+
 export const Route = createFileRoute("/warranty")({
-  head: () => ({
-    meta: [
-      { title: `Warranty Policy & Terms — ${BRAND_CONFIG.name}` },
-      {
-        name: "description",
-        content: `Truthful warranty matrix and coverage terms for SafeNest invisible grills, safety netting systems, and architectural installations.`,
-      },
-    ],
-    links: [{ rel: "canonical", href: "https://safenestindia.com/warranty" }],
-  }),
+  head: () =>
+    buildMetaTags({
+      title: "Written Warranty Matrix & Handover Terms",
+      description:
+        "Documented warranty terms for SafeNest invisible grills (5 years) and HDPE safety netting (3-5 years) issued upon laser alignment completion.",
+      canonicalPath: "/warranty",
+    }),
   component: WarrantyPage,
 });
 

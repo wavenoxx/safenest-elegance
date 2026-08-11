@@ -3,17 +3,15 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 
+import { buildMetaTags } from "@/lib/seo";
+
 export const Route = createFileRoute("/terms")({
-  head: () => ({
-    meta: [
-      { title: `Terms and Conditions — ${BRAND_CONFIG.name}` },
-      {
-        name: "description",
-        content: `Official terms of service, installation policies, and client advisory terms for ${BRAND_CONFIG.name}.`,
-      },
-    ],
-    links: [{ rel: "canonical", href: "https://safenestindia.com/terms" }],
-  }),
+  head: () =>
+    buildMetaTags({
+      title: "Terms and Conditions & Advisory Governance",
+      description: `Official terms of service, installation policies, and client advisory terms for ${BRAND_CONFIG.name}.`,
+      canonicalPath: "/terms",
+    }),
   component: TermsPage,
 });
 

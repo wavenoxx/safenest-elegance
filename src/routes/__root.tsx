@@ -79,37 +79,25 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-const localBusinessSchema = {
+const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Organization",
   name: "SafeNest",
   legalName: "SafeNest Architectural Safety Atelier",
   url: "https://safenestindia.com",
   logo: "https://safenestindia.com/images/homepage/banner-1.jpg",
   image: "https://safenestindia.com/images/homepage/banner-1.jpg",
   description:
-    "Bespoke architectural safety solutions: invisible grills, safety netting, and bird protection across South India.",
+    "Bespoke architectural safety solutions: invisible grills, safety netting, and bird protection across verified South India service areas.",
   telephone: "+919553879931",
   email: "safenestind@gmail.com",
-  priceRange: "₹₹₹",
-  address: {
-    "@type": "PostalAddress",
-    addressRegion: "South India",
-    addressCountry: "IN",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+919553879931",
+    contactType: "customer service",
+    areaServed: "IN",
+    availableLanguage: ["English", "Telugu", "Hindi"],
   },
-  areaServed: [
-    { "@type": "State", name: "Telangana" },
-    { "@type": "State", name: "Andhra Pradesh" },
-    { "@type": "State", name: "Karnataka" },
-    { "@type": "State", name: "Tamil Nadu" },
-    { "@type": "State", name: "Kerala" },
-  ],
-  knowsAbout: [
-    "Invisible Grills",
-    "Balcony Safety Nets",
-    "Bird Protection Spikes",
-    "Architectural Fall Prevention",
-  ],
 };
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
@@ -129,17 +117,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "canonical", href: "https://safenestindia.com/" },
       { rel: "stylesheet", href: appCss },
+      { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
+      { rel: "dns-prefetch", href: "https://fonts.gstatic.com" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap",
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: "/images/homepage/banner-1.jpg",
       },
     ],
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(localBusinessSchema),
+        children: JSON.stringify(organizationSchema),
       },
     ],
   }),

@@ -94,7 +94,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/faq"
+                  to="/safety-faq"
                   className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
@@ -102,7 +102,7 @@ export function Footer() {
                     fontWeight: 300,
                   }}
                 >
-                  Safety &amp; Installation FAQ
+                  Safety &amp; Architecture FAQ
                 </Link>
               </li>
               <li>
@@ -119,8 +119,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="mailto:safenestind@gmail.com?subject=Maintenance%20Request"
+                <Link
+                  to="/maintenance-repair"
                   className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
@@ -128,8 +128,8 @@ export function Footer() {
                     fontWeight: 300,
                   }}
                 >
-                  Maintenance &amp; Repair
-                </a>
+                  Care &amp; Maintenance Protocol
+                </Link>
               </li>
             </ul>
           </div>
@@ -190,29 +190,15 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/campaigns/silent-promise"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
+                  to="/service-areas"
+                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring font-medium"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: "12px",
-                    fontWeight: 300,
                   }}
                 >
-                  The Silent Promise
+                  Verified Service Areas →
                 </Link>
-              </li>
-              <li>
-                <a
-                  href="mailto:safenestind@gmail.com?subject=Career%20Inquiry"
-                  className="text-neutral-600 hover:text-neutral-950 hover:underline underline-offset-4 transition-colors focus-ring"
-                  style={{
-                    fontFamily: "'Inter', system-ui, sans-serif",
-                    fontSize: "12px",
-                    fontWeight: 300,
-                  }}
-                >
-                  Careers
-                </a>
               </li>
             </ul>
           </div>
@@ -351,68 +337,44 @@ export function Footer() {
               <button
                 type="button"
                 onClick={() => setShowServiceArea(!showServiceArea)}
-                className="uppercase text-neutral-800 hover:text-neutral-600 transition-colors flex items-center gap-1.5 cursor-pointer bg-transparent border-0 min-h-11 px-2 focus-ring"
-                style={{
-                  fontFamily: "'Inter', system-ui, sans-serif",
-                  fontSize: "11px",
-                  fontWeight: 400,
-                  letterSpacing: "0.15em",
-                }}
+                className="text-[11px] text-neutral-600 hover:text-neutral-950 font-light uppercase tracking-widest flex items-center gap-1.5 focus-ring cursor-pointer"
+                style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                aria-expanded={showServiceArea}
               >
-                Service Area : South India <span className="text-[10px]">&gt;</span>
+                <span>Verified Service Hubs: South India</span>
+                <span className="text-[9px]">{showServiceArea ? "▲" : "▼"}</span>
               </button>
               {showServiceArea && (
                 <div
-                  className="absolute bottom-full left-0 mb-3 bg-white border border-neutral-200 shadow-xl p-5 w-80 z-50 text-left"
+                  className="absolute bottom-full left-0 mb-2 w-80 bg-white border border-neutral-200 p-4 shadow-md text-xs font-light text-neutral-600 space-y-2 z-50"
                   style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
                 >
-                  <h5
-                    className="uppercase mb-3"
-                    style={{
-                      fontSize: "10px",
-                      fontWeight: 500,
-                      letterSpacing: "0.2em",
-                      color: "#171717",
-                    }}
-                  >
-                    South India Regional Coverage
-                  </h5>
-                  <p
-                    className="mb-3"
-                    style={{ fontSize: "11px", fontWeight: 300, color: "#404040", lineHeight: 1.6 }}
-                  >
-                    Our certified installation teams serve high-rise residences and estates across:
+                  <p className="font-medium text-neutral-900 text-[11px] uppercase tracking-wider">
+                    Operational Hubs
                   </p>
-                  <ul
-                    className="mb-3 space-y-1"
-                    style={{ fontSize: "11px", fontWeight: 400, color: "#171717", lineHeight: 1.6 }}
-                  >
-                    <li>• Hyderabad &amp; Telangana (TS)</li>
-                    <li>• Bengaluru &amp; Karnataka (KA)</li>
-                    <li>• Chennai &amp; Tamil Nadu (TN)</li>
-                    <li>• Kochi &amp; Kerala (KL)</li>
-                    <li>• Visakhapatnam &amp; Andhra Pradesh (AP)</li>
-                  </ul>
-                  <p
-                    style={{ fontSize: "10px", fontWeight: 300, color: "#737373", lineHeight: 1.5 }}
-                  >
-                    Prompt on-site laser measurements and bespoke consultations.
-                  </p>
+                  <p>• Telangana: Hyderabad &amp; Secunderabad</p>
+                  <p>• Karnataka: Bengaluru &amp; Suburbs</p>
+                  <p>• Tamil Nadu: Chennai &amp; Coastal Corridor</p>
+                  <p>• Kerala: Kochi &amp; Ernakulam</p>
+                  <p>• Andhra Pradesh: Visakhapatnam &amp; Coastal Hubs</p>
+                  <div className="pt-2 border-t border-neutral-100">
+                    <Link
+                      to="/service-areas"
+                      className="text-[10px] uppercase tracking-wider text-neutral-900 underline underline-offset-4"
+                    >
+                      View All Locality Details →
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
 
             {/* COPYRIGHT */}
             <p
-              className="text-center md:text-right"
-              style={{
-                fontFamily: "'Inter', system-ui, sans-serif",
-                fontSize: "11px",
-                fontWeight: 300,
-                color: "#737373",
-              }}
+              className="text-[10px] uppercase font-light text-neutral-500 tracking-[0.2em]"
+              style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
             >
-              © {BRAND_CONFIG.name} 2026. All rights reserved.
+              © {new Date().getFullYear()} {BRAND_CONFIG.name}. All Rights Reserved.
             </p>
           </div>
         </div>

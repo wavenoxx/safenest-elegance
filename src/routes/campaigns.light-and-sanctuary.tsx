@@ -4,23 +4,16 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Footer";
 import { BRAND_CONFIG } from "@/config/brand";
 
+import { buildMetaTags } from "@/lib/seo";
+
 export const Route = createFileRoute("/campaigns/light-and-sanctuary")({
-  head: () => ({
-    meta: [
-      { title: `Light & Sanctuary — ${BRAND_CONFIG.name} Campaign` },
-      {
-        name: "description",
-        content: "An interactive sensory portal exploring the philosophy of invisible safety.",
-      },
-      { property: "og:title", content: `Light & Sanctuary — ${BRAND_CONFIG.name} Campaign` },
-      {
-        property: "og:description",
-        content: "A sanctuary of light. Where the edge fades, trust begins.",
-      },
-      { property: "og:type", content: "website" },
-    ],
-    links: [{ rel: "canonical", href: "https://safenestindia.com/campaigns/light-and-sanctuary" }],
-  }),
+  head: () =>
+    buildMetaTags({
+      title: "Light & Sanctuary — Editorial Campaign",
+      description: "An interactive sensory portal exploring the philosophy of invisible safety.",
+      canonicalPath: "/campaigns/light-and-sanctuary",
+      noIndex: true,
+    }),
   component: CampaignOne,
 });
 

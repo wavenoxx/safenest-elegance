@@ -13,9 +13,12 @@ import { Route as WarrantyRouteImport } from './routes/warranty'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as SitemapRouteImport } from './routes/sitemap'
+import { Route as ServiceAreasRouteImport } from './routes/service-areas'
+import { Route as SafetyFaqRouteImport } from './routes/safety-faq'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as OurStoryRouteImport } from './routes/our-story'
 import { Route as MaterialStandardsRouteImport } from './routes/material-standards'
+import { Route as MaintenanceRepairRouteImport } from './routes/maintenance-repair'
 import { Route as LifestyleRouteImport } from './routes/lifestyle'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as CraftsmanshipRouteImport } from './routes/craftsmanship'
@@ -47,6 +50,16 @@ const SitemapRoute = SitemapRouteImport.update({
   path: '/sitemap',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServiceAreasRoute = ServiceAreasRouteImport.update({
+  id: '/service-areas',
+  path: '/service-areas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SafetyFaqRoute = SafetyFaqRouteImport.update({
+  id: '/safety-faq',
+  path: '/safety-faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -60,6 +73,11 @@ const OurStoryRoute = OurStoryRouteImport.update({
 const MaterialStandardsRoute = MaterialStandardsRouteImport.update({
   id: '/material-standards',
   path: '/material-standards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaintenanceRepairRoute = MaintenanceRepairRouteImport.update({
+  id: '/maintenance-repair',
+  path: '/maintenance-repair',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LifestyleRoute = LifestyleRouteImport.update({
@@ -121,9 +139,12 @@ export interface FileRoutesByFullPath {
   '/craftsmanship': typeof CraftsmanshipRoute
   '/faq': typeof FaqRoute
   '/lifestyle': typeof LifestyleRoute
+  '/maintenance-repair': typeof MaintenanceRepairRoute
   '/material-standards': typeof MaterialStandardsRoute
   '/our-story': typeof OurStoryRoute
   '/privacy': typeof PrivacyRoute
+  '/safety-faq': typeof SafetyFaqRoute
+  '/service-areas': typeof ServiceAreasRoute
   '/sitemap': typeof SitemapRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
@@ -140,9 +161,12 @@ export interface FileRoutesByTo {
   '/craftsmanship': typeof CraftsmanshipRoute
   '/faq': typeof FaqRoute
   '/lifestyle': typeof LifestyleRoute
+  '/maintenance-repair': typeof MaintenanceRepairRoute
   '/material-standards': typeof MaterialStandardsRoute
   '/our-story': typeof OurStoryRoute
   '/privacy': typeof PrivacyRoute
+  '/safety-faq': typeof SafetyFaqRoute
+  '/service-areas': typeof ServiceAreasRoute
   '/sitemap': typeof SitemapRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
@@ -160,9 +184,12 @@ export interface FileRoutesById {
   '/craftsmanship': typeof CraftsmanshipRoute
   '/faq': typeof FaqRoute
   '/lifestyle': typeof LifestyleRoute
+  '/maintenance-repair': typeof MaintenanceRepairRoute
   '/material-standards': typeof MaterialStandardsRoute
   '/our-story': typeof OurStoryRoute
   '/privacy': typeof PrivacyRoute
+  '/safety-faq': typeof SafetyFaqRoute
+  '/service-areas': typeof ServiceAreasRoute
   '/sitemap': typeof SitemapRoute
   '/solutions': typeof SolutionsRoute
   '/terms': typeof TermsRoute
@@ -181,9 +208,12 @@ export interface FileRouteTypes {
     | '/craftsmanship'
     | '/faq'
     | '/lifestyle'
+    | '/maintenance-repair'
     | '/material-standards'
     | '/our-story'
     | '/privacy'
+    | '/safety-faq'
+    | '/service-areas'
     | '/sitemap'
     | '/solutions'
     | '/terms'
@@ -200,9 +230,12 @@ export interface FileRouteTypes {
     | '/craftsmanship'
     | '/faq'
     | '/lifestyle'
+    | '/maintenance-repair'
     | '/material-standards'
     | '/our-story'
     | '/privacy'
+    | '/safety-faq'
+    | '/service-areas'
     | '/sitemap'
     | '/solutions'
     | '/terms'
@@ -219,9 +252,12 @@ export interface FileRouteTypes {
     | '/craftsmanship'
     | '/faq'
     | '/lifestyle'
+    | '/maintenance-repair'
     | '/material-standards'
     | '/our-story'
     | '/privacy'
+    | '/safety-faq'
+    | '/service-areas'
     | '/sitemap'
     | '/solutions'
     | '/terms'
@@ -239,9 +275,12 @@ export interface RootRouteChildren {
   CraftsmanshipRoute: typeof CraftsmanshipRoute
   FaqRoute: typeof FaqRoute
   LifestyleRoute: typeof LifestyleRoute
+  MaintenanceRepairRoute: typeof MaintenanceRepairRoute
   MaterialStandardsRoute: typeof MaterialStandardsRoute
   OurStoryRoute: typeof OurStoryRoute
   PrivacyRoute: typeof PrivacyRoute
+  SafetyFaqRoute: typeof SafetyFaqRoute
+  ServiceAreasRoute: typeof ServiceAreasRoute
   SitemapRoute: typeof SitemapRoute
   SolutionsRoute: typeof SolutionsRoute
   TermsRoute: typeof TermsRoute
@@ -283,6 +322,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/service-areas': {
+      id: '/service-areas'
+      path: '/service-areas'
+      fullPath: '/service-areas'
+      preLoaderRoute: typeof ServiceAreasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safety-faq': {
+      id: '/safety-faq'
+      path: '/safety-faq'
+      fullPath: '/safety-faq'
+      preLoaderRoute: typeof SafetyFaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
@@ -302,6 +355,13 @@ declare module '@tanstack/react-router' {
       path: '/material-standards'
       fullPath: '/material-standards'
       preLoaderRoute: typeof MaterialStandardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/maintenance-repair': {
+      id: '/maintenance-repair'
+      path: '/maintenance-repair'
+      fullPath: '/maintenance-repair'
+      preLoaderRoute: typeof MaintenanceRepairRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lifestyle': {
@@ -383,9 +443,12 @@ const rootRouteChildren: RootRouteChildren = {
   CraftsmanshipRoute: CraftsmanshipRoute,
   FaqRoute: FaqRoute,
   LifestyleRoute: LifestyleRoute,
+  MaintenanceRepairRoute: MaintenanceRepairRoute,
   MaterialStandardsRoute: MaterialStandardsRoute,
   OurStoryRoute: OurStoryRoute,
   PrivacyRoute: PrivacyRoute,
+  SafetyFaqRoute: SafetyFaqRoute,
+  ServiceAreasRoute: ServiceAreasRoute,
   SitemapRoute: SitemapRoute,
   SolutionsRoute: SolutionsRoute,
   TermsRoute: TermsRoute,
