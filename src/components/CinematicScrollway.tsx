@@ -11,10 +11,10 @@ interface SlideItem {
 /**
  * CinematicScrollway — Pure Black 2.39:1 Cinematic Layout.
  *
- * Exact 1:1 match with Image 1 (Desktop & Non-Desktop Mobile View):
+ * Exact match with user's specification:
  * - 2.39:1 Widescreen cinematic aspect ratio across both mobile and desktop.
- * - Single-line quiet luxury H1 titles (whitespace-nowrap) with wide tracking.
- * - Perfectly centered typography and refined framed action button inside each panel.
+ * - Center-to-Down placement with ~10% visual black space beneath action buttons.
+ * - Ultra-refined 5-10% reduced quiet luxury typography (single-line uppercase titles).
  * - Pure black visual canvas (#050505) with subtle atmospheric depth and hairline dividers.
  */
 const slides: SlideItem[] = [
@@ -97,7 +97,7 @@ export function CinematicScrollway() {
         <Link
           key={index}
           to={slide.link}
-          className="sn-chanel-slide group relative w-full aspect-[2.39/1] min-h-[160px] sm:min-h-[220px] md:min-h-[280px] max-h-[380px] focus-ring border-b border-white/10 flex items-center justify-center transition-colors duration-300 hover:bg-white/[0.01]"
+          className="sn-chanel-slide group relative w-full aspect-[2.39/1] min-h-[160px] sm:min-h-[220px] md:min-h-[280px] max-h-[380px] focus-ring border-b border-white/10 flex flex-col justify-end transition-colors duration-300 hover:bg-white/[0.01]"
           aria-label={`${slide.action}: ${slide.descriptor} (${slide.title})`}
         >
           {/* Pure Black Visual Canvas with Subtle Architectural Depth */}
@@ -114,20 +114,20 @@ export function CinematicScrollway() {
             }}
           />
 
-          {/* Vertically & Horizontally Centered Typography (Exact 1:1 Match with Image 1) */}
-          <div className="relative z-20 flex flex-col items-center text-center w-full px-3 sm:px-6 md:px-12 py-3 sm:py-5 md:py-8 max-w-3xl mx-auto">
+          {/* Center-to-Down Typography Overlay (With 10% bottom visual breathing space) */}
+          <div className="relative z-20 flex flex-col items-center text-center w-full px-3 sm:px-6 md:px-12 pb-[6%] sm:pb-[7%] md:pb-[8%] max-w-3xl mx-auto">
             {/* Category Eyebrow */}
-            <span className="sn-eyebrow text-neutral-400 mb-0.5 sm:mb-1 uppercase block whitespace-nowrap">
+            <span className="sn-eyebrow text-neutral-400 mb-1 sm:mb-1.5 uppercase block whitespace-nowrap">
               {slide.category}
             </span>
 
-            {/* Collection / Section Title (Single-line whitespace-nowrap luxury fit) */}
-            <h2 className="sn-h1 text-white max-w-2xl drop-shadow-sm mb-0.5 sm:mb-1 px-1 whitespace-nowrap">
+            {/* Collection / Section Title (Single-line quiet luxury) */}
+            <h2 className="sn-h1 text-white max-w-2xl drop-shadow-sm mb-1 sm:mb-1.5 px-1 whitespace-nowrap">
               {slide.title}
             </h2>
 
             {/* Plain Descriptor */}
-            <p className="sn-subtext text-neutral-300 mb-2 sm:mb-3 max-w-md px-1 whitespace-nowrap">
+            <p className="sn-subtext text-neutral-300 mb-2.5 sm:mb-3.5 max-w-md px-1 whitespace-nowrap">
               {slide.descriptor}
             </p>
 
