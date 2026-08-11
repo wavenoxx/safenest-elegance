@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="bg-white text-neutral-900 scroll-smooth">
+    <div className="bg-[#050505] text-white">
       <SiteNav />
       <Hero />
       <CinematicScrollway />

@@ -9,15 +9,12 @@ interface SlideItem {
 }
 
 /**
- * CinematicScrollway — Pure Black Architectural Visual Mockup Sections.
+ * CinematicScrollway — Pure Black 2.39:1 Cinematic Layout.
  *
- * Directives:
- * - Zero visual images (pure black visual canvases with architectural depth).
- * - Exact typography & layout matching reference image:
- *   - Eyebrow (.sn-eyebrow): 10px, tracking 0.35em, uppercase
- *   - Title (.sn-h1): Cormorant Garamond 300, tracking 0.22em, uppercase
- *   - Descriptor (.sn-subtext): 11.5px, tracking 0.05em, text-neutral-300
- *   - Action Button (.sn-btn-luxury): Minimal framed luxury border button
+ * Exact match with user's uploaded screenshot:
+ * - 2.39:1 Widescreen cinematic aspect ratio across both mobile and desktop.
+ * - Perfectly centered typography and framed action button inside each panel.
+ * - Pure black visual canvas (#050505) with subtle atmospheric depth and hairline dividers.
  */
 const slides: SlideItem[] = [
   {
@@ -99,12 +96,12 @@ export function CinematicScrollway() {
         <Link
           key={index}
           to={slide.link}
-          className="sn-chanel-slide group block relative w-full aspect-[1/2.39] sm:aspect-[1/1.8] md:aspect-[2.39/1] min-h-[460px] max-h-[92dvh] focus-ring border-b border-white/5"
+          className="sn-chanel-slide group relative w-full aspect-[2.39/1] min-h-[220px] sm:min-h-[280px] md:min-h-[360px] focus-ring border-b border-white/10 flex items-center justify-center transition-colors duration-300 hover:bg-white/[0.01]"
           aria-label={`${slide.action}: ${slide.descriptor} (${slide.title})`}
         >
           {/* Pure Black Visual Canvas with Subtle Architectural Depth */}
           <div className="absolute inset-0 w-full h-full sn-black-visual z-0 pointer-events-none">
-            <div className="w-full h-full bg-radial from-neutral-900/20 via-[#050505] to-[#050505]" />
+            <div className="w-full h-full bg-radial from-neutral-900/25 via-[#050505] to-[#050505]" />
           </div>
 
           {/* Subtle Ambient Vignette Overlay */}
@@ -112,12 +109,12 @@ export function CinematicScrollway() {
             className="absolute inset-0 pointer-events-none z-10"
             style={{
               background:
-                "linear-gradient(to top, rgba(5,5,5,0.8) 0%, rgba(5,5,5,0.15) 50%, rgba(5,5,5,0.02) 100%)",
+                "linear-gradient(to top, rgba(5,5,5,0.7) 0%, rgba(5,5,5,0.1) 50%, rgba(5,5,5,0.02) 100%)",
             }}
           />
 
-          {/* Bottom-Center Typography Overlay (Calibrated for Vertical & Widescreen 2.39:1) */}
-          <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-center text-center w-full px-4 sm:px-8 md:px-12 pb-8 sm:pb-10 md:pb-12 max-w-3xl mx-auto">
+          {/* Vertically Centered Typography (Matching Uploaded Screenshot Exactly) */}
+          <div className="relative z-20 flex flex-col items-center text-center w-full px-4 sm:px-8 md:px-12 py-6 sm:py-8 md:py-12 max-w-3xl mx-auto">
             {/* Category Eyebrow */}
             <span className="sn-eyebrow text-neutral-400 mb-1.5 sm:mb-2 uppercase block">
               {slide.category}
@@ -129,7 +126,7 @@ export function CinematicScrollway() {
             </h2>
 
             {/* Plain Descriptor */}
-            <p className="sn-subtext text-neutral-300 mb-4 sm:mb-5 max-w-md px-2">
+            <p className="sn-subtext text-neutral-300 mb-3.5 sm:mb-4 max-w-md px-2">
               {slide.descriptor}
             </p>
 
