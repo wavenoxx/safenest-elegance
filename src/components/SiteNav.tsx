@@ -42,7 +42,7 @@ export function SiteNav() {
             : "bg-transparent text-white"
         }`}
       >
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center px-6 sm:px-8 lg:px-12 py-3.5 lg:py-4 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center px-6 sm:px-8 lg:px-10 py-3 lg:py-4 w-full">
           {/* Left: 2-line Menu Icon + Menu Text */}
           <div className="flex items-center gap-6 min-w-0">
             <button

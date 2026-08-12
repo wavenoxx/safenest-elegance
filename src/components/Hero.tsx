@@ -29,7 +29,6 @@ const Hero = () => {
           alt="SafeNest Widescreen Balcony Safety View"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/35" />
       </div>
 
       {/* Mobile Visual Container (9:16 Aspect Ratio Canvas) */}
@@ -40,24 +39,24 @@ const Hero = () => {
         <div className="w-full h-full bg-radial from-neutral-900/15 via-[#050505] to-[#050505]" />
       </div>
 
-      {/* Subtle Atmospheric Vignette */}
+      {/* Soft, Subtle Atmospheric Vignette to preserve original visual brilliance */}
       <div
         className="absolute inset-0 pointer-events-none z-10"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(5,5,5,0.4) 0%, rgba(5,5,5,0.05) 40%, rgba(5,5,5,0.15) 70%, rgba(5,5,5,0.85) 100%)",
+            "linear-gradient(to bottom, rgba(5,5,5,0.12) 0%, rgba(5,5,5,0) 50%, rgba(5,5,5,0.35) 100%)",
         }}
       />
 
       {/* Editorial Content Overlay (Lower-Third Placement matching Reference Image) */}
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-16 sm:pb-20 md:pb-24 px-6 md:px-12 text-center">
-        {/* Unified H1 Headline */}
-        <h1 className="sn-h1 text-white max-w-2xl drop-shadow-sm mb-3">
+        {/* Unified H1 Headline with crisp contrast drop-shadow */}
+        <h1 className="sn-h1 text-white max-w-2xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)] mb-3">
           Invisible Grills &amp; Safety Nets
         </h1>
 
         {/* Unified Subtext Descriptor */}
-        <p className="sn-subtext text-neutral-300 max-w-md mb-8">
+        <p className="sn-subtext text-neutral-200 max-w-md drop-shadow-[0_1.5px_6px_rgba(0,0,0,0.85)] mb-8">
           Architectural safety for modern discerning homes.
         </p>
 
