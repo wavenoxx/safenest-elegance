@@ -19,12 +19,17 @@ const Hero = () => {
       style={{ height: "100dvh", minHeight: "600px" }}
       aria-label="SafeNest Architectural Safety Hero"
     >
-      {/* Desktop Visual Container (Pure Black Canvas) */}
+      {/* Desktop Visual Container (Hero Image) */}
       <div
-        className="hidden md:block absolute inset-0 w-full h-full bg-[#050505] z-0"
+        className="hidden md:block absolute inset-0 w-full h-full z-0"
         data-slot="desktop-hero-canvas"
       >
-        <div className="w-full h-full bg-radial from-neutral-900/15 via-[#050505] to-[#050505]" />
+        <img
+          src="/images/homepage/hero-desktop.jpg"
+          alt="SafeNest Widescreen Balcony Safety View"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/35" />
       </div>
 
       {/* Mobile Visual Container (9:16 Aspect Ratio Canvas) */}
