@@ -31,12 +31,16 @@ const Hero = () => {
         />
       </div>
 
-      {/* Mobile Visual Container (9:16 Aspect Ratio Canvas) */}
+      {/* Mobile Visual Container (9:16 Aspect Ratio Image) */}
       <div
-        className="md:hidden absolute inset-0 w-full h-full bg-[#050505] z-0"
+        className="md:hidden absolute inset-0 w-full h-full z-0"
         data-slot="mobile-hero-canvas-9-16"
       >
-        <div className="w-full h-full bg-radial from-neutral-900/15 via-[#050505] to-[#050505]" />
+        <img
+          src="/images/homepage/hero-mobile.jpg"
+          alt="SafeNest Architectural Safety — Mobile Balcony View"
+          className="w-full h-full object-cover"
+        />
       </div>
 
       {/* Soft, Subtle Atmospheric Vignette to preserve original visual brilliance */}
