@@ -78,23 +78,31 @@ function CategoryPage() {
     <div className="bg-[#050505] text-white min-h-screen">
       <SiteNav />
 
-      {/* Hero Header with High-Resolution Visual */}
-      <section className="relative w-full h-[55vh] md:h-[65vh] overflow-hidden bg-neutral-950">
+      {/* Hero Header with Exact 2.39:1 Cinematic Panoramic Visual */}
+      <section className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[2.39/1] max-h-[85vh] overflow-hidden bg-[#050505]">
         <img
           src={cat.heroImage}
           alt={cat.title}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-center"
           loading="eager"
+          decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/25" />
-        <div className="absolute inset-x-0 bottom-10 md:bottom-16 text-center text-white px-6 max-w-4xl mx-auto z-10">
-          <p className="sn-eyebrow text-neutral-300 mb-2">
+        {/* Delicate Ambient Vignette for Pristine Color & Text Legibility */}
+        <div
+          className="absolute inset-0 pointer-events-none z-10"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(5,5,5,0.75) 0%, rgba(5,5,5,0.2) 45%, rgba(5,5,5,0) 100%)",
+          }}
+        />
+        <div className="absolute inset-x-0 bottom-6 sm:bottom-10 md:bottom-14 text-center text-white px-6 max-w-4xl mx-auto z-20">
+          <p className="sn-eyebrow text-neutral-300 mb-1.5 md:mb-2 drop-shadow-md">
             {BRAND_CONFIG.name} · Architectural Safety
           </p>
-          <h1 className="sn-h1 text-white max-w-2xl mx-auto drop-shadow-md mb-3">
+          <h1 className="sn-h1 text-white max-w-2xl mx-auto drop-shadow-lg mb-2 md:mb-3">
             {cat.title}
           </h1>
-          <p className="sn-subtext text-neutral-200 max-w-2xl mx-auto drop-shadow-sm">
+          <p className="sn-subtext text-neutral-200 max-w-2xl mx-auto drop-shadow-md">
             {cat.plainDescriptor}
           </p>
         </div>

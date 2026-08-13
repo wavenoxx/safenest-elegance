@@ -29,7 +29,7 @@ const columns: Column[] = [
     id: "invisible-grills",
     title: "Invisible Grills",
     color: "#8DA891",
-    backdrop: "/images/solutions/solution-1-invisible-grills.jpg",
+    backdrop: "/images/solutions/solution-1-invisible-grills.png",
     services: [
       { label: "Balcony", slug: "balcony-invisible-grills" },
       { label: "Staircase", slug: "staircase-invisible-grills" },
@@ -41,7 +41,7 @@ const columns: Column[] = [
     id: "core-safety-nets",
     title: "Core Safety Nets",
     color: "#8FAFC4",
-    backdrop: "/images/solutions/solution-2-core-safety-nets.jpg",
+    backdrop: "/images/solutions/solution-2-core-safety-nets.png",
     services: [
       { label: "Balcony", slug: "balcony-safety-nets" },
       { label: "Children", slug: "children-safety-nets" },
@@ -53,7 +53,7 @@ const columns: Column[] = [
     id: "construction-industrial",
     title: "Construction & Industrial",
     color: "#D1D1D1",
-    backdrop: "/images/solutions/solution-3-construction-industrial.jpg",
+    backdrop: "/images/solutions/solution-3-construction-industrial.png",
     services: [
       { label: "Construction", slug: "construction-safety-nets" },
       { label: "Industrial", slug: "industrial-safety-nets" },
@@ -65,7 +65,7 @@ const columns: Column[] = [
     id: "animal-bird-protection",
     title: "Animal & Bird Protection",
     color: "#E5C1C5",
-    backdrop: "/images/solutions/solution-4-animal-bird-protection.jpg",
+    backdrop: "/images/solutions/solution-4-animal-bird-protection.png",
     services: [
       { label: "Pigeon Nets", slug: "pigeon-safety-nets" },
       { label: "Bird Spikes", slug: "pigeons-bird-spikes" },
@@ -77,7 +77,7 @@ const columns: Column[] = [
     id: "specialty-solutions",
     title: "Specialty Solutions",
     color: "#A6C1C5",
-    backdrop: "/images/solutions/solution-5-specialty-solutions.jpg",
+    backdrop: "/images/solutions/solution-5-specialty-solutions.png",
     services: [
       { label: "Sports Nets", slug: "sports-practice-nets" },
       { label: "Coconut Nets", slug: "coconut-safety-nets" },
