@@ -52,22 +52,34 @@ function CraftsmanshipPage() {
     <div className="bg-[#050505] text-white min-h-screen">
       <SiteNav />
 
-      {/* Hero Visual (Pure Black Canvas) */}
-      <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden sn-black-visual">
-        <div className="absolute inset-0 w-full h-full bg-radial from-neutral-900/20 to-[#050505]" />
-      </section>
-
-      {/* Editorial Header */}
-      <section className="py-16 px-8 md:py-24 max-w-3xl mx-auto text-center">
-        <p className="sn-eyebrow text-neutral-400 mb-4">
-          The Craftsmanship
-        </p>
-        <h1 className="sn-h1 text-white mb-6">
-          Precision Engineering, Architectural Strength
-        </h1>
-        <p className="font-serif italic text-lg md:text-xl text-neutral-300 leading-relaxed font-light">
-          "High-tensile marine grade elements, engineered to disappear."
-        </p>
+      {/* Hero Header with Exact Cinematic Visual */}
+      <section className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[2.39/1] max-h-[85vh] overflow-hidden bg-[#050505]">
+        <img
+          src="/images/craftsmanship-hero.png"
+          alt="SafeNest Precision Engineering and Architectural Strength"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          loading="eager"
+          decoding="async"
+        />
+        {/* Delicate Ambient Vignette for Pristine Color & Text Legibility */}
+        <div
+          className="absolute inset-0 pointer-events-none z-10"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(5,5,5,0.8) 0%, rgba(5,5,5,0.2) 45%, rgba(5,5,5,0) 100%)",
+          }}
+        />
+        <div className="absolute inset-x-0 bottom-6 sm:bottom-10 md:bottom-14 text-center text-white px-6 max-w-4xl mx-auto z-20">
+          <p className="sn-eyebrow text-neutral-300 mb-1.5 md:mb-2 drop-shadow-md">
+            The Craftsmanship
+          </p>
+          <h1 className="sn-h1 text-white max-w-3xl mx-auto drop-shadow-lg mb-2 md:mb-3">
+            Precision Engineering, Architectural Strength
+          </h1>
+          <p className="font-serif italic text-base sm:text-lg md:text-xl text-neutral-200 leading-relaxed font-light drop-shadow-md">
+            "High-tensile marine grade elements, engineered to disappear."
+          </p>
+        </div>
       </section>
 
       {/* Technical Ledger */}
