@@ -302,17 +302,22 @@ function ServicePage() {
                 className="border border-white/10 p-6 bg-white/[0.02] hover:border-white/40 transition-colors duration-300 group focus-ring min-h-11 flex flex-col justify-between"
               >
                 <div>
-                  <div className="aspect-[4/3] sn-black-visual mb-4 border border-white/10">
-                    <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
+                  <div className="aspect-[4/3] bg-neutral-900 mb-4 border border-white/10 overflow-hidden relative">
+                    <img
+                      src={rel.images[0]}
+                      alt={rel.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
                   </div>
-                  <h3 className="font-serif text-base font-light text-white uppercase tracking-wide">
+                  <h3 className="font-serif text-base font-light text-white uppercase tracking-wide group-hover:text-neutral-200 transition-colors">
                     {rel.title}
                   </h3>
                   <p className="text-xs text-neutral-400 font-light mt-1 line-clamp-2">
                     {rel.description}
                   </p>
                 </div>
-                <span className="mt-4 inline-block text-[10px] uppercase tracking-[0.2em] font-light text-neutral-300">
+                <span className="mt-4 inline-block text-[10px] uppercase tracking-[0.2em] font-light text-neutral-300 group-hover:text-white transition-colors">
                   View Specs →
                 </span>
               </Link>
