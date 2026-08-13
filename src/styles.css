@@ -132,8 +132,11 @@
 }
 
 @layer base {
-  * {
+  *,
+  *::before,
+  *::after {
     border-color: var(--color-border);
+    -webkit-tap-highlight-color: transparent !important;
   }
 
   html {

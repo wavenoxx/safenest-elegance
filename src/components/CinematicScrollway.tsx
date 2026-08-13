@@ -108,7 +108,7 @@ export function CinematicScrollway() {
         <Link
           key={index}
           to={slide.link}
-          className="sn-chanel-slide group relative w-full aspect-[2.39/1] focus-ring border-b border-white/10 flex flex-col justify-end transition-colors duration-300 hover:bg-white/[0.01]"
+          className="sn-chanel-slide group relative w-full aspect-[2.39/1] focus-ring border-b border-white/10 flex flex-col justify-end"
           aria-label={`${slide.action}: ${slide.descriptor} (${slide.title})`}
         >
           {/* Visual Image Background */}
@@ -117,7 +117,7 @@ export function CinematicScrollway() {
               src={slide.image}
               alt={`${slide.title} — ${slide.descriptor}`}
               className="w-full h-full object-cover"
-              loading="lazy"
+              decoding="async"
             />
           </div>
 
