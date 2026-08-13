@@ -6,17 +6,17 @@ interface SlideItem {
   descriptor: string;
   action: string;
   link: string;
-  image?: string;
+  image: string;
 }
 
 /**
- * CinematicScrollway — 2.39:1 Panoramic Widescreen Visual Scrollway.
+ * CinematicScrollway — 10 2.39:1 Panoramic Widescreen Visual Banners.
  *
  * Exact match with user's specification:
  * - 2.39:1 Widescreen cinematic aspect ratio across both mobile and desktop.
  * - Center-to-Down placement with ~10% visual breathing space beneath action buttons.
  * - Ultra-refined quiet luxury typography with single-line titles.
- * - Pure high-resolution (0% loss) visual banners for Slides 1 to 5.
+ * - Pure high-resolution (0% loss) visual banners for all 10 slides.
  */
 const slides: SlideItem[] = [
   {
@@ -65,6 +65,7 @@ const slides: SlideItem[] = [
     descriptor: "Atelier Heritage & Brand Ethos",
     action: "Explore",
     link: "/our-story",
+    image: "/images/homepage/banner-6.jpg",
   },
   {
     category: "SafeNest House",
@@ -72,6 +73,7 @@ const slides: SlideItem[] = [
     descriptor: "Materials, Metallurgy & Tensile Science",
     action: "Explore",
     link: "/craftsmanship",
+    image: "/images/homepage/banner-7.jpg",
   },
   {
     category: "SafeNest House",
@@ -79,6 +81,7 @@ const slides: SlideItem[] = [
     descriptor: "Architectural Living Spaces & Views",
     action: "Explore",
     link: "/lifestyle",
+    image: "/images/homepage/banner-8.jpg",
   },
   {
     category: "Maintenance & Care",
@@ -86,6 +89,7 @@ const slides: SlideItem[] = [
     descriptor: "Cleaning, Inspection & Retensioning Protocol",
     action: "Learn More",
     link: "/maintenance-repair",
+    image: "/images/homepage/banner-9.jpg",
   },
   {
     category: "Regional Operations",
@@ -93,6 +97,7 @@ const slides: SlideItem[] = [
     descriptor: "Hyderabad · Bengaluru · Chennai · Kochi · Vizag",
     action: "View Areas",
     link: "/service-areas",
+    image: "/images/homepage/banner-10.jpg",
   },
 ];
 
@@ -106,21 +111,15 @@ export function CinematicScrollway() {
           className="sn-chanel-slide group relative w-full aspect-[2.39/1] focus-ring border-b border-white/10 flex flex-col justify-end transition-colors duration-300 hover:bg-white/[0.01]"
           aria-label={`${slide.action}: ${slide.descriptor} (${slide.title})`}
         >
-          {/* Visual Image Background or Pure Black Canvas */}
-          {slide.image ? (
-            <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
-              <img
-                src={slide.image}
-                alt={`${slide.title} — ${slide.descriptor}`}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          ) : (
-            <div className="absolute inset-0 w-full h-full sn-black-visual z-0 pointer-events-none">
-              <div className="w-full h-full bg-radial from-neutral-900/25 via-[#050505] to-[#050505]" />
-            </div>
-          )}
+          {/* Visual Image Background */}
+          <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+            <img
+              src={slide.image}
+              alt={`${slide.title} — ${slide.descriptor}`}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
 
           {/* Soft Ambient Vignette Overlay for Text Legibility */}
           <div
