@@ -29,7 +29,7 @@ const columns: Column[] = [
     id: "invisible-grills",
     title: "Invisible Grills",
     color: "#8DA891",
-    backdrop: "/images/campaigns/campaign-2-card-1.jpg",
+    backdrop: "/images/solutions/solution-1-invisible-grills.jpg",
     services: [
       { label: "Balcony", slug: "balcony-invisible-grills" },
       { label: "Staircase", slug: "staircase-invisible-grills" },
@@ -41,7 +41,7 @@ const columns: Column[] = [
     id: "core-safety-nets",
     title: "Core Safety Nets",
     color: "#8FAFC4",
-    backdrop: "/images/campaigns/campaign-2-card-2.jpg",
+    backdrop: "/images/solutions/solution-2-core-safety-nets.jpg",
     services: [
       { label: "Balcony", slug: "balcony-safety-nets" },
       { label: "Children", slug: "children-safety-nets" },
@@ -53,7 +53,7 @@ const columns: Column[] = [
     id: "construction-industrial",
     title: "Construction & Industrial",
     color: "#D1D1D1",
-    backdrop: "/images/campaigns/campaign-2-card-3.jpg",
+    backdrop: "/images/solutions/solution-3-construction-industrial.jpg",
     services: [
       { label: "Construction", slug: "construction-safety-nets" },
       { label: "Industrial", slug: "industrial-safety-nets" },
@@ -65,7 +65,7 @@ const columns: Column[] = [
     id: "animal-bird-protection",
     title: "Animal & Bird Protection",
     color: "#E5C1C5",
-    backdrop: "/images/campaigns/campaign-2-card-4.jpg",
+    backdrop: "/images/solutions/solution-4-animal-bird-protection.jpg",
     services: [
       { label: "Pigeon Nets", slug: "pigeon-safety-nets" },
       { label: "Bird Spikes", slug: "pigeons-bird-spikes" },
@@ -77,7 +77,7 @@ const columns: Column[] = [
     id: "specialty-solutions",
     title: "Specialty Solutions",
     color: "#A6C1C5",
-    backdrop: "/images/campaigns/campaign-2-card-5.jpg",
+    backdrop: "/images/solutions/solution-5-specialty-solutions.jpg",
     services: [
       { label: "Sports Nets", slug: "sports-practice-nets" },
       { label: "Coconut Nets", slug: "coconut-safety-nets" },
@@ -96,26 +96,9 @@ function SolutionsExplorer() {
     return hoveredIndex === i ? "md:w-[40%]" : "md:w-[15%]";
   };
 
-  const mobileImages: Record<string, string> = {
-    "invisible-grills": "/images/campaigns/campaign-2-card-1.jpg",
-    "core-safety-nets": "/images/campaigns/campaign-2-card-2.jpg",
-    "construction-industrial": "/images/campaigns/campaign-2-card-3.jpg",
-    "animal-bird-protection": "/images/campaigns/campaign-2-card-4.jpg",
-    "specialty-solutions": "/images/campaigns/campaign-2-card-5.jpg",
-  };
-
   return (
     <div className="bg-[#050505] text-white min-h-screen">
       <SiteNav />
-      <style>{`
-        @keyframes luxuryBreath {
-          0%, 100% { transform: scale(1.02); }
-          50% { transform: scale(1.09); }
-        }
-        .animate-breath {
-          animation: luxuryBreath 25s ease-in-out infinite;
-        }
-      `}</style>
 
       {/* Mobile Magazine Lookbook */}
       <div
@@ -130,10 +113,15 @@ function SolutionsExplorer() {
             key={col.id}
             className="w-full h-[100dvh] snap-start relative flex flex-col justify-between p-6 overflow-hidden select-none bg-[#050505]"
           >
-            <div className="absolute inset-0 overflow-hidden sn-black-visual">
-              <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
+            <div className="absolute inset-0 overflow-hidden bg-neutral-950">
+              <img
+                src={col.backdrop}
+                alt={col.title}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/20" />
 
             <div className="relative z-10 w-full mt-auto pb-10 flex flex-col items-start text-white">
               <span className="font-sans text-[9px] tracking-[0.25em] text-neutral-400 mb-1 uppercase font-light">
@@ -183,12 +171,17 @@ function SolutionsExplorer() {
               key={col.id}
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className={`w-full ${widthClass(i)} transition-all duration-[1000ms] ease-out relative flex flex-col justify-between overflow-hidden p-8 border-r border-white/10 bg-[#050505]`}
+              className={`group w-full ${widthClass(i)} transition-all duration-[1000ms] ease-out relative flex flex-col justify-between overflow-hidden p-8 border-r border-white/10 bg-[#050505]`}
             >
-              <div className="absolute inset-0 w-full h-full sn-black-visual">
-                <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
+              <div className="absolute inset-0 w-full h-full bg-neutral-950 overflow-hidden">
+                <img
+                  src={col.backdrop}
+                  alt={col.title}
+                  className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                  loading="eager"
+                />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
 
               <div className="relative z-10 flex flex-col h-full justify-between">
                 <div>
