@@ -143,11 +143,16 @@
     scroll-behavior: auto;
     scrollbar-gutter: stable;
     overflow-x: hidden;
+    background-color: #050505 !important;
+    color-scheme: dark;
   }
 
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+  body,
+  #root,
+  #app,
+  main {
+    background-color: #050505 !important;
+    color: #ffffff !important;
     font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.6;

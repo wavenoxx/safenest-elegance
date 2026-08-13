@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link, useRouterState } from "@tanstack/react-router";
+import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { BRAND_CONFIG } from "@/config/brand";
 import ContactDrawer from "./ContactDrawer";
 import MenuDrawer from "./MenuDrawer";
@@ -7,41 +7,19 @@ import MenuDrawer from "./MenuDrawer";
 /**
  * SiteNav — Minimalist Quiet Luxury Header.
  *
- * Designed with zero layout shift / zero text shake:
- * - Steady, deterministic layout with zero transition-all.
+ * Designed with absolute zero layout shift, zero text shake, and zero flash:
+ * - Steady, deterministic layout with constant glassmorphism dark background across all routes.
  * - Left: 2-line minimalist Menu button.
  * - Center: SAFENEST brand wordmark.
  * - Right: "Contact us" client service trigger.
- * - Pure quiet luxury dark theme matching site aesthetic.
  */
 export function SiteNav() {
-  const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const routerState = useRouterState();
-  const isHomepage = routerState.location.pathname === "/";
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [routerState.location.pathname]);
-
-  // On non-homepage subpages or when scrolled, show crisp backdrop blur
-  const isSolid = !isHomepage || scrolled;
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
-          isSolid
-            ? "bg-[#050505]/95 backdrop-blur-md text-white border-b border-white/10 shadow-xs"
-            : "bg-transparent text-white"
-        }`}
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#050505]/90 backdrop-blur-md text-white border-b border-white/10">
         <div className="grid grid-cols-[1fr_auto_1fr] items-center px-6 sm:px-8 lg:px-10 py-3 lg:py-4 w-full">
           {/* Left: 2-line Menu Icon + Menu Text */}
           <div className="flex items-center gap-6 min-w-0">

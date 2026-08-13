@@ -104,10 +104,10 @@ function RevealSection({ image, quote }: { image: string; quote: string }) {
         </p>
       </div>
       <div
-        className={`absolute inset-y-0 left-0 w-1/2 bg-white transition-transform duration-[1200ms] ease-out origin-left z-20 ${revealed ? "translate-x-[-100%]" : ""}`}
+        className={`absolute inset-y-0 left-0 w-1/2 bg-[#050505] transition-transform duration-[1200ms] ease-out origin-left z-20 ${revealed ? "translate-x-[-100%]" : ""}`}
       />
       <div
-        className={`absolute inset-y-0 right-0 w-1/2 bg-white transition-transform duration-[1200ms] ease-out origin-right z-20 ${revealed ? "translate-x-[100%]" : ""}`}
+        className={`absolute inset-y-0 right-0 w-1/2 bg-[#050505] transition-transform duration-[1200ms] ease-out origin-right z-20 ${revealed ? "translate-x-[100%]" : ""}`}
       />
     </div>
   );
