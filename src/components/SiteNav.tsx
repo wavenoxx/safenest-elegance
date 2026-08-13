@@ -1,25 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 import { BRAND_CONFIG } from "@/config/brand";
 import ContactDrawer from "./ContactDrawer";
 import MenuDrawer from "./MenuDrawer";
 
 /**
- * SiteNav — Minimalist Quiet Luxury Header.
+ * SiteNav — Minimalist Quiet Luxury Header with Soft Liquid Glass Apple UI.
  *
- * Designed with absolute zero layout shift, zero text shake, and zero flash:
- * - Steady, deterministic layout with constant glassmorphism dark background across all routes.
- * - Left: 2-line minimalist Menu button.
- * - Center: SAFENEST brand wordmark.
- * - Right: "Contact us" client service trigger.
+ * - Transparent at top of page.
+ * - Smoothly transitions into frosted Apple liquid glass with subtle white translucency on scroll.
  */
 export function SiteNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 15) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#050505]/90 backdrop-blur-md text-white border-b border-white/10">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 text-white transition-all duration-500 ease-out ${
+          isScrolled
+            ? "bg-white/[0.08] backdrop-blur-2xl border-b border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.25)]"
+            : "bg-transparent border-b border-transparent"
+        }`}
+      >
         <div className="grid grid-cols-[1fr_auto_1fr] items-center px-6 sm:px-8 lg:px-10 py-3 lg:py-4 w-full">
           {/* Left: 2-line Menu Icon + Menu Text */}
           <div className="flex items-center gap-6 min-w-0">
