@@ -119,16 +119,22 @@ function ServicePage() {
           ref={scrollerRef}
           className="w-full md:w-1/2 h-[60vh] md:h-[calc(100vh-80px)] overflow-y-auto snap-y snap-mandatory relative sn-noscrollbar bg-[#050505]"
         >
-          {service.images.map((_, i) => (
+          {service.images.map((imgUrl, i) => (
             <div
               key={i}
               data-idx={i}
               ref={(el) => {
                 imgRefs.current[i] = el;
               }}
-              className="snap-start w-full h-[60vh] md:h-[calc(100vh-80px)] sn-black-visual border-b border-white/10"
+              className="snap-start w-full h-[60vh] md:h-[calc(100vh-80px)] relative overflow-hidden bg-neutral-950 border-b border-white/10 flex items-center justify-center group"
             >
-              <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
+              <img
+                src={imgUrl}
+                alt={`${service.title} architectural installation detail ${i + 1}`}
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                loading={i === 0 ? "eager" : "lazy"}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15 pointer-events-none" />
             </div>
           ))}
 

@@ -78,18 +78,23 @@ function CategoryPage() {
     <div className="bg-[#050505] text-white min-h-screen">
       <SiteNav />
 
-      {/* Hero Header (Pure Black Canvas) */}
-      <section className="relative w-full h-[55vh] md:h-[65vh] overflow-hidden sn-black-visual">
-        <div className="absolute inset-0 w-full h-full bg-radial from-neutral-900/25 to-[#050505]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
-        <div className="absolute inset-x-0 bottom-10 md:bottom-16 text-center text-white px-6 max-w-4xl mx-auto">
-          <p className="sn-eyebrow text-neutral-400 mb-2">
+      {/* Hero Header with High-Resolution Visual */}
+      <section className="relative w-full h-[55vh] md:h-[65vh] overflow-hidden bg-neutral-950">
+        <img
+          src={cat.heroImage}
+          alt={cat.title}
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/25" />
+        <div className="absolute inset-x-0 bottom-10 md:bottom-16 text-center text-white px-6 max-w-4xl mx-auto z-10">
+          <p className="sn-eyebrow text-neutral-300 mb-2">
             {BRAND_CONFIG.name} · Architectural Safety
           </p>
-          <h1 className="sn-h1 text-white max-w-2xl mx-auto drop-shadow-sm mb-3">
+          <h1 className="sn-h1 text-white max-w-2xl mx-auto drop-shadow-md mb-3">
             {cat.title}
           </h1>
-          <p className="sn-subtext text-neutral-300 max-w-2xl mx-auto">
+          <p className="sn-subtext text-neutral-200 max-w-2xl mx-auto drop-shadow-sm">
             {cat.plainDescriptor}
           </p>
         </div>
@@ -127,8 +132,13 @@ function CategoryPage() {
               className="group flex flex-col justify-between border border-white/10 bg-white/[0.02] p-6 hover:border-white/40 hover:bg-white/[0.04] transition-all duration-300 focus-ring min-h-[44px]"
             >
               <div>
-                <div className="sn-luxury-frame aspect-[4/5] sn-black-visual mb-6 border border-white/10">
-                  <div className="w-full h-full bg-radial from-neutral-900/30 to-[#050505]" />
+                <div className="sn-luxury-frame aspect-[4/5] bg-neutral-900 mb-6 border border-white/10 overflow-hidden relative">
+                  <img
+                    src={s.images[0]}
+                    alt={s.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
                 </div>
                 <span className="text-[9px] font-mono tracking-widest text-neutral-400 uppercase block mb-1">
                   {s.editorialTitle ?? s.category}
